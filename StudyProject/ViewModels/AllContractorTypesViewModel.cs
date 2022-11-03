@@ -1,0 +1,38 @@
+﻿
+using StudyProject.Model;
+
+using StudyProject.ViewModels.Abstract;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Input;
+
+namespace StudyProject.ViewModels
+{
+    public class AllContractorTypesViewModel : AllViewModel<contractor_type>
+    {
+
+        #region Constructor
+        public AllContractorTypesViewModel()
+            : base("typy kontrachentów")
+        {
+        }
+        #endregion
+        #region Helpers
+        public override void Load()
+        {
+            Data = new ObservableCollection<contractor_type>
+                (
+                  
+                  from contractor_type in ZaliczenieEntities.contractor_type 
+                  where contractor_type.is_active == true
+                  select contractor_type 
+                );
+        }
+        #endregion
+    }
+}

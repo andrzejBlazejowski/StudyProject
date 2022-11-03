@@ -1,0 +1,86 @@
+﻿<Window x:Class="StudyProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:StudyProject.View"
+        xmlns:viewModels="clr-namespace:StudyProject.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ContentControl Content="{Binding CurrentViewModel}">
+            <ContentControl.Resources>
+
+
+                <DataTemplate DataType="{x:Type viewModels:AllComoditiesViewModel}">
+                    <views:AllComoditiesView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllBrandsViewModel}">
+                    <views:AllBrandsView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllComodityCategoriesViewModel}">
+                    <views:AllComodityCategoriesView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllDeliveryViewModel}">
+                    <views:AllDeliveriesView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllContractorsViewModel}">
+                    <views:AllContractorsView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllContractorTypesViewModel}">
+                    <views:AllContractorTypesView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllCurenciesViewModel}">
+                    <views:AllCurenciesView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllDeliveryItemsViewModel}">
+                    <views:AllDeliveryItemsView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllDeliveryStatusesViewModel}">
+                    <views:AllDeliveryStatusesView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllEmplyeesViewModel}">
+                    <views:AllEmployeesView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllEmplyeeTypesViewModel}">
+                    <views:AllEmployeeTypesView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllInvoicesViewModel}">
+                    <views:AllInvoicesView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllInvoiceItemsViewModel}">
+                    <views:AllInvoiceItemsView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllPaymentMethodsViewModel}">
+                    <views:AllPaymentMethodsView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllSizeTypesViewModel}">
+                    <views:AllSizeTypesView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllStoragesViewModel}">
+                    <views:AllStoragesView/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AllWarehousesViewModel}">
+                    <views:AllWarehousesView/>
+                </DataTemplate>
+                
+            </ContentControl.Resources>
+        </ContentControl>
+    </Grid>
+</Window>
