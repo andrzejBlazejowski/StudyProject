@@ -1,6 +1,8 @@
 ﻿
+using StudyProject.Commands;
 using StudyProject.Model;
-
+using StudyProject.Services;
+using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -10,16 +12,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace StudyProject.ViewModels
 {
     public class AllCurenciesViewModel : AllViewModel<curency>
     {
 
+
+        public ICommand goToAllBrandsCmd { get; }
+
         #region Constructor
-        public AllCurenciesViewModel()
-            : base("waluty")
+        public AllCurenciesViewModel(NavStore navStore)
+            : base(navStore, "waluty")
         {
+            goToAllBrandsCmd = new NavigateCmd<AllBrandsViewModel>(new NavigationService<AllBrandsViewModel>(navStore ,() => new AllBrandsViewModel(navStore)) );
         }
         #endregion
         #region Helpers

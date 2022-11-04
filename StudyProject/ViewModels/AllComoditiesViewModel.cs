@@ -1,5 +1,6 @@
 ﻿
 using StudyProject.Model;
+using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -16,8 +17,8 @@ namespace StudyProject.ViewModels
     {
         
         #region Constructor
-        public AllComoditiesViewModel()
-            :base("towary")
+        public AllComoditiesViewModel(NavStore navStore)
+            :base(navStore, "towary")
         {
         }
         #endregion

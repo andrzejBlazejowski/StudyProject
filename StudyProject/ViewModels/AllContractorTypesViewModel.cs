@@ -1,6 +1,6 @@
 ﻿
 using StudyProject.Model;
-
+using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
     {
 
         #region Constructor
-        public AllContractorTypesViewModel()
-            : base("typy kontrachentów")
+        public AllContractorTypesViewModel(NavStore navStore)
+            : base(navStore, "typy kontrachentów")
         {
         }
         #endregion

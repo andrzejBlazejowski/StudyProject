@@ -1,6 +1,6 @@
 ﻿
 using StudyProject.Model;
-
+using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
     {
 
         #region Constructor
-        public AllEmplyeeTypesViewModel()
-            : base("typy pracowników")
+        public AllEmplyeeTypesViewModel(NavStore navStore)
+            : base(navStore, "typy pracowników")
         {
         }
         #endregion

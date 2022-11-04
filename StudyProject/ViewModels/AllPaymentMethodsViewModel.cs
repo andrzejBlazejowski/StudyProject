@@ -1,6 +1,6 @@
 ﻿
 using StudyProject.Model;
-
+using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
     {
 
         #region Constructor
-        public AllPaymentMethodsViewModel()
-            : base("metody płatności")
+        public AllPaymentMethodsViewModel(NavStore navStore)
+            : base(navStore, "metody płatności")
         {
         }
         #endregion

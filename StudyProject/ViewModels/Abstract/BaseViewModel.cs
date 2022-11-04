@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudyProject.ViewModels.Abstract
 {
-    public class BaseViewModel
+    public class BaseViewModel:INotifyPropertyChanged
     {
         #region Fields
         public String Title { get; set; }

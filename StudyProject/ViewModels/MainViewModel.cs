@@ -1,4 +1,5 @@
-﻿using StudyProject.ViewModels.Abstract;
+﻿using StudyProject.Stores;
+using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,19 @@ namespace StudyProject.ViewModels
     public class MainViewModel:BaseViewModel
     {
         #region Fields
-        public BaseViewModel CurrentViewModel { get; set; }
+        private readonly NavStore _navStore;
+        public BaseViewModel CurrentViewModel  => _navStore.CurrentViewModel;
         #endregion
         #region Constructor
-        public MainViewModel() {
-            CurrentViewModel = new AllCurenciesViewModel();
+        public MainViewModel(NavStore navStore) {
+            _navStore = navStore;
+
+            _navStore.CurrViewModelChanded += OnCurrentViewModelChanged;
+        }
+
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
         #endregion
     }

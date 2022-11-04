@@ -1,5 +1,6 @@
 ﻿using StudyProject.Model;
-using StudyProject.ViewModels.Abstract;
+using StudyProject.Stores;
+using StudyProject.Commands;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -45,7 +46,7 @@ namespace StudyProject.ViewModels.Abstract
         }
         #endregion
         #region Constructor
-        public AllViewModel(string title)
+        public AllViewModel(NavStore navStore,string title)
         {
             base.Title = title;
             this.zaliczenieEntities = new ZaliczenieEntities();
@@ -53,6 +54,7 @@ namespace StudyProject.ViewModels.Abstract
         #endregion
         #region Helpers
         public abstract void Load();
+
         #endregion
 
     }
