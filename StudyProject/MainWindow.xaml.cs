@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StudyProject.ViewModels;
+using StudyProject.ViewModels.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +22,12 @@ namespace StudyProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Fields
+        public BaseViewModel CurrentViewModel { get; set; }
+        #endregion
         public MainWindow()
         {
+            CurrentViewModel = new AllContractorTypesViewModel();
             InitializeComponent();
         }
     }

@@ -7,10 +7,9 @@
         xmlns:viewModels="clr-namespace:StudyProject.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
-
 
                 <DataTemplate DataType="{x:Type viewModels:AllComoditiesViewModel}">
                     <views:AllComoditiesView/>
@@ -82,5 +81,5 @@
                 
             </ContentControl.Resources>
         </ContentControl>
-    </Grid>
+
 </Window>

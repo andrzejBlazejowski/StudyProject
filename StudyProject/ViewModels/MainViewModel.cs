@@ -14,7 +14,7 @@ namespace StudyProject.ViewModels
         #endregion
         #region Constructor
         public MainViewModel() {
-            CurrentViewModel = new AllBrandsViewModel();
+            CurrentViewModel = new AllCurenciesViewModel();
         }
         #endregion
     }
