@@ -10,11 +10,11 @@ using System.Windows.Input;
 
 namespace StudyProject.ViewModels
 {
-    internal class NavigationToolBarViewModel
+    public class NavigationToolBarViewModel
     {
-        public ICommand NavigateAllBrandsCmd { get; set; }
-        public ICommand NavigateAllComoditiesCmd { get; set; }
-        public ICommand NavigateAllDeliveryStatusesCmd { get; set; }
+        public ICommand NavigateAllBrandsCmd { get; }
+        public ICommand NavigateAllComoditiesCmd { get; }
+        public ICommand NavigateAllDeliveryStatusesCmd { get; }
         public NavigationToolBarViewModel(NavigationService<AllBrandsViewModel> brandsNavigationService, NavigationService<AllComoditiesViewModel> comoditiesNavigationService, NavigationService<AllDeliveryStatusesViewModel> deliverStatusesNavigationService)
         {
             NavigateAllBrandsCmd = new NavigateCmd<AllBrandsViewModel>(brandsNavigationService);

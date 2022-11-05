@@ -10,6 +10,8 @@ namespace StudyProject.ViewModels.Abstract
     {
         #region Fields
         private readonly ZaliczenieEntities zaliczenieEntities;
+        public NavigationToolBarViewModel NavigationToolBarViewModel { get; set; }
+
         public ZaliczenieEntities ZaliczenieEntities
         { 
             get
@@ -46,10 +48,11 @@ namespace StudyProject.ViewModels.Abstract
         }
         #endregion
         #region Constructor
-        public AllViewModel(NavStore navStore,string title)
+        public AllViewModel(NavStore navStore, NavigationToolBarViewModel navigationToolBarViewModel, string title)
         {
             base.Title = title;
             this.zaliczenieEntities = new ZaliczenieEntities();
+            NavigationToolBarViewModel = navigationToolBarViewModel;
         }
         #endregion
         #region Helpers

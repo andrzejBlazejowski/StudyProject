@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
     {
 
         #region Constructor
-        public AllPaymentMethodsViewModel(NavStore navStore)
-            : base(navStore, "metody płatności")
+        public AllPaymentMethodsViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
+            : base(navStore, navToolBarvm, "metody płatności")
         {
         }
         #endregion

@@ -13,12 +13,14 @@ namespace StudyProject.ViewModels
         #region Fields
         private readonly NavStore _navStore;
         public BaseViewModel CurrentViewModel  => _navStore.CurrentViewModel;
+        public NavigationToolBarViewModel NavigationToolBarViewModel { get; set; }
         #endregion
         #region Constructor
-        public MainViewModel(NavStore navStore) {
+        public MainViewModel(NavStore navStore, NavigationToolBarViewModel navigationToolBarViewModel) {
             _navStore = navStore;
 
             _navStore.CurrViewModelChanded += OnCurrentViewModelChanged;
+            NavigationToolBarViewModel = navigationToolBarViewModel;
         }
 
         private void OnCurrentViewModelChanged()

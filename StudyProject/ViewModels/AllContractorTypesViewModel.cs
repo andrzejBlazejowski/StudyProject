@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
     {
 
         #region Constructor
-        public AllContractorTypesViewModel(NavStore navStore)
-            : base(navStore, "typy kontrachentów")
+        public AllContractorTypesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
+            : base(navStore, navToolBarvm, "typy kontrachentów")
         {
         }
         #endregion

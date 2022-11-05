@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
     {
 
         #region Constructor
-        public AllSizeTypesViewModel(NavStore navStore)
-            : base(navStore, "dostępne rozmiary")
+        public AllSizeTypesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
+            : base(navStore, navToolBarvm, "dostępne rozmiary")
         {
         }
         #endregion

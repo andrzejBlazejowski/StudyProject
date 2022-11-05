@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
     {
 
         #region Constructor
-        public AllDeliveryViewModel(NavStore navStore)
-            : base(navStore, "dostawy")
+        public AllDeliveryViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
+            : base(navStore, navToolBarvm, "dostawy")
         {
         }
         #endregion

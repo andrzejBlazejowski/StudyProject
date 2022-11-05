@@ -23,10 +23,10 @@ namespace StudyProject.ViewModels
         public ICommand goToAllBrandsCmd { get; }
 
         #region Constructor
-        public AllCurenciesViewModel(NavStore navStore)
-            : base(navStore, "waluty")
+        public AllCurenciesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
+            : base(navStore, navToolBarvm, "waluty")
         {
-            goToAllBrandsCmd = new NavigateCmd<AllBrandsViewModel>(new NavigationService<AllBrandsViewModel>(navStore ,() => new AllBrandsViewModel(navStore)) );
+            goToAllBrandsCmd = new NavigateCmd<AllBrandsViewModel>(new NavigationService<AllBrandsViewModel>(navStore ,() => new AllBrandsViewModel(navStore, navToolBarvm)) );
         }
         #endregion
         #region Helpers

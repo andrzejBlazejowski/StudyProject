@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
     {
 
         #region Constructor
-        public AllComodityCategoriesViewModel(NavStore navStore)
-            : base(navStore, "kategorie towarow")
+        public AllComodityCategoriesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
+            : base(navStore, navToolBarvm, "kategorie towarow")
         {
         }
         #endregion

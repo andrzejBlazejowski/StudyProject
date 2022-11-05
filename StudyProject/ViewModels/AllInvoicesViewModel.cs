@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
     {
 
         #region Constructor
-        public AllInvoicesViewModel(NavStore navStore)
-            : base(navStore, "faktury")
+        public AllInvoicesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
+            : base(navStore, navToolBarvm, "faktury")
         {
         }
         #endregion

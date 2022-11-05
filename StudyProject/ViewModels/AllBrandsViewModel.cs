@@ -9,10 +9,9 @@ namespace StudyProject.ViewModels
 {
     public class AllBrandsViewModel : AllViewModel<brand>
     {
-
         #region Constructor
-        public AllBrandsViewModel(NavStore navStore)
-            : base(navStore, "producenci")
+        public AllBrandsViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
+            : base(navStore, navToolBarvm, "producenci")
         {
         }
         #endregion

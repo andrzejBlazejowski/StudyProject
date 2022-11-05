@@ -13,6 +13,7 @@ namespace StudyProject.Stores
         #region Fields
         public event Action CurrViewModelChanded;
         private BaseViewModel _currentViewModel;
+        private readonly NavigationToolBarViewModel _toolbarViewModel;
         public BaseViewModel CurrentViewModel { get => _currentViewModel; set
             {
                 _currentViewModel = value;
@@ -21,8 +22,9 @@ namespace StudyProject.Stores
         }
 
         #endregion
-        public NavStore() {
-            CurrentViewModel = new AllCurenciesViewModel(this);
+        public NavStore(NavigationToolBarViewModel navVM) {
+            _toolbarViewModel = navVM;
+            CurrentViewModel = new AllCurenciesViewModel(this, _toolbarViewModel);
         }
 
         private void OnCurrViewModelChanged()
