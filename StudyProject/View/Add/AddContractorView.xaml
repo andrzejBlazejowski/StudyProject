@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="StudyProject.View.Add.AddContractorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudyProject.View.Add"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="nazwa"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="nip"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=TaxNumber, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="nazwa podatkowa"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=TaxName, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="4" Grid.Column="0" Content="wojewodztwo"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=State, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="miasto"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="6" Grid.Column="0" Content="ulica"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path=Street, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="7" Grid.Column="0" Content="numer budynku"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path=Building_number, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="8" Grid.Column="0" Content="numer lokalu"/>
+        <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Path=Flat_number, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="9" Grid.Column="0" Content="kod pocztowy"/>
+        <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding Path=ZipCode, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="10" Grid.Column="0" Content="miejscowosc poczty"/>
+        <TextBox Grid.Row="10" Grid.Column="1" Text="{Binding Path=PostOfficeCity, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="11" Grid.Column="0" Content="informacje dodatkowe"/>
+        <TextBox Grid.Row="11" Grid.Column="1" Text="{Binding Path=AdditionalInfo, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="12" Grid.Column="0" Content="informacje dodatkowe"/>
+        <TextBox Grid.Row="12" Grid.Column="1" Text="{Binding Path=AdditionalInfo, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="13" Grid.Column="0" Content="czy placi wat"/>
+        <TextBox Grid.Row="13" Grid.Column="1" Text="{Binding Path=IsVatTaxpayer, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="14" Grid.Column="0" Content="czy placi vat 27"/>
+        <TextBox Grid.Row="14" Grid.Column="1" Text="{Binding Path=ShouldIncludeVat27, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="15" Grid.Column="0" Content="waluta"/>
+        <TextBox Grid.Row="15" Grid.Column="1" Text="{Binding Path=CurrencyId, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="16" Grid.Column="0" Content="typ kontrachenta"/>
+        <TextBox Grid.Row="16" Grid.Column="1" Text="{Binding Path=ContractorId, UpdateSourceTrigger=PropertyChanged}"/>
+
+    </Grid>
+</UserControl>

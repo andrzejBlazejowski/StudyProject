@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using StudyProject.Stores;
 using StudyProject.Services;
+using StudyProject.ViewModels.List;
 
 namespace StudyProject
 {

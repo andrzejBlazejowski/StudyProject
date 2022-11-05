@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="StudyProject.View.Add.AddInvoiceItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudyProject.View.Add"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="towar"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=ComodityId, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="ilosc"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=count, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="rabat"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=discount, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="faktura"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=InvoiceId, UpdateSourceTrigger=PropertyChanged}"/>
+
+    </Grid>
+</UserControl>

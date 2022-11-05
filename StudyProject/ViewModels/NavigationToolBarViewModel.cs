@@ -1,7 +1,7 @@
 ﻿using StudyProject.Commands;
 using StudyProject.Services;
 using StudyProject.Stores;
-using StudyProject.ViewModels;
+using StudyProject.ViewModels.List;
 using System;
 using System.Collections.Generic;
 using System.Linq;

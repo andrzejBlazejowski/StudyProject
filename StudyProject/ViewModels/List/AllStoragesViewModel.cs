@@ -1,5 +1,4 @@
-﻿
-using StudyProject.Model;
+﻿using StudyProject.Model;
 using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace StudyProject.ViewModels
+namespace StudyProject.ViewModels.List
 {
     public class AllStoragesViewModel : AllViewModel<storage>
     {
@@ -27,10 +26,10 @@ namespace StudyProject.ViewModels
         {
             Data = new ObservableCollection<storage>
                 (
-                  
-                  from storage in ZaliczenieEntities.storages 
+
+                  from storage in ZaliczenieEntities.storages
                   where storage.is_active == true
-                  select storage 
+                  select storage
                 );
         }
         #endregion

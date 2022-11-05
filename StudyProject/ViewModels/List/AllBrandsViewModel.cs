@@ -1,11 +1,10 @@
-﻿
-using StudyProject.Model;
+﻿using StudyProject.Model;
 using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace StudyProject.ViewModels
+namespace StudyProject.ViewModels.List
 {
     public class AllBrandsViewModel : AllViewModel<brand>
     {
@@ -20,10 +19,10 @@ namespace StudyProject.ViewModels
         {
             Data = new ObservableCollection<brand>
                 (
-                  
-                  from brand in ZaliczenieEntities.brands 
+
+                  from brand in ZaliczenieEntities.brands
                   where brand.is_active == true
-                  select brand 
+                  select brand
                 );
         }
         #endregion

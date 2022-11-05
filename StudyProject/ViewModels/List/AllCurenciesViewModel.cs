@@ -1,5 +1,4 @@
-﻿
-using StudyProject.Commands;
+﻿using StudyProject.Commands;
 using StudyProject.Model;
 using StudyProject.Services;
 using StudyProject.Stores;
@@ -14,7 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 
-namespace StudyProject.ViewModels
+namespace StudyProject.ViewModels.List
 {
     public class AllCurenciesViewModel : AllViewModel<curency>
     {
@@ -24,7 +23,7 @@ namespace StudyProject.ViewModels
         public AllCurenciesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "waluty")
         {
-            goToAllBrandsCmd = new NavigateCmd<AllBrandsViewModel>(new NavigationService<AllBrandsViewModel>(navStore ,() => new AllBrandsViewModel(navStore, navToolBarvm)) );
+            goToAllBrandsCmd = new NavigateCmd<AllBrandsViewModel>(new NavigationService<AllBrandsViewModel>(navStore, () => new AllBrandsViewModel(navStore, navToolBarvm)));
         }
         #endregion
         #region Helpers
@@ -32,10 +31,10 @@ namespace StudyProject.ViewModels
         {
             Data = new ObservableCollection<curency>
                 (
-                  
-                  from curency in ZaliczenieEntities.curencies 
+
+                  from curency in ZaliczenieEntities.curencies
                   where curency.is_active == true
-                  select curency 
+                  select curency
                 );
         }
         #endregion

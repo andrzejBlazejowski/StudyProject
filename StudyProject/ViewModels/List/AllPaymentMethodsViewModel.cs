@@ -1,5 +1,4 @@
-﻿
-using StudyProject.Model;
+﻿using StudyProject.Model;
 using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace StudyProject.ViewModels
+namespace StudyProject.ViewModels.List
 {
     public class AllPaymentMethodsViewModel : AllViewModel<payment_method>
     {
@@ -27,10 +26,10 @@ namespace StudyProject.ViewModels
         {
             Data = new ObservableCollection<payment_method>
                 (
-                  
-                  from payment_method in ZaliczenieEntities.payment_method 
+
+                  from payment_method in ZaliczenieEntities.payment_method
                   where payment_method.is_active == true
-                  select payment_method 
+                  select payment_method
                 );
         }
         #endregion

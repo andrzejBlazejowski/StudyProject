@@ -1,5 +1,4 @@
-﻿
-using StudyProject.Model;
+﻿using StudyProject.Model;
 using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace StudyProject.ViewModels
+namespace StudyProject.ViewModels.List
 {
     public class AllComodityCategoriesViewModel : AllViewModel<comodity_category>
     {
@@ -27,10 +26,10 @@ namespace StudyProject.ViewModels
         {
             Data = new ObservableCollection<comodity_category>
                 (
-                  
-                  from comodity_category in ZaliczenieEntities.comodity_category 
+
+                  from comodity_category in ZaliczenieEntities.comodity_category
                   where comodity_category.is_active == true
-                  select comodity_category 
+                  select comodity_category
                 );
         }
         #endregion

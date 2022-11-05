@@ -1,5 +1,4 @@
-﻿
-using StudyProject.Model;
+﻿using StudyProject.Model;
 using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace StudyProject.ViewModels
+namespace StudyProject.ViewModels.List
 {
     public class AllDeliveryItemsViewModel : AllViewModel<delivery_item>
     {
@@ -27,10 +26,10 @@ namespace StudyProject.ViewModels
         {
             Data = new ObservableCollection<delivery_item>
                 (
-                  
-                  from delivery_item in ZaliczenieEntities.delivery_item 
+
+                  from delivery_item in ZaliczenieEntities.delivery_item
                   where delivery_item.is_active == true
-                  select delivery_item 
+                  select delivery_item
                 );
         }
         #endregion

@@ -1,5 +1,4 @@
-﻿
-using StudyProject.Model;
+﻿using StudyProject.Model;
 using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace StudyProject.ViewModels
+namespace StudyProject.ViewModels.List
 {
     public class AllSizeTypesViewModel : AllViewModel<size_type>
     {
@@ -27,10 +26,10 @@ namespace StudyProject.ViewModels
         {
             Data = new ObservableCollection<size_type>
                 (
-                  
-                  from size_type in ZaliczenieEntities.size_type 
+
+                  from size_type in ZaliczenieEntities.size_type
                   where size_type.is_active == true
-                  select size_type 
+                  select size_type
                 );
         }
         #endregion

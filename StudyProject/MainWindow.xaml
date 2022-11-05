@@ -4,78 +4,78 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:StudyProject.View"
-        xmlns:viewModels="clr-namespace:StudyProject.ViewModels"
+        xmlns:listViewModels="clr-namespace:StudyProject.ViewModels.List"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
 
-                <DataTemplate DataType="{x:Type viewModels:AllComoditiesViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllComoditiesViewModel}">
                     <views:AllComoditiesView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllBrandsViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllBrandsViewModel}">
                     <views:AllBrandsView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllComodityCategoriesViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllComodityCategoriesViewModel}">
                     <views:AllComodityCategoriesView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllDeliveryViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllDeliveryViewModel}">
                     <views:AllDeliveriesView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllContractorsViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllContractorsViewModel}">
                     <views:AllContractorsView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllContractorTypesViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllContractorTypesViewModel}">
                     <views:AllContractorTypesView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllCurenciesViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllCurenciesViewModel}">
                     <views:AllCurenciesView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllDeliveryItemsViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllDeliveryItemsViewModel}">
                     <views:AllDeliveryItemsView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllDeliveryStatusesViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllDeliveryStatusesViewModel}">
                     <views:AllDeliveryStatusesView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllEmplyeesViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllEmplyeesViewModel}">
                     <views:AllEmployeesView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllEmplyeeTypesViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllEmplyeeTypesViewModel}">
                     <views:AllEmployeeTypesView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllInvoicesViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllInvoicesViewModel}">
                     <views:AllInvoicesView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllInvoiceItemsViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllInvoiceItemsViewModel}">
                     <views:AllInvoiceItemsView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllPaymentMethodsViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllPaymentMethodsViewModel}">
                     <views:AllPaymentMethodsView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllSizeTypesViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllSizeTypesViewModel}">
                     <views:AllSizeTypesView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllStoragesViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllStoragesViewModel}">
                     <views:AllStoragesView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModels:AllWarehousesViewModel}">
+                <DataTemplate DataType="{x:Type listViewModels:AllWarehousesViewModel}">
                     <views:AllWarehousesView/>
                 </DataTemplate>
                 
