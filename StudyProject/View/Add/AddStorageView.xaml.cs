@@ -18,7 +18,7 @@ namespace StudyProject.View.Add
     /// <summary>
     /// Interaction logic for AddBrandsView.xaml
     /// </summary>
-    public partial class AddStorageView : UserControl
+    public partial class AddStorageView : AllViewBase
     {
         public AddStorageView()
         {

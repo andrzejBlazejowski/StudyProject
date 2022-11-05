@@ -4,7 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:StudyProject.View"
+        xmlns:viewsAdd="clr-namespace:StudyProject.View.Add"
         xmlns:listViewModels="clr-namespace:StudyProject.ViewModels.List"
+        xmlns:ViewModels="clr-namespace:StudyProject.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
@@ -78,8 +80,79 @@
                 <DataTemplate DataType="{x:Type listViewModels:AllWarehousesViewModel}">
                     <views:AllWarehousesView/>
                 </DataTemplate>
+
+
+
+            <DataTemplate DataType="{x:Type ViewModels:AddComodityViewModel}">
+                <viewsAdd:AddComodityView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddBrandViewModel}">
+                <viewsAdd:AddBrandsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddComodityCategoryViewModel}">
+                <viewsAdd:AddComodityCategoryView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddDeliveryViewModel}">
+                <viewsAdd:AddDeliveryView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddContractorViewModel}">
+                <viewsAdd:AddContractorView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddContractorTypeViewModel}">
+                <viewsAdd:AddContractorView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddCurrencyViewModel}">
+                <viewsAdd:AddCurrencyView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddDeliveryItemViewModel}">
+                <viewsAdd:AddDeliveryItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddDeliveryStatusViewModel}">
+                <viewsAdd:AddDeliveryStatusView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddEmployeeViewModel}">
+                <viewsAdd:AddEmployeeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddEmployeeTypeViewModel}">
+                <viewsAdd:AddEmployeeType/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddInvoiceItemViewModel}">
+                <viewsAdd:AddInvoiceItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddInvoiceViewModel}">
+                <viewsAdd:AddInvoiceView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddPaymentMethodViewModel}">
+                <viewsAdd:AddPaymentMethodView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddSizeTypeViewModel}">
+                <viewsAdd:AddSizeTypesView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddStorageViewModel}">
+                <viewsAdd:AddStorageView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddWarehouseViewModel}">
+                <viewsAdd:AddWarehouseView/>
+            </DataTemplate>
                 
-            </ContentControl.Resources>
+                
+        </ContentControl.Resources>
         </ContentControl>
 
 </Window>

@@ -1,5 +1,7 @@
 ﻿
 using StudyProject.Model;
+using StudyProject.Stores;
+using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,12 +11,12 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Xml.Linq;
 
-namespace Firma.ViewModels
+namespace StudyProject.ViewModels
 {
     public class AddContractorViewModel : AddViewModel<contractor>
     {
-        public AddContractorViewModel()
-            : base("kontrachent")
+        public AddContractorViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
+            : base(navStore, navToolBarvm, "kontrachent")
         {
             Item = new contractor();
         }

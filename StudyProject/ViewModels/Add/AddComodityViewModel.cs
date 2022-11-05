@@ -1,5 +1,7 @@
 ﻿
 using StudyProject.Model;
+using StudyProject.Stores;
+using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,12 +11,12 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Xml.Linq;
 
-namespace Firma.ViewModels
+namespace StudyProject.ViewModels
 {
     public class AddComodityViewModel : AddViewModel<comodity>
     {
-        public AddComodityViewModel()
-            : base("towar")
+        public AddComodityViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
+            : base(navStore, navToolBarvm, "towar")
         {
             Item = new comodity();
         }
@@ -65,7 +67,8 @@ namespace Firma.ViewModels
         {
             get
             {
-                return (int)Item.ordinal_number;
+                if(Item.ordinal_number != null)  return (int)Item.ordinal_number;
+                else return 0;
             }
             set
             {

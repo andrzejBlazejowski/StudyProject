@@ -18,7 +18,7 @@ namespace StudyProject.View.Add
     /// <summary>
     /// Interaction logic for AddBrandsView.xaml
     /// </summary>
-    public partial class AddInvoiceView : UserControl
+    public partial class AddInvoiceView : AllViewBase
     {
         public AddInvoiceView()
         {

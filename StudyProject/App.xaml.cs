@@ -10,6 +10,8 @@ using System.Windows;
 using StudyProject.Stores;
 using StudyProject.Services;
 using StudyProject.ViewModels.List;
+using StudyProject.ViewModels;
+using StudyProject.View.Add;
 
 namespace StudyProject
 {
@@ -45,8 +47,25 @@ namespace StudyProject
             CreateSizeTypesNavigationService(),
             CreateStoragesNavigationService(),
             CreateWarehousesNavigationService(),
-            CreateEmplyeesNavigationService()
-                
+            CreateEmplyeesNavigationService(),
+            CreateAddBrandsNavigationService(),
+            CreateAddComoditiesNavigationService(),
+            CreateAddComodityCategoriesNavigationService(),
+            CreateAddContractorsNavigationService(),
+            CreateAddContractorTypesNavigationService(),
+            CreateAddCurenciesNavigationService(),
+            CreateAddDeliveryItemsNavigationService(),
+            CreateAddDeliveryNavigationService(),
+            CreateAddDeliveryStatusesNavigationService(),
+            CreateAddEmplyeeTypesNavigationService(),
+            CreateAddInvoiceItemsNavigationService(),
+            CreateAddInvoicesNavigationService(),
+            CreateAddPaymentMethodsNavigationService(),
+            CreateAddSizeTypesNavigationService(),
+            CreateAddStoragesNavigationService(),
+            CreateAddWarehousesNavigationService(),
+            CreateAddEmplyeesNavigationService()
+
             );
         }
 
@@ -189,6 +208,128 @@ namespace StudyProject
             AllWarehousesViewModel(_navStore, _navToolBarVM));
         }
 
+
+
+
+
+
+
+
+        private NavigationService<AddBrandViewModel> CreateAddBrandsNavigationService()
+        {
+            return new NavigationService<AddBrandViewModel>(_navStore, () => new AddBrandViewModel(_navStore, _navToolBarVM));
+        }
+
+        private NavigationService<AddComodityViewModel> CreateAddComoditiesNavigationService()
+        {
+            return new NavigationService<AddComodityViewModel>(_navStore, () => new AddComodityViewModel(_navStore, _navToolBarVM));
+        }
+
+        private NavigationService<AddDeliveryStatusViewModel> CreateAddDeliveryStatusesNavigationService()
+        {
+            return new NavigationService<AddDeliveryStatusViewModel>(_navStore, () => new AddDeliveryStatusViewModel(_navStore, _navToolBarVM));
+        }
+
+
+        private NavigationService<AddComodityCategoryViewModel> CreateAddComodityCategoriesNavigationService()
+        {
+            return new NavigationService<AddComodityCategoryViewModel>(_navStore, () => new AddComodityCategoryViewModel(_navStore, _navToolBarVM));
+        }
+
+
+        private NavigationService<AddContractorViewModel> CreateAddContractorsNavigationService()
+        {
+            return new NavigationService<AddContractorViewModel>(_navStore, () => new AddContractorViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+        private NavigationService<AddContractorTypeViewModel> CreateAddContractorTypesNavigationService()
+        {
+            return new NavigationService<AddContractorTypeViewModel>(_navStore, () => new AddContractorTypeViewModel(_navStore, _navToolBarVM));
+        }
+
+
+        private NavigationService<AddCurrencyViewModel> CreateAddCurenciesNavigationService()
+        {
+            return new NavigationService<AddCurrencyViewModel>(_navStore, () => new AddCurrencyViewModel(_navStore, _navToolBarVM));
+        }
+
+
+        private NavigationService<AddDeliveryItemViewModel> CreateAddDeliveryItemsNavigationService()
+        {
+            return new NavigationService<AddDeliveryItemViewModel>(_navStore, () => new AddDeliveryItemViewModel(_navStore, _navToolBarVM));
+        }
+
+
+        private NavigationService<AddDeliveryViewModel> CreateAddDeliveryNavigationService()
+        {
+            return new NavigationService<AddDeliveryViewModel>(_navStore, () => new AddDeliveryViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AddEmployeeViewModel> CreateAddEmplyeesNavigationService()
+        {
+            return new NavigationService<AddEmployeeViewModel>(_navStore, () => new AddEmployeeViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AddEmployeeTypeViewModel> CreateAddEmplyeeTypesNavigationService()
+        {
+            return new NavigationService<AddEmployeeTypeViewModel>(_navStore, () => new AddEmployeeTypeViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AddInvoiceViewModel> CreateAddInvoicesNavigationService()
+        {
+            return new NavigationService<AddInvoiceViewModel>(_navStore, () => new AddInvoiceViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AddInvoiceItemViewModel> CreateAddInvoiceItemsNavigationService()
+        {
+            return new NavigationService<AddInvoiceItemViewModel>(_navStore, () => new AddInvoiceItemViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AddPaymentMethodViewModel> CreateAddPaymentMethodsNavigationService()
+        {
+            return new NavigationService<AddPaymentMethodViewModel>(_navStore, () => new AddPaymentMethodViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+
+
+        private NavigationService<AddSizeTypeViewModel> CreateAddSizeTypesNavigationService()
+        {
+            return new NavigationService<AddSizeTypeViewModel>(_navStore, () => new AddSizeTypeViewModel(_navStore, _navToolBarVM));
+        }
+
+
+        private NavigationService<AddStorageViewModel> CreateAddStoragesNavigationService()
+        {
+            return new NavigationService<AddStorageViewModel>(_navStore, () => new AddStorageViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AddWarehouseViewModel> CreateAddWarehousesNavigationService()
+        {
+            return new NavigationService<AddWarehouseViewModel>(_navStore, () => new AddWarehouseViewModel(_navStore, _navToolBarVM));
+        }
     }
 }
 

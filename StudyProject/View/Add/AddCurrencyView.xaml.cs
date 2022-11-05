@@ -18,7 +18,7 @@ namespace StudyProject.View.Add
     /// <summary>
     /// Interaction logic for AddBrandsView.xaml
     /// </summary>
-    public partial class AddCurrencyView : UserControl
+    public partial class AddCurrencyView : AllViewBase
     {
         public AddCurrencyView()
         {

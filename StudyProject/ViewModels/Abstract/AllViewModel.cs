@@ -28,7 +28,24 @@ namespace StudyProject.ViewModels.Abstract
         public ICommand NavigateAllPaymentMethodsCmd { get; }
         public ICommand NavigateAllSizeTypesCmd { get; }
         public ICommand NavigateAllStoragesCmd { get; }
-        public ICommand NavigateWarehousesCmd { get; }
+        public ICommand NavigateAllWarehousesCmd { get; }
+        public ICommand NavigateAddBrandsCmd { get; }
+        public ICommand NavigateAddComoditiesCmd { get; }
+        public ICommand NavigateAddComodityCategoryCmd { get; }
+        public ICommand NavigateAddContractorsCmd { get; }
+        public ICommand NavigateAddContractorTypesCmd { get; }
+        public ICommand NavigateAddCurenciesCmd { get; }
+        public ICommand NavigateAddDeliveryItemsCmd { get; }
+        public ICommand NavigateAddDeliveryStatusesCmd { get; }
+        public ICommand NavigateAddDeliveryCmd { get; }
+        public ICommand NavigateAddEmplyeesCmd { get; }
+        public ICommand NavigateAddEmplyeeTypesCmd { get; }
+        public ICommand NavigateAddInvoicesCmd { get; }
+        public ICommand NavigateAddInvoiceItemsCmd { get; }
+        public ICommand NavigateAddPaymentMethodsCmd { get; }
+        public ICommand NavigateAddSizeTypesCmd { get; }
+        public ICommand NavigateAddStoragesCmd { get; }
+        public ICommand NavigateAddWarehousesCmd { get; }
 
         public ZaliczenieEntities ZaliczenieEntities
         { 
@@ -87,7 +104,24 @@ namespace StudyProject.ViewModels.Abstract
             NavigateAllPaymentMethodsCmd = navigationToolBarViewModel.NavigateAllPaymentMethodsCmd;
             NavigateAllSizeTypesCmd = navigationToolBarViewModel.NavigateAllSizeTypesCmd;
             NavigateAllStoragesCmd = navigationToolBarViewModel.NavigateAllStoragesCmd;
-            NavigateWarehousesCmd = navigationToolBarViewModel.NavigateWarehousesCmd;
+            NavigateAllWarehousesCmd = navigationToolBarViewModel.NavigateAddWarehousesCmd;
+            NavigateAddBrandsCmd = navigationToolBarViewModel.NavigateAddBrandsCmd;
+            NavigateAddComoditiesCmd = navigationToolBarViewModel.NavigateAddComoditiesCmd;
+            NavigateAddComodityCategoryCmd = navigationToolBarViewModel.NavigateAddComodityCategoryCmd;
+            NavigateAddContractorsCmd = navigationToolBarViewModel.NavigateAddContractorTypesCmd;
+            NavigateAddContractorTypesCmd = navigationToolBarViewModel.NavigateAddContractorTypesCmd;
+            NavigateAddCurenciesCmd = navigationToolBarViewModel.NavigateAddCurenciesCmd;
+            NavigateAddDeliveryItemsCmd = navigationToolBarViewModel.NavigateAddDeliveryItemsCmd;
+            NavigateAddDeliveryStatusesCmd = navigationToolBarViewModel.NavigateAddDeliveryStatusesCmd;
+            NavigateAddDeliveryCmd = navigationToolBarViewModel.NavigateAddDeliveryCmd;
+            NavigateAddEmplyeesCmd = navigationToolBarViewModel.NavigateAddEmplyeesCmd;
+            NavigateAddEmplyeeTypesCmd = navigationToolBarViewModel.NavigateAddEmplyeeTypesCmd;
+            NavigateAddInvoicesCmd = navigationToolBarViewModel.NavigateAddInvoicesCmd;
+            NavigateAddInvoiceItemsCmd = navigationToolBarViewModel.NavigateAddInvoiceItemsCmd;
+            NavigateAddPaymentMethodsCmd = navigationToolBarViewModel.NavigateAddPaymentMethodsCmd;
+            NavigateAddSizeTypesCmd = navigationToolBarViewModel.NavigateAddSizeTypesCmd;
+            NavigateAddStoragesCmd = navigationToolBarViewModel.NavigateAddStoragesCmd;
+            NavigateAddWarehousesCmd = navigationToolBarViewModel.NavigateAddWarehousesCmd;
         }
         #endregion
         #region Helpers

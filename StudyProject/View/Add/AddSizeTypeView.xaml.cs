@@ -18,7 +18,7 @@ namespace StudyProject.View.Add
     /// <summary>
     /// Interaction logic for AddBrandsView.xaml
     /// </summary>
-    public partial class AddSizeTypesView : UserControl
+    public partial class AddSizeTypesView : AllViewBase
     {
         public AddSizeTypesView()
         {

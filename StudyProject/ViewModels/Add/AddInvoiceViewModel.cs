@@ -1,5 +1,7 @@
 ﻿
 using StudyProject.Model;
+using StudyProject.Stores;
+using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,12 +11,12 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Xml.Linq;
 
-namespace Firma.ViewModels
+namespace StudyProject.ViewModels
 {
     public class AddInvoiceViewModel : AddViewModel<invoice>
     {
-        public AddInvoiceViewModel()
-            : base("producent")
+        public AddInvoiceViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
+            : base(navStore, navToolBarvm, "producent")
         {
             Item = new invoice();
         }
@@ -95,7 +97,8 @@ namespace Firma.ViewModels
         {
             get
             {
-                return (decimal)Item.discount;
+                if (Item.discount != null) return (decimal)Item.discount;
+                else return 0;
             }
             set
             {
