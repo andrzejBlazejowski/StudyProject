@@ -18,8 +18,6 @@ namespace StudyProject.ViewModels
 {
     public class AllCurenciesViewModel : AllViewModel<curency>
     {
-
-
         public ICommand goToAllBrandsCmd { get; }
 
         #region Constructor

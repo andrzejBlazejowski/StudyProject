@@ -12,6 +12,24 @@ namespace StudyProject.ViewModels.Abstract
         private readonly ZaliczenieEntities zaliczenieEntities;
         public NavigationToolBarViewModel NavigationToolBarViewModel { get; set; }
 
+        public ICommand NavigateAllBrandsCmd { get; }
+        public ICommand NavigateAllComoditiesCmd { get; }
+        public ICommand NavigateAllComodityCategoryCmd { get; }
+        public ICommand NavigateAllContractorsCmd { get; }
+        public ICommand NavigateAllContractorTypesCmd { get; }
+        public ICommand NavigateAllCurenciesCmd { get; }
+        public ICommand NavigateAllDeliveryItemsCmd { get; }
+        public ICommand NavigateAllDeliveryStatusesCmd { get; }
+        public ICommand NavigateAllDeliveryCmd { get; }
+        public ICommand NavigateAllEmplyeesCmd { get; }
+        public ICommand NavigateAllEmplyeeTypesCmd { get; }
+        public ICommand NavigateAllInvoicesCmd { get; }
+        public ICommand NavigateAllInvoiceItemsCmd { get; }
+        public ICommand NavigateAllPaymentMethodsCmd { get; }
+        public ICommand NavigateAllSizeTypesCmd { get; }
+        public ICommand NavigateAllStoragesCmd { get; }
+        public ICommand NavigateWarehousesCmd { get; }
+
         public ZaliczenieEntities ZaliczenieEntities
         { 
             get
@@ -52,7 +70,24 @@ namespace StudyProject.ViewModels.Abstract
         {
             base.Title = title;
             this.zaliczenieEntities = new ZaliczenieEntities();
-            NavigationToolBarViewModel = navigationToolBarViewModel;
+
+            NavigateAllBrandsCmd = navigationToolBarViewModel.NavigateAllBrandsCmd;
+            NavigateAllComoditiesCmd = navigationToolBarViewModel.NavigateAllComoditiesCmd;
+            NavigateAllComodityCategoryCmd = navigationToolBarViewModel.NavigateAllComodityCategoryCmd;
+            NavigateAllContractorsCmd = navigationToolBarViewModel.NavigateAllContractorTypesCmd;
+            NavigateAllContractorTypesCmd = navigationToolBarViewModel.NavigateAllContractorTypesCmd;
+            NavigateAllCurenciesCmd = navigationToolBarViewModel.NavigateAllCurenciesCmd;
+            NavigateAllDeliveryItemsCmd = navigationToolBarViewModel.NavigateAllDeliveryItemsCmd;
+            NavigateAllDeliveryStatusesCmd = navigationToolBarViewModel.NavigateAllDeliveryStatusesCmd;
+            NavigateAllDeliveryCmd = navigationToolBarViewModel.NavigateAllDeliveryCmd;
+            NavigateAllEmplyeesCmd = navigationToolBarViewModel.NavigateAllEmplyeesCmd;
+            NavigateAllEmplyeeTypesCmd = navigationToolBarViewModel.NavigateAllEmplyeeTypesCmd;
+            NavigateAllInvoicesCmd = navigationToolBarViewModel.NavigateAllInvoicesCmd;
+            NavigateAllInvoiceItemsCmd = navigationToolBarViewModel.NavigateAllInvoiceItemsCmd;
+            NavigateAllPaymentMethodsCmd = navigationToolBarViewModel.NavigateAllPaymentMethodsCmd;
+            NavigateAllSizeTypesCmd = navigationToolBarViewModel.NavigateAllSizeTypesCmd;
+            NavigateAllStoragesCmd = navigationToolBarViewModel.NavigateAllStoragesCmd;
+            NavigateWarehousesCmd = navigationToolBarViewModel.NavigateWarehousesCmd;
         }
         #endregion
         #region Helpers

@@ -22,11 +22,6 @@ namespace StudyProject.Stores
         }
 
         #endregion
-        public NavStore(NavigationToolBarViewModel navVM) {
-            _toolbarViewModel = navVM;
-            CurrentViewModel = new AllCurenciesViewModel(this, _toolbarViewModel);
-        }
-
         private void OnCurrViewModelChanged()
         {
             CurrViewModelChanded?.Invoke();

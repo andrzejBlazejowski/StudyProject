@@ -25,12 +25,28 @@ namespace StudyProject
 
         public App()
         {
+            _navStore = new NavStore();
             _navToolBarVM = new NavigationToolBarViewModel(
-                CreateBrandsNavigationService(), 
-                CreateComoditiesNavigationService(), 
-                CreateDeliveryStatusesNavigationService()
+
+            CreateBrandsNavigationService(),
+            CreateComoditiesNavigationService(),
+            CreateComodityCategoriesNavigationService(),
+            CreateContractorsNavigationService(),
+            CreateContractorTypesNavigationService(),
+            CreateCurenciesNavigationService(),
+            CreateDeliveryItemsNavigationService(),
+            CreateDeliveryNavigationService(),
+            CreateDeliveryStatusesNavigationService(),
+            CreateEmplyeeTypesNavigationService(),
+            CreateInvoiceItemsNavigationService(),
+            CreateInvoicesNavigationService(),
+            CreatePaymentMethodsNavigationService(),
+            CreateSizeTypesNavigationService(),
+            CreateStoragesNavigationService(),
+            CreateWarehousesNavigationService(),
+            CreateEmplyeesNavigationService()
+                
             );
-            _navStore = new NavStore(_navToolBarVM);
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -60,5 +76,118 @@ namespace StudyProject
         {
             return new NavigationService<AllDeliveryStatusesViewModel>(_navStore, () => new AllDeliveryStatusesViewModel(_navStore, _navToolBarVM));
         }
+
+
+        private NavigationService<AllComodityCategoriesViewModel> CreateComodityCategoriesNavigationService()
+        {
+            return new NavigationService<AllComodityCategoriesViewModel>(_navStore, () => new AllComodityCategoriesViewModel(_navStore, _navToolBarVM));
+        }
+
+
+        private NavigationService<AllContractorsViewModel> CreateContractorsNavigationService()
+        {
+            return new NavigationService<AllContractorsViewModel>(_navStore, () => new AllContractorsViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+        private NavigationService<AllContractorTypesViewModel> CreateContractorTypesNavigationService()
+        {
+            return new NavigationService<AllContractorTypesViewModel>(_navStore, () => new AllContractorTypesViewModel(_navStore, _navToolBarVM));
+        }
+
+
+        private NavigationService<AllCurenciesViewModel> CreateCurenciesNavigationService()
+        {
+            return new NavigationService<AllCurenciesViewModel>(_navStore, () => new AllCurenciesViewModel(_navStore, _navToolBarVM));
+        }
+
+
+        private NavigationService<AllDeliveryItemsViewModel> CreateDeliveryItemsNavigationService()
+        {
+            return new NavigationService<AllDeliveryItemsViewModel>(_navStore, () => new
+            AllDeliveryItemsViewModel(_navStore, _navToolBarVM));
+        }
+
+
+        private NavigationService<AllDeliveryViewModel> CreateDeliveryNavigationService()
+            {
+                return new NavigationService<AllDeliveryViewModel>(_navStore, () => new
+            AllDeliveryViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AllEmplyeesViewModel> CreateEmplyeesNavigationService()
+                {
+                    return new NavigationService<AllEmplyeesViewModel>(_navStore, () => new
+            AllEmplyeesViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AllEmplyeeTypesViewModel> CreateEmplyeeTypesNavigationService()
+                    {
+                        return new NavigationService<AllEmplyeeTypesViewModel>(_navStore, () => new
+            AllEmplyeeTypesViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AllInvoicesViewModel> CreateInvoicesNavigationService()
+                        {
+                            return new NavigationService<AllInvoicesViewModel>(_navStore, () => new
+            AllInvoicesViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AllInvoiceItemsViewModel> CreateInvoiceItemsNavigationService()
+                            {
+                                return new NavigationService<AllInvoiceItemsViewModel>(_navStore, () => new
+            AllInvoiceItemsViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AllPaymentMethodsViewModel> CreatePaymentMethodsNavigationService()
+                                {
+                                    return new NavigationService<AllPaymentMethodsViewModel>(_navStore, () => new
+            AllPaymentMethodsViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+
+
+        private NavigationService<AllSizeTypesViewModel> CreateSizeTypesNavigationService()
+                                    {
+                                        return new NavigationService<AllSizeTypesViewModel>(_navStore, () => new
+            AllSizeTypesViewModel(_navStore, _navToolBarVM));
+        }
+
+
+        private NavigationService<AllStoragesViewModel> CreateStoragesNavigationService()
+        {
+                                            return new NavigationService<AllStoragesViewModel>(_navStore, () => new
+            AllStoragesViewModel(_navStore, _navToolBarVM));
+        }
+
+
+
+
+        private NavigationService<AllWarehousesViewModel> CreateWarehousesNavigationService()
+        {
+                                                return new NavigationService<AllWarehousesViewModel>(_navStore, () => new
+            AllWarehousesViewModel(_navStore, _navToolBarVM));
+        }
+
     }
 }
+
