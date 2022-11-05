@@ -159,8 +159,4 @@
     </Page>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\Add\" />
-  </ItemGroup>
-
 </Project>
