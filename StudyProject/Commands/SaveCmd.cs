@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace StudyProject.Commands
 {
-    public class AllBrandsCmd : CommandBase
+    public class SaveCmd : CommandBase
     {
+        private readonly Action _command;
+
+        public SaveCmd(Action command)
+        {
+            _command = command;
+        }
+
         public override void Execute(object param)
         {
-            throw new NotImplementedException();
+            if (_command != null) _command();
         }
     }
 }

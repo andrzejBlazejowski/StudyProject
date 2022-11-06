@@ -26,7 +26,7 @@
         <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="opis"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=description, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </view:AllViewBase>

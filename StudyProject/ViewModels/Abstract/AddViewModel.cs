@@ -1,4 +1,5 @@
-﻿using StudyProject.Model;
+﻿using StudyProject.Commands;
+using StudyProject.Model;
 using StudyProject.Stores;
 using System;
 using System.Collections.Generic;
@@ -49,6 +50,18 @@ namespace StudyProject.ViewModels.Abstract
         public ICommand NavigateAddStoragesCmd { get; }
         public ICommand NavigateAddWarehousesCmd { get; }
 
+        private SaveCmd _SaveCommand;
+        public ICommand saveCommand
+        {
+            get
+            {
+                if (_SaveCommand == null)
+                {
+                    _SaveCommand = new SaveCmd(() => Save());
+                }
+                return _SaveCommand;
+            }
+        }
         public T Item { get; set; }
         public AddViewModel(NavStore navStore, NavigationToolBarViewModel navigationToolBarViewModel, string title)
         {
@@ -72,7 +85,7 @@ namespace StudyProject.ViewModels.Abstract
             NavigateAllPaymentMethodsCmd = navigationToolBarViewModel.NavigateAllPaymentMethodsCmd;
             NavigateAllSizeTypesCmd = navigationToolBarViewModel.NavigateAllSizeTypesCmd;
             NavigateAllStoragesCmd = navigationToolBarViewModel.NavigateAllStoragesCmd;
-            NavigateAllWarehousesCmd = navigationToolBarViewModel.NavigateAddWarehousesCmd;
+            NavigateAllWarehousesCmd = navigationToolBarViewModel.NavigateAllWarehousesCmd;
             NavigateAddBrandsCmd = navigationToolBarViewModel.NavigateAddBrandsCmd;
             NavigateAddComoditiesCmd = navigationToolBarViewModel.NavigateAddComoditiesCmd;
             NavigateAddComodityCategoryCmd = navigationToolBarViewModel.NavigateAddComodityCategoryCmd;

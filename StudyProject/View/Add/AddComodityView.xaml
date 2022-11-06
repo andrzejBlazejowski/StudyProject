@@ -41,16 +41,13 @@
         <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=GrossUnitPrice, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="5" Grid.Column="0" Content="kategoria"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=categoryId, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=CategoryId, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="6" Grid.Column="0" Content="rozmiar"/>
         <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path=SizeTypeId, UpdateSourceTrigger=PropertyChanged}"/>
         
-        <Label Grid.Row="7" Grid.Column="0" Content="rozmiar"/>
-        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path=size_type_id, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="8" Grid.Column="0" Content="producent"/>
-        <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Path=brand_id, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Row="7" Grid.Column="0" Content="producent"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path=BrandId, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </view:AllViewBase>

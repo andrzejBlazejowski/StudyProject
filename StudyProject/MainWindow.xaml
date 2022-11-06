@@ -104,7 +104,7 @@
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type ViewModels:AddContractorTypeViewModel}">
-                <viewsAdd:AddContractorView/>
+                <viewsAdd:AddContractorTypeView/>
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type ViewModels:AddCurrencyViewModel}">

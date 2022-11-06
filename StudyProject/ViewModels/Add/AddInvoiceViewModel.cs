@@ -203,6 +203,9 @@ namespace StudyProject.ViewModels
         public override void Save()
         {
             Item.is_active = true;
+            Item.create_date = DateTime.Now;
+            Item.sale_date = DateTime.Now;
+            Item.payment_date = DateTime.Now;
             DB.invoices.AddObject(Item);
             DB.SaveChanges();
 

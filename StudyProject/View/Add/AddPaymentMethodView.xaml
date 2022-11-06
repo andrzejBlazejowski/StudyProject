@@ -26,13 +26,13 @@
         <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="opis"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=description, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="2" Grid.Column="0" Content="dostepny weenetrznie ?"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=IsAvailableInternally, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=IsAvailabelInternally, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="dostepny zewnetrznie ?"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=IsAvailableExternally, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=IsAvailabelExternally, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </view:AllViewBase>

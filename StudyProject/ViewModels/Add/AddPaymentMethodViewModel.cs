@@ -127,6 +127,7 @@ namespace StudyProject.ViewModels
         public override void Save()
         {
             Item.is_active = true;
+            Item.create_date = DateTime.Now;
             DB.payment_method.AddObject(Item);
             DB.SaveChanges();
 

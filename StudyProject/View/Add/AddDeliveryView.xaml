@@ -27,16 +27,16 @@
         <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Number, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="magazyn docelowy"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=DestinationWaerhouseId, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=DestinationWarhouseId, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="2" Grid.Column="0" Content="kto nadal?"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=SourceContractorId, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=SourcenContractorId, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="magazyn adresat"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=SourceWaerhouseId, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=SourceWarhouseId, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="4" Grid.Column="0" Content="status dostawy"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=DeliveryStatus, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=DeliveryStatusId, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="5" Grid.Column="0" Content="data stworzenia"/>
         <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=CreateDate, UpdateSourceTrigger=PropertyChanged}"/>

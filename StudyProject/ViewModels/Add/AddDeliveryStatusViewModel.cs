@@ -97,6 +97,7 @@ namespace StudyProject.ViewModels
         public override void Save()
         {
             Item.is_active = true;
+            Item.create_date = DateTime.Now;
             DB.delivery_status.AddObject(Item);
             DB.SaveChanges();
 

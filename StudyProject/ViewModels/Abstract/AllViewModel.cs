@@ -3,6 +3,7 @@ using StudyProject.Stores;
 using StudyProject.Commands;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System;
 
 namespace StudyProject.ViewModels.Abstract
 {
@@ -46,7 +47,13 @@ namespace StudyProject.ViewModels.Abstract
         public ICommand NavigateAddSizeTypesCmd { get; }
         public ICommand NavigateAddStoragesCmd { get; }
         public ICommand NavigateAddWarehousesCmd { get; }
-
+        public ICommand saveCommand
+        {
+            get
+            {
+                return NavigateAddWarehousesCmd;
+            }
+        }
         public ZaliczenieEntities ZaliczenieEntities
         { 
             get
@@ -104,7 +111,7 @@ namespace StudyProject.ViewModels.Abstract
             NavigateAllPaymentMethodsCmd = navigationToolBarViewModel.NavigateAllPaymentMethodsCmd;
             NavigateAllSizeTypesCmd = navigationToolBarViewModel.NavigateAllSizeTypesCmd;
             NavigateAllStoragesCmd = navigationToolBarViewModel.NavigateAllStoragesCmd;
-            NavigateAllWarehousesCmd = navigationToolBarViewModel.NavigateAddWarehousesCmd;
+            NavigateAllWarehousesCmd = navigationToolBarViewModel.NavigateAllWarehousesCmd;
             NavigateAddBrandsCmd = navigationToolBarViewModel.NavigateAddBrandsCmd;
             NavigateAddComoditiesCmd = navigationToolBarViewModel.NavigateAddComoditiesCmd;
             NavigateAddComodityCategoryCmd = navigationToolBarViewModel.NavigateAddComodityCategoryCmd;

@@ -23,10 +23,10 @@
         <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=ComodityId, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="ilosc"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=count, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Count, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="2" Grid.Column="0" Content="rabat"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=discount, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Discount, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="faktura"/>
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=InvoiceId, UpdateSourceTrigger=PropertyChanged}"/>

@@ -12,7 +12,7 @@ namespace StudyProject.Commands
         public event EventHandler CanExecuteChanged;
         public virtual bool CanExecute(object param) 
         {
-            return true; 
+            return true;
         }
         public abstract void Execute(object param);
 

@@ -10,17 +10,25 @@
         <ToolBarTray Width="800" Orientation="Horizontal" VerticalAlignment="Top">
             <ToolBar  Width="800">
                 <Button Command="{Binding NavigateAllBrandsCmd}" ToolTip="Dodaj">
-                    <Label>Dodaj</Label>
-                    <!-- <Image Source="" />-->
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Components/plus.png" Width="30" Height="30" Margin="5"/>
+                    </StackPanel>
                 </Button>
                 <Button Command="{Binding NavigateAllBrandsCmd}" ToolTip="Usun">
-                    <Label>Usun</Label>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Components/remove.png" Width="30" Height="30" Margin="5"/>
+                    </StackPanel>
                 </Button>
-                <Button Command="{Binding NavigateAllBrandsCmd}" ToolTip="zapisz">
-                    <Label>zapisz</Label>
+                <Button Command="{Binding saveCommand}" ToolTip="zapisz">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Components/save.png" Width="30" Height="30" Margin="5"/>
+                    </StackPanel>
                 </Button>
-                <Button Command="{Binding NavigateAllBrandsCmd}" ToolTip="zapisz i zamknij">
-                    <Label>zapisz i zamknij</Label>
+                <Button Command="{Binding NavigateAllBrandsCmd}" ToolTip="zamknij">
+
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Components/close.png" Width="30" Height="30" Margin="5"/>
+                    </StackPanel>
                 </Button>
             </ToolBar>
         </ToolBarTray>

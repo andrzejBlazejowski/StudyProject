@@ -21,11 +21,11 @@ namespace StudyProject.ViewModels
             Item = new comodity();
         }
         public int Id {
-            get 
+            get
             {
                 return Item.id;
             }
-            set 
+            set
             {
                 if (value != Item.id) { 
                     Item.id = value;
@@ -203,9 +203,9 @@ namespace StudyProject.ViewModels
         public override void Save()
         {
             Item.is_active = true;
+            Item.create_date = DateTime.Now;
             DB.comodities.AddObject(Item);
             DB.SaveChanges();
-
         }
     }
 }

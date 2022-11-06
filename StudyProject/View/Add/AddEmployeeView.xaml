@@ -24,6 +24,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="Imie"/>
@@ -36,10 +37,10 @@
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=LastName, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="pesel"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=pesel_number, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=PeselNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="4" Grid.Column="0" Content="typ pracownika"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=EmployTypeId, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=EmployeeTypeId, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="5" Grid.Column="0" Content="panstwo"/>
         <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=Country, UpdateSourceTrigger=PropertyChanged}"/>
@@ -51,10 +52,13 @@
         <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path=Street, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="8" Grid.Column="0" Content="numer budynku"/>
-        <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Path=BuildingNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Path=Building_number, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="9" Grid.Column="0" Content="numer lokalu"/>
-        <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding Path=FlatNumber, UpdateSourceTrigger=PropertyChanged}"/>
-
+        <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding Path=Flat_number, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Label Grid.Row="10" Grid.Column="0" Content="magazyn"/>
+        <TextBox Grid.Row="10" Grid.Column="1" Text="{Binding Path=WarehouseId, UpdateSourceTrigger=PropertyChanged}"/>
+        
     </Grid>
 </view:AllViewBase>
