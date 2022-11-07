@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllContractorsViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "kontrachenci")
         {
+            NavigateAddCmd = NavigateAddContractorsCmd;
         }
         #endregion
         #region Helpers

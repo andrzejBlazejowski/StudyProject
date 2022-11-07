@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Components\close.png" />
+    <None Remove="Components\plus.png" />
     <None Remove="Components\remove.png" />
     <None Remove="Components\save.png" />
     <None Remove="Model\Zaliczenie.edmx" />
@@ -30,6 +31,7 @@
 
   <ItemGroup>
     <Resource Include="Components\close.png" />
+    <Resource Include="Components\plus.png" />
     <Resource Include="Components\remove.png" />
     <Resource Include="Components\save.png" />
   </ItemGroup>

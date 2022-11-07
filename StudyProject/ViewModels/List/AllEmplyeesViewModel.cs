@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllEmplyeesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "pracownicy")
         {
+            NavigateAddCmd = NavigateAddEmplyeesCmd;
         }
         #endregion
         #region Helpers

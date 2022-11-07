@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllWarehousesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "magazyny")
         {
+            NavigateAddCmd = NavigateAddWarehousesCmd;
         }
         #endregion
         #region Helpers

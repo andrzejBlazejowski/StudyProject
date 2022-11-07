@@ -14,7 +14,8 @@ namespace StudyProject.ViewModels.Abstract
     {
         public ZaliczenieEntities DB { get; set; }
         public NavigationToolBarViewModel NavigationToolBarViewModel { get; set; }
-
+        
+        public ICommand NavigateAddCmd { get; }
         public ICommand NavigateAllBrandsCmd { get; }
         public ICommand NavigateAllComoditiesCmd { get; }
         public ICommand NavigateAllComodityCategoryCmd { get; }
@@ -62,6 +63,8 @@ namespace StudyProject.ViewModels.Abstract
                 return _SaveCommand;
             }
         }
+        /*public abstract ICommand saveAndCloseCommand();*/
+       
         public T Item { get; set; }
         public AddViewModel(NavStore navStore, NavigationToolBarViewModel navigationToolBarViewModel, string title)
         {
@@ -104,24 +107,11 @@ namespace StudyProject.ViewModels.Abstract
             NavigateAddStoragesCmd = navigationToolBarViewModel.NavigateAddStoragesCmd;
             NavigateAddWarehousesCmd = navigationToolBarViewModel.NavigateAddWarehousesCmd;
         }
-        //private BaseCommand _SaveAndCloseCommand;
-        /*public ICommand saveAndCloseCommand
-        {
-            get
-            {
-                if (_SaveAndCloseCommand == null)
-                {
-                    _SaveAndCloseCommand = new BaseCommand(() => saveAndClose());
-                }
-                return _SaveAndCloseCommand;
-            }
-        }*/
 
         public abstract void Save();
         private void saveAndClose()
         {
             Save();
-            //base.OnRequestClose();
         }
     }
 }

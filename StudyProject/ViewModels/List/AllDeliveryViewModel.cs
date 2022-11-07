@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllDeliveryViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "dostawy")
         {
+            NavigateAddCmd = NavigateAddDeliveryCmd;
         }
         #endregion
         #region Helpers

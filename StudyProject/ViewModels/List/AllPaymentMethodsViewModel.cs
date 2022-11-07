@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllPaymentMethodsViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "metody płatności")
         {
+            NavigateAddCmd = NavigateAddPaymentMethodsCmd;
         }
         #endregion
         #region Helpers

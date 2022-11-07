@@ -13,6 +13,8 @@ namespace StudyProject.ViewModels.Abstract
         private readonly ZaliczenieEntities zaliczenieEntities;
         public NavigationToolBarViewModel NavigationToolBarViewModel { get; set; }
 
+        public ICommand NavigateAddCmd { get; set; }
+
         public ICommand NavigateAllBrandsCmd { get; }
         public ICommand NavigateAllComoditiesCmd { get; }
         public ICommand NavigateAllComodityCategoryCmd { get; }
@@ -51,7 +53,7 @@ namespace StudyProject.ViewModels.Abstract
         {
             get
             {
-                return NavigateAddWarehousesCmd;
+                return null;
             }
         }
         public ZaliczenieEntities ZaliczenieEntities
@@ -61,18 +63,6 @@ namespace StudyProject.ViewModels.Abstract
                 return zaliczenieEntities;
             }
         }
-        //private BaseCommand _LoadCommand;
-      /*  public ICommand LoadCommand
-        {
-            get
-            {
-                if (_LoadCommand == null)
-                {
-                    _LoadCommand = new BaseCommand(() => Load());//pusta wywoluje load
-                }
-                return _LoadCommand;
-            }
-        }*/
         private ObservableCollection<T> _Data;
         public ObservableCollection<T> Data
         {

@@ -9,9 +9,9 @@
     <Grid>
         <ToolBarTray Width="800" Orientation="Horizontal" VerticalAlignment="Top">
             <ToolBar  Width="800">
-                <Button Command="{Binding NavigateAllBrandsCmd}" ToolTip="Dodaj">
+                <Button Command="{Binding NavigateAddCmd}" ToolTip="Dodaj">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Components/plus.png" Width="30" Height="30" Margin="5"/>
+                        <Image Width="30" Height="30" Margin="5" Source="/Components/plus.png"/>
                     </StackPanel>
                 </Button>
                 <Button Command="{Binding NavigateAllBrandsCmd}" ToolTip="Usun">

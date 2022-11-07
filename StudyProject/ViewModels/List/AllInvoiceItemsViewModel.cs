@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllInvoiceItemsViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "pozycje faktury")
         {
+            NavigateAddCmd =NavigateAddInvoiceItemsCmd;
         }
         #endregion
         #region Helpers

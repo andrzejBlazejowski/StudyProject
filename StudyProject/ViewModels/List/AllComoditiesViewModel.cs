@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllComoditiesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "towary")
         {
+            NavigateAddCmd = NavigateAddComoditiesCmd;
         }
         #endregion
         #region Helpers

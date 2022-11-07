@@ -17,13 +17,11 @@ namespace StudyProject.ViewModels.List
 {
     public class AllCurenciesViewModel : AllViewModel<curency>
     {
-        public ICommand goToAllBrandsCmd { get; }
-
         #region Constructor
         public AllCurenciesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "waluty")
         {
-            goToAllBrandsCmd = new NavigateCmd<AllBrandsViewModel>(new NavigationService<AllBrandsViewModel>(navStore, () => new AllBrandsViewModel(navStore, navToolBarvm)));
+            NavigateAddCmd = NavigateAddCurenciesCmd;            
         }
         #endregion
         #region Helpers

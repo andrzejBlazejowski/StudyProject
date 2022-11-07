@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllSizeTypesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "dostępne rozmiary")
         {
+            NavigateAddCmd = NavigateAddSizeTypesCmd;
         }
         #endregion
         #region Helpers

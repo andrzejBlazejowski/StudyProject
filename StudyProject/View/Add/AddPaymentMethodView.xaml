@@ -7,32 +7,54 @@
              xmlns:local="clr-namespace:StudyProject.View.Add"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="200"/>
-        </Grid.ColumnDefinitions>
+
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="nazwa"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="210"/>
+                <ColumnDefinition Width="410"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"  Content="nazwa"/>
+                <TextBox Grid.Row="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
 
-        <Label Grid.Row="1" Grid.Column="0" Content="opis"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"/>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="2" Grid.Column="0" Content="dostepny weenetrznie ?"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=IsAvailabelInternally, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Grid.Column="0" Content="opis"/>
+                <TextBox 
+                Grid.Column="1"
+                Height="70"
+                Width="auto"
+                TextWrapping="Wrap"
+                AcceptsReturn="True"
+                Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalScrollBarVisibility="Disabled"
+                VerticalScrollBarVisibility="Auto"/>
+            </Grid>
 
-        <Label Grid.Row="3" Grid.Column="0" Content="dostepny zewnetrznie ?"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=IsAvailabelExternally, UpdateSourceTrigger=PropertyChanged}"/>
-
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="210"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="370"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox Grid.Column="0" IsChecked="{Binding Path=IsAvailabelInternally, UpdateSourceTrigger=PropertyChanged}" >dostepny weenetrznie ?</CheckBox>
+            <CheckBox Grid.Column="2" IsChecked="{Binding Path=IsAvailabelExternally, UpdateSourceTrigger=PropertyChanged}" >dostepny zewnetrznie ?</CheckBox>
+        </Grid>
     </Grid>
 </view:AllViewBase>

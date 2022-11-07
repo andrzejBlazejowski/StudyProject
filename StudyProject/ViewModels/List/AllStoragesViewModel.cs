@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllStoragesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "miejsca w magazynach")
         {
+            NavigateAddCmd = NavigateAddStoragesCmd;
         }
         #endregion
         #region Helpers

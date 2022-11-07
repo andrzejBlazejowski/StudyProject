@@ -15,8 +15,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <components:topNavComponent Grid.Row="0"/>
-                        <StackPanel Grid.Row="1" Background="Azure">
-                            <Label>Tu bedzie filtrowanie</Label>
+                        <StackPanel Grid.Row="1" Background="Beige">
                         </StackPanel>
                         <Grid Grid.Row="2">
                             <Grid.ColumnDefinitions>

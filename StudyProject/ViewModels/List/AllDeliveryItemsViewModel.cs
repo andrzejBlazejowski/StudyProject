@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllDeliveryItemsViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "pozycje dostawy")
         {
+            NavigateAddCmd =NavigateAddDeliveryItemsCmd;
         }
         #endregion
         #region Helpers

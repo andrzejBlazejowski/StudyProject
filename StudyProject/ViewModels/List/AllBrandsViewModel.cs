@@ -12,6 +12,7 @@ namespace StudyProject.ViewModels.List
         public AllBrandsViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "producenci")
         {
+            NavigateAddCmd = NavigateAddBrandsCmd;
         }
         #endregion
         #region Helpers

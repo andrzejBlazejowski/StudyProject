@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllContractorTypesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "typy kontrachentów")
         {
+            NavigateAddCmd = NavigateAddContractorTypesCmd;
         }
         #endregion
         #region Helpers

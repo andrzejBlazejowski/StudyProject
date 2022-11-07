@@ -8,30 +8,46 @@
              xmlns:view="clr-namespace:StudyProject.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="200"/>
-        </Grid.ColumnDefinitions>
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="nazwa"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="210"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"  Content="przelicznik"/>
+                <TextBox Grid.Row="1" Text="{Binding Path=ConvertRate, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+            <Grid Grid.Column="0" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"  Content="nazwa"/>
+                <TextBox Grid.Row="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
 
-        <Label Grid.Row="1" Grid.Column="0" Content="przelicznik"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=ConvertRate, UpdateSourceTrigger=PropertyChanged}"/>
+            <CheckBox Grid.Column="2" VerticalAlignment="Center" IsChecked="{Binding Path=isDefault, UpdateSourceTrigger=PropertyChanged}" >domyslny ?</CheckBox>
 
-        <Label Grid.Row="2" Grid.Column="0" Content="domyslna?"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=isDefault, UpdateSourceTrigger=PropertyChanged}"/>
+            <Grid Grid.Column="3" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"  Content="znak"/>
+                <TextBox Grid.Row="1" Text="{Binding Path=Sign, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
 
-        <Label Grid.Row="3" Grid.Column="0" Content="znak"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=Sign, UpdateSourceTrigger=PropertyChanged}"/>
-
+        </Grid>
     </Grid>
 </view:AllViewBase>

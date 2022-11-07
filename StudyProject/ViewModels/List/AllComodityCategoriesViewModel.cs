@@ -19,6 +19,7 @@ namespace StudyProject.ViewModels.List
         public AllComodityCategoriesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
             : base(navStore, navToolBarvm, "kategorie towarow")
         {
+            NavigateAddCmd = NavigateAddComodityCategoryCmd;
         }
         #endregion
         #region Helpers
