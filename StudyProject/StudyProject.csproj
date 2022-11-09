@@ -170,4 +170,8 @@
     </Page>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\EntitiesForViewModel\" />
+  </ItemGroup>
+
 </Project>

@@ -23,7 +23,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0"  Content="nazwa"/>
-                <TextBox Grid.Row="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Text="sd" Height="35" VerticalAlignment="Stretch" TextAlignment="Center" TextChanged="TextBox_TextChanged"/>
             </Grid>
 
             <Grid Grid.Column="1">

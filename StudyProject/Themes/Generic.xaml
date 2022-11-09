@@ -30,5 +30,16 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Resources>
+            <Style TargetType="Grid" x:Key="nameGrid">
+                <Setter Property="Margin" Value="30"/>
+                <Style.Resources>
+                    <Style TargetType="Line">
+                        <Setter Property="Fill" Value="CadetBlue"/>
+
+                    </Style>
+                </Style.Resources>
+            </Style>
+        </Style.Resources>
     </Style>
 </ResourceDictionary>
