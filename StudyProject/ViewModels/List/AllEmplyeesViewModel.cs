@@ -1,4 +1,5 @@
 ﻿using StudyProject.Model;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -12,7 +13,7 @@ using System.Windows.Input;
 
 namespace StudyProject.ViewModels.List
 {
-    public class AllEmplyeesViewModel : AllViewModel<employ>
+    public class AllEmplyeesViewModel : AllViewModel<EmployeeForViewModel>
     {
 
         #region Constructor
@@ -25,12 +26,19 @@ namespace StudyProject.ViewModels.List
         #region Helpers
         public override void Load()
         {
-            Data = new ObservableCollection<employ>
+            Data = new ObservableCollection<EmployeeForViewModel>
                 (
 
                   from employ in ZaliczenieEntities.employs
                   where employ.is_active == true
-                  select employ
+                  select new EmployeeForViewModel
+                  {
+                      Id = employ.id,
+                      FirstName = employ.first_name,
+                      LastName = employ.last_name,
+                      peselNumber = employ.pesel_number,
+                      WarehouseName = employ.warehouse.name
+                  }
                 );
         }
         #endregion

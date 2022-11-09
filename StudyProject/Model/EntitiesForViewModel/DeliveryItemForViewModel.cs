@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace StudyProject.Model.EntitiesForViewModel
 {
-    internal class DeliveryItemForViewModel
+    public class DeliveryItemForViewModel
     {
         public int Id { get; set; }
         public string ComodityName { get; set; }
-        public string ComodityUnitPrice { get; set; }
+        public decimal ComodityUnitPrice { get; set; }
         public string ComodityCategoryName { get; set; }
         public string ComoditySizeName { get; set; }
         public int Count { get; set; }

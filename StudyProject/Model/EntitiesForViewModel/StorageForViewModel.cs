@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudyProject.Model.EntitiesForViewModel
 {
-    internal class StorageForViewModel
+    public class StorageForViewModel
     {
         public int Id { get; set; }
         public string Number { get; set; }

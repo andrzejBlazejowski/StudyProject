@@ -1,4 +1,5 @@
 ﻿using StudyProject.Model;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -12,7 +13,7 @@ using System.Windows.Input;
 
 namespace StudyProject.ViewModels.List
 {
-    public class AllDeliveryViewModel : AllViewModel<delivery>
+    public class AllDeliveryViewModel : AllViewModel<DeliveryForViewModel>
     {
 
         #region Constructor
@@ -25,12 +26,24 @@ namespace StudyProject.ViewModels.List
         #region Helpers
         public override void Load()
         {
-            Data = new ObservableCollection<delivery>
+            Data = new ObservableCollection<DeliveryForViewModel>
                 (
-
                   from delivery in ZaliczenieEntities.deliveries
                   where delivery.is_active == true
-                  select delivery
+                  select new DeliveryForViewModel 
+                  { 
+                    Id = delivery.id,
+                    number = delivery.number,
+                    destinationWarehouseName = delivery.warehouse.name,
+                    sourceContractorName = delivery.contractor.name,
+                    sourceWarehouseName = delivery.warehouse1.name,
+                    sourceContractorAddress =
+                        delivery.contractor.state + ", " +
+                        delivery.contractor.city,
+                    paymentMethod = delivery.payment_method.name,
+                    createDate = delivery.create_date,
+                    dueDate = delivery.due_date
+                  }
                 );
         }
         #endregion

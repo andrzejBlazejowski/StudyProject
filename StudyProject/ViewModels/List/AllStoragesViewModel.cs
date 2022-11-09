@@ -1,4 +1,5 @@
 ﻿using StudyProject.Model;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -12,7 +13,7 @@ using System.Windows.Input;
 
 namespace StudyProject.ViewModels.List
 {
-    public class AllStoragesViewModel : AllViewModel<storage>
+    public class AllStoragesViewModel : AllViewModel<StorageForViewModel>
     {
 
         #region Constructor
@@ -25,12 +26,21 @@ namespace StudyProject.ViewModels.List
         #region Helpers
         public override void Load()
         {
-            Data = new ObservableCollection<storage>
+            Data = new ObservableCollection<StorageForViewModel>
                 (
 
                   from storage in ZaliczenieEntities.storages
                   where storage.is_active == true
-                  select storage
+                  select new StorageForViewModel 
+                  { 
+                    Id = storage.id,
+                    Number = storage.number,
+                    TotalCount = storage.total_count,
+                    FreeCount = storage.free_count,
+                    TakenCount = storage.taken_count,
+                    WarehouseName = storage.warehouse.name,
+                    SizeTypeName = storage.size_type.name
+                  }
                 );
         }
         #endregion

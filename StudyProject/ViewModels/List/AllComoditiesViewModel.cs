@@ -1,4 +1,5 @@
 ﻿using StudyProject.Model;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.Stores;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -12,7 +13,7 @@ using System.Windows.Input;
 
 namespace StudyProject.ViewModels.List
 {
-    public class AllComoditiesViewModel : AllViewModel<comodity>
+    public class AllComoditiesViewModel : AllViewModel<ComodityForViewModel>
     {
 
         #region Constructor
@@ -25,12 +26,27 @@ namespace StudyProject.ViewModels.List
         #region Helpers
         public override void Load()
         {
-            Data = new ObservableCollection<comodity>
+            Data = new ObservableCollection<ComodityForViewModel>
                 (
 
                   from comodity in ZaliczenieEntities.comodities
                   where comodity.is_active == true
-                  select comodity
+                  select new ComodityForViewModel
+                  {
+                      Id = comodity.brand_id,
+                      Name = comodity.Name,
+                      Description = comodity.Description,
+                      NetUnitPrice = comodity.net_unit_price,
+                      VatRate = comodity.vat_rate,
+                      GrossUnitPrice = comodity.gross_unit_price,
+                      CategoryName = comodity.comodity_category.name,
+                      SizeType = comodity.size_type.name,
+                      BrandName = comodity.brand.name,
+                      BrandAddres = 
+                        comodity.brand.country + ", " +
+                        comodity.brand.state + ", " +
+                        comodity.brand.city
+                  }
                 );
         }
         #endregion
