@@ -16,6 +16,7 @@ namespace StudyProject.Model.EntitiesForViewModel
         public string sourceContractorType { get; set; }
         public string sourceContractorAddress { get; set; }
         public string paymentMethod { get; set; }
+        public string DeliveryStatus { get; set; }
         public DateTime createDate { get; set; }
         public DateTime dueDate { get; set; }
     }

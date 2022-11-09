@@ -12,12 +12,13 @@
                 <DataGridTextColumn Header="ID" Binding="{Binding Path=id}"/>
                 <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Name}"/>
                 <DataGridTextColumn Header="opis" Binding="{Binding Path=Description}"/>
-                <DataGridTextColumn Header="cena netto" Binding="{Binding Path=net_unit_price}"/>
-                <DataGridTextColumn Header="Cena brutto" Binding="{Binding Path=gross_unit_price}"/>
-                <DataGridTextColumn Header="stawka vat" Binding="{Binding Path=vat_rate}"/>
-                <DataGridTextColumn Header="kategoria" Binding="{Binding Path=category_id}"/>
-                <DataGridTextColumn Header="rozmiar" Binding="{Binding Path=size_type_id}"/>
-                <DataGridTextColumn Header="marka" Binding="{Binding Path=brand_id}"/>
+                <DataGridTextColumn Header="cena netto" Binding="{Binding Path=NetUnitPrice}"/>
+                <DataGridTextColumn Header="Cena brutto" Binding="{Binding Path=GrossUnitPrice}"/>
+                <DataGridTextColumn Header="stawka vat" Binding="{Binding Path=VatRate}"/>
+                <DataGridTextColumn Header="kategoria" Binding="{Binding Path=CategoryName}"/>
+                <DataGridTextColumn Header="rozmiar" Binding="{Binding Path=SizeType}"/>
+                <DataGridTextColumn Header="producent" Binding="{Binding Path=BrandName}"/>
+                <DataGridTextColumn Header="adres producenta" Binding="{Binding Path=BrandAddres}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

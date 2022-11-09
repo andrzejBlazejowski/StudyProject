@@ -38,6 +38,7 @@ namespace StudyProject.ViewModels.List
                       ComodityUnitPrice = delivery_item.comodity.gross_unit_price,
                       ComodityCategoryName = delivery_item.comodity.comodity_category.name,
                       ComoditySizeName = delivery_item.comodity.size_type.name,
+                      DeliveryNumber = delivery_item.delivery.number,
                       Count = delivery_item.count,
                       CurencyName = delivery_item.curency.name,
                       CurrenvySign = delivery_item.curency.sign

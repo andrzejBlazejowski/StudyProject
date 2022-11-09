@@ -9,13 +9,13 @@
     <Grid Background="White">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Data}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=id}"/>
-                <DataGridTextColumn Header="numer" Binding="{Binding Path=number}"/>
-                <DataGridTextColumn Header="magazyn" Binding="{Binding Path=warehouse_id}"/>
-                <DataGridTextColumn Header="rozmiar" Binding="{Binding Path=size_type_id}"/>
-                <DataGridTextColumn Header="liczba całkowiat" Binding="{Binding Path=total_count}"/>
-                <DataGridTextColumn Header="liczba wolnych" Binding="{Binding Path=free_count}"/>
-                <DataGridTextColumn Header="liczba zajętych" Binding="{Binding Path=taken_count}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="numer" Binding="{Binding Path=Number}"/>
+                <DataGridTextColumn Header="magazyn" Binding="{Binding Path=WarehouseName}"/>
+                <DataGridTextColumn Header="rozmiar" Binding="{Binding Path=SizeTypeName}"/>
+                <DataGridTextColumn Header="liczba całkowiat" Binding="{Binding Path=TotalCount}"/>
+                <DataGridTextColumn Header="liczba wolnych" Binding="{Binding Path=FreeCount}"/>
+                <DataGridTextColumn Header="liczba zajętych" Binding="{Binding Path=TakenCount}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

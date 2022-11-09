@@ -9,6 +9,7 @@ namespace StudyProject.Model.EntitiesForViewModel
     public class DeliveryItemForViewModel
     {
         public int Id { get; set; }
+        public string DeliveryNumber { get; set; }
         public string ComodityName { get; set; }
         public decimal ComodityUnitPrice { get; set; }
         public string ComodityCategoryName { get; set; }

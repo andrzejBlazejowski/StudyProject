@@ -9,22 +9,17 @@
     <Grid Background="White">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Data}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=id}"/>
-                <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=name}"/>
-                <DataGridTextColumn Header="nip" Binding="{Binding Path=tax_number}"/>
-                <DataGridTextColumn Header="nazwa księgowa" Binding="{Binding Path=tax_name}"/>
-                <DataGridTextColumn Header="ulica" Binding="{Binding Path=street}"/>
-                <DataGridTextColumn Header="miasto" Binding="{Binding Path=city}"/>
-                <DataGridTextColumn Header="województwo" Binding="{Binding Path=state}"/>
-                <DataGridTextColumn Header="numer budynkuy" Binding="{Binding Path=building_number}"/>
-                <DataGridTextColumn Header="numer lokalu" Binding="{Binding Path=flat_number}"/>
-                <DataGridTextColumn Header="kod pocztowy" Binding="{Binding Path=zip_code}"/>
-                <DataGridTextColumn Header="miasto pocztowe" Binding="{Binding Path=post_office_city}"/>
-                <DataGridTextColumn Header="dodatkowe informacje" Binding="{Binding Path=additional_info}"/>
-                <DataGridTextColumn Header="Czy płaci Vat?" Binding="{Binding Path=is_vat_taxpayer}"/>
-                <DataGridTextColumn Header="Czy płaci Vat27?" Binding="{Binding Path=should_include_vat_27}"/>
-                <DataGridTextColumn Header="waluta" Binding="{Binding Path=currency_id}"/>
-                <DataGridTextColumn Header="typ kontraktora" Binding="{Binding Path=contractor_type_id}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="nip" Binding="{Binding Path=TaxNumber}"/>
+                <DataGridTextColumn Header="nazwa księgowa" Binding="{Binding Path=TaxName}"/>
+                <DataGridTextColumn Header="Adres" Binding="{Binding Path=Address}"/>
+                <DataGridTextColumn Header="dodatkowe informacje" Binding="{Binding Path=AdditionalInfo}"/>
+                <DataGridTextColumn Header="Czy płaci Vat?" Binding="{Binding Path=IsVatTaxpayer}"/>
+                <DataGridTextColumn Header="Czy płaci Vat27?" Binding="{Binding Path=ShouldIncludeVat27}"/>
+                <DataGridTextColumn Header="waluta" Binding="{Binding Path=CurrencyName}"/>
+                <DataGridTextColumn Header="znak waluty" Binding="{Binding Path=CurrencySign}"/>
+                <DataGridTextColumn Header="typ kontraktora" Binding="{Binding Path=ContractorType}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

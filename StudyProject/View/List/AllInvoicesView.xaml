@@ -9,17 +9,21 @@
     <Grid Background="White">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Data}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=id}"/>
-                <DataGridTextColumn Header="numer faktury" Binding="{Binding Path=invoice_number}"/>
-                <DataGridTextColumn Header="kontrachent" Binding="{Binding Path=contractor_id}"/>
-                <DataGridTextColumn Header="data sprzedaży" Binding="{Binding Path=sale_date}"/>
-                <DataGridTextColumn Header="rabat" Binding="{Binding Path=discount}"/>
-                <DataGridTextColumn Header="metoda płatności" Binding="{Binding Path=payment_method_id}"/>
-                <DataGridTextColumn Header="data płatności" Binding="{Binding Path=payment_date}"/>
-                <DataGridTextColumn Header="wartość netto" Binding="{Binding Path=net_value}"/>
-                <DataGridTextColumn Header="wartość brutto" Binding="{Binding Path=gross_value}"/>
-                <DataGridTextColumn Header="zapłacono" Binding="{Binding Path=paid_value}"/>
-                <DataGridTextColumn Header="do zapłaty" Binding="{Binding Path=pending_payment_value}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="numer faktury" Binding="{Binding Path=InvoiceNumber}"/>
+                <DataGridTextColumn Header="kontrachent" Binding="{Binding Path=ContractorName}"/>
+                <DataGridTextColumn Header="kontrachent - adres" Binding="{Binding Path=ContractorAddress}"/>
+                <DataGridTextColumn Header="typ kontrachent" Binding="{Binding Path=ContractorType}"/>
+                <DataGridTextColumn Header="platnik vat?" Binding="{Binding Path=IsContractorVatPayer}"/>
+                <DataGridTextColumn Header="waluta kontrachenta" Binding="{Binding Path=ContractorCurrency}"/>
+                <DataGridTextColumn Header="data sprzedaży" Binding="{Binding Path=SaleDate}"/>
+                <DataGridTextColumn Header="rabat" Binding="{Binding Path=Discount}"/>
+                <DataGridTextColumn Header="metoda płatności" Binding="{Binding Path=PaymentMethod}"/>
+                <DataGridTextColumn Header="data płatności" Binding="{Binding Path=PaymentDate}"/>
+                <DataGridTextColumn Header="wartość netto" Binding="{Binding Path=NetValue}"/>
+                <DataGridTextColumn Header="wartość brutto" Binding="{Binding Path=GrossValue}"/>
+                <DataGridTextColumn Header="zapłacono" Binding="{Binding Path=PaidValue}"/>
+                <DataGridTextColumn Header="do zapłaty" Binding="{Binding Path=PendingPayment}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

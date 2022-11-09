@@ -9,11 +9,16 @@
     <Grid Background="White">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Data}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=id}"/>
-                <DataGridTextColumn Header="Towar" Binding="{Binding Path=comodity_id}"/>
-                <DataGridTextColumn Header="ilość" Binding="{Binding Path=count}"/>
-                <DataGridTextColumn Header="rabat" Binding="{Binding Path=discount}"/>
-                <DataGridTextColumn Header="id faktury" Binding="{Binding Path=invoice_id}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Towar" Binding="{Binding Path=ComodityName}"/>
+                <DataGridTextColumn Header="cena jednostkowa netto" Binding="{Binding Path=ComodityNetPrice}"/>
+                <DataGridTextColumn Header="cena jednostkowa brutto" Binding="{Binding Path=ComodityGrossPrice}"/>
+                <DataGridTextColumn Header="kategoria towaru" Binding="{Binding Path=CategoryName}"/>
+                <DataGridTextColumn Header="rozmiar towaru" Binding="{Binding Path=SizeTypeName}"/>
+                <DataGridTextColumn Header="ilość" Binding="{Binding Path=Count}"/>
+                <DataGridTextColumn Header="rabat" Binding="{Binding Path=Discount}"/>
+                <DataGridTextColumn Header="typ platnosci" Binding="{Binding Path=PaymentMethod}"/>
+                <DataGridTextColumn Header="data sprzedazy" Binding="{Binding Path=SaleDate}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -10,11 +10,14 @@
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Data}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Path=id}"/>
-                <DataGridTextColumn Header="towar" Binding="{Binding Path=comodity_id}"/>
-                <DataGridTextColumn Header="liczba" Binding="{Binding Path=count}"/>
-                <DataGridTextColumn Header="numer dostawy" Binding="{Binding Path=delivery_id}"/>
-                <DataGridTextColumn Header="cena jednostkowa" Binding="{Binding Path=unit_cost}"/>
-                <DataGridTextColumn Header="waluta" Binding="{Binding Path=curency_id}"/>
+                <DataGridTextColumn Header="towar" Binding="{Binding Path=ComodityName}"/>
+                <DataGridTextColumn Header="kategoria towaru" Binding="{Binding Path=ComodityName}"/>
+                <DataGridTextColumn Header="rozmiar towaru" Binding="{Binding Path=ComoditySizeName}"/>
+                <DataGridTextColumn Header="liczba" Binding="{Binding Path=Count}"/>
+                <DataGridTextColumn Header="numer dostawy" Binding="{Binding Path=DeliveryNumber}"/>
+                <DataGridTextColumn Header="cena jednostkowa" Binding="{Binding Path=ComodityUnitPrice}"/>
+                <DataGridTextColumn Header="waluta" Binding="{Binding Path=CurencyName}"/>
+                <DataGridTextColumn Header="waluta - znak" Binding="{Binding Path=CurrenvySign}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

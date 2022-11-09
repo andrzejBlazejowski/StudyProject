@@ -9,18 +9,11 @@
     <Grid Background="White">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Data}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=id}"/>
-                <DataGridTextColumn Header="Imię" Binding="{Binding Path=first_name}"/>
-                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=last_name}"/>
-                <DataGridTextColumn Header="drugie imie" Binding="{Binding Path=middle_name}"/>
-                <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel_number}"/>
-                <DataGridTextColumn Header="typ pracownika" Binding="{Binding Path=employ_type_id}"/>
-                <DataGridTextColumn Header="kraj" Binding="{Binding Path=country}"/>
-                <DataGridTextColumn Header="miasto" Binding="{Binding Path=city}"/>
-                <DataGridTextColumn Header="ulica" Binding="{Binding Path=street}"/>
-                <DataGridTextColumn Header="numer budynku" Binding="{Binding Path=building_number}"/>
-                <DataGridTextColumn Header="numer mieszkania" Binding="{Binding Path=flat_number}"/>
-                <DataGridTextColumn Header="magazyn w którym pracuje" Binding="{Binding Path=warehouse_id}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Imię" Binding="{Binding Path=FirstName}"/>
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=LastName}"/>
+                <DataGridTextColumn Header="pesel" Binding="{Binding Path=peselNumber}"/>
+                <DataGridTextColumn Header="magazyn w którym pracuje" Binding="{Binding Path=WarehouseName}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

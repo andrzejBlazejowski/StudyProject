@@ -9,15 +9,17 @@
     <Grid Background="White">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Data}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=id}"/>
-                <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=name}"/>
-                <DataGridTextColumn Header="adresat" Binding="{Binding Path=destination_warehouse_id}"/>
-                <DataGridTextColumn Header="nadawca - magazyn" Binding="{Binding Path=source_warehouse_id}"/>
-                <DataGridTextColumn Header="nadawca - kontrachent" Binding="{Binding Path=source_contractor_id}"/>
-                <DataGridTextColumn Header="status" Binding="{Binding Path=delivery_status_id}"/>
-                <DataGridTextColumn Header="data stworzenia" Binding="{Binding Path=create_date}"/>
-                <DataGridTextColumn Header="data dostawy" Binding="{Binding Path=due_date}"/>
-                <DataGridTextColumn Header="sposób płatności" Binding="{Binding Path=payment_id}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="numer" Binding="{Binding Path=number}"/>
+                <DataGridTextColumn Header="adresat" Binding="{Binding Path=destinationWarehouseName}"/>
+                <DataGridTextColumn Header="nadawca - magazyn" Binding="{Binding Path=sourceWarehouseName}"/>
+                <DataGridTextColumn Header="nadawca - kontrachent" Binding="{Binding Path=sourceContractorName}"/>
+                <DataGridTextColumn Header="nadawca - kontrachent typ" Binding="{Binding Path=sourceContractorType}"/>
+                <DataGridTextColumn Header="nadawca - kontrachent adres" Binding="{Binding Path=sourceContractorAddress}"/>
+                <DataGridTextColumn Header="status" Binding="{Binding Path=DeliveryStatusId}"/>
+                <DataGridTextColumn Header="data stworzenia" Binding="{Binding Path=createDate}"/>
+                <DataGridTextColumn Header="data dostawy" Binding="{Binding Path=dueDate}"/>
+                <DataGridTextColumn Header="sposób płatności" Binding="{Binding Path=paymentMethod}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

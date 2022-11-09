@@ -41,6 +41,7 @@ namespace StudyProject.ViewModels.List
                         delivery.contractor.state + ", " +
                         delivery.contractor.city,
                     paymentMethod = delivery.payment_method.name,
+                    DeliveryStatus = delivery.delivery_status.Name,
                     createDate = delivery.create_date,
                     dueDate = delivery.due_date
                   }
