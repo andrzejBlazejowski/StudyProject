@@ -52,6 +52,8 @@ namespace StudyProject.ViewModels
         public ICommand NavigateAddStoragesCmd { get; }
         public ICommand NavigateAddWarehousesCmd { get; }
         public ICommand NavigateSalesMonthlyReportCmd { get; }
+        public ICommand NavigateComoditySalesReportReportCmd { get; }
+        
 
         public NavigationToolBarViewModel(
             NavigationService<AllBrandsViewModel> brandsNavigationService, 
@@ -88,7 +90,8 @@ namespace StudyProject.ViewModels
             NavigationService<AddStorageViewModel> AddStoragesNavigationService,
             NavigationService<AddWarehouseViewModel> AddWarehousesNavigationService,
             NavigationService<AddEmployeeViewModel> AddEmplyeesNavigationService,
-            NavigationService<MonthlySalesReport> SalesMonthlyReportNavigationService
+            NavigationService<MonthlySalesReport> SalesMonthlyReportNavigationService,
+            NavigationService<ComoditySalesReportVM> ComoditySalesReportNavigationService
             )
         {
             NavigateAllBrandsCmd = new NavigateCmd<AllBrandsViewModel>(brandsNavigationService);
@@ -126,6 +129,7 @@ namespace StudyProject.ViewModels
             NavigateAddStoragesCmd = new NavigateCmd<AddStorageViewModel>(AddStoragesNavigationService);
             NavigateAddWarehousesCmd = new NavigateCmd<AddWarehouseViewModel>(AddWarehousesNavigationService);
             NavigateSalesMonthlyReportCmd = new NavigateCmd<MonthlySalesReport>(SalesMonthlyReportNavigationService);
+            NavigateComoditySalesReportReportCmd = new NavigateCmd<ComoditySalesReportVM>(ComoditySalesReportNavigationService);
         }
     }
 }

@@ -14,6 +14,10 @@
                     <Label>Miesięczny raport sprzedaży</Label>
                 </Button>
 
+                <Button Command="{Binding  NavigateComoditySalesReportReportCmd}" ToolTip="Miesięczny raport sprzedaży">
+                    <Label>sprzedaż towarów</Label>
+                </Button>
+
                 <Button Command="{Binding NavigateAllBrandsCmd}" ToolTip="lista Pracownikow.">
                     <Label>Producenci / Marki</Label>
                     <!-- <Image Source="" />-->

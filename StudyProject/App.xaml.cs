@@ -66,7 +66,8 @@ namespace StudyProject
             CreateAddStoragesNavigationService(),
             CreateAddWarehousesNavigationService(),
             CreateAddEmplyeesNavigationService(),
-            CreateMonthlySalesReportNavigationService()
+            CreateMonthlySalesReportNavigationService(),
+            CreateComoditySalesReportNavigationService()
 
             );
         }
@@ -209,6 +210,13 @@ namespace StudyProject
                                                 return new NavigationService<AllWarehousesViewModel>(_navStore, () => new
             AllWarehousesViewModel(_navStore, _navToolBarVM));
         }
+
+
+        private NavigationService<ComoditySalesReportVM> CreateComoditySalesReportNavigationService()
+        {
+            return new NavigationService<ComoditySalesReportVM>(_navStore, () => new ComoditySalesReportVM(_navStore, _navToolBarVM));
+        }
+        
 
 
 

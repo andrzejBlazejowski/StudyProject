@@ -51,6 +51,7 @@ namespace StudyProject.ViewModels.Abstract {
         public ICommand NavigateAddStoragesCmd { get; }
         public ICommand NavigateAddWarehousesCmd { get; }
         public ICommand NavigateSalesMonthlyReportCmd { get; }
+        public ICommand NavigateComoditySalesReportReportCmd { get; }
         public String Title { get; set; }
 
 
@@ -91,6 +92,7 @@ namespace StudyProject.ViewModels.Abstract {
             NavigateAddStoragesCmd = navigationToolBarViewModel.NavigateAddStoragesCmd;
             NavigateAddWarehousesCmd = navigationToolBarViewModel.NavigateAddWarehousesCmd;
             NavigateSalesMonthlyReportCmd = navigationToolBarViewModel.NavigateSalesMonthlyReportCmd;
+            NavigateComoditySalesReportReportCmd = navigationToolBarViewModel.NavigateComoditySalesReportReportCmd;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

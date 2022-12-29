@@ -13,15 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudyProject.View.BuisnessLogic
+namespace StudyProject.View.BusinessLogic
 {
     /// <summary>
-    /// Interaction logic for ContractorSalesView.xaml
+    /// Interaction logic for MonthlySalesReport.xaml
     /// </summary>
-    public partial class ContractorSalesView : AllViewBase
+    public partial class ComoditySalesReport : AllViewBase
     {
-        public ContractorSalesView()
+        public ComoditySalesReport()
         {
+            InitializeComponent();
         }
     }
 }

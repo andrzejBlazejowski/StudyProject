@@ -48,9 +48,6 @@
     <Compile Update="View\Add\AddWarehouseView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-	<Compile Update="View\BusinessLogic\ContractorSalesView.xaml.cs">
-		<SubType>Code</SubType>
-	</Compile>
 	  
 	<Compile Update="View\Add\AddStorageView.xaml.cs">
       <SubType>Code</SubType>
@@ -97,6 +94,9 @@
     <Compile Update="View\Add\AddContractorTypeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\BusinessLogic\ComoditySalesReport.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -108,10 +108,6 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-	<Page Update="View\BusinessLogic\ContractorSalesView.xaml">
-		<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-		<SubType>Designer</SubType>
-	</Page>
     <Page Update="View\Add\AddStorageView.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
@@ -169,6 +165,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Add\AddContractorTypeView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\BusinessLogic\ComoditySalesReport.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

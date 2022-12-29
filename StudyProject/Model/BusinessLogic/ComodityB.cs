@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace StudyProject.Model.BusinessLogic
 {
-    public class ContractorB : DBClass
+    public class ComodityB : DBClass
     {
-        public ContractorB(ZaliczenieEntities zaliczenieEntities) 
+        public ComodityB(ZaliczenieEntities zaliczenieEntities) 
             :base(zaliczenieEntities)
         {
             ZaliczenieEntities = zaliczenieEntities;
@@ -17,15 +17,15 @@ namespace StudyProject.Model.BusinessLogic
         
         public ZaliczenieEntities ZaliczenieEntities { get; }
 
-        public IQueryable<KeyAndValue> GetActiveContractors() 
+        public IQueryable<KeyAndValue> GetActiveComodities() 
         {
             return (
-                    from Contractor in ZaliczenieEntities.contractors
-                    where Contractor.is_active == true
+                    from Comodity in ZaliczenieEntities.comodities
+                    where Comodity.is_active == true
                     select new KeyAndValue
                     {
-                        Key = Contractor.id,
-                        Value = Contractor.name,
+                        Key = Comodity.id,
+                        Value = Comodity.Description,
                     }
                 ).ToList().AsQueryable();
         }

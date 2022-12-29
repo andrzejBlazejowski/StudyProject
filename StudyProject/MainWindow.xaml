@@ -172,9 +172,12 @@
                 <DataTemplate DataType="{x:Type blViewModels:MonthlySalesReport}">
                     <viewsBL:MonthlySalesReport/>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type blViewModels:ComoditySalesReportVM}">
+                    <viewsBL:ComoditySalesReport/>
+                </DataTemplate>
 
 
-            </ContentControl.Resources>
+        </ContentControl.Resources>
         </ContentControl>
 
 </Window>

@@ -14,6 +14,18 @@ namespace StudyProject.Model.BusinessLogic
 
         }
 
+        public decimal? SalesComodity(int Comodity)
+        {
+            return (
+                    from invoice_item in ZaliczenieEntities.invoice_item
+                    where
+                    invoice_item.comodity_id == Comodity
+                    select
+                    (
+                        invoice_item.count
+                    )
+                ).Sum();
+        }
         public decimal? SalesMonthContractor(int contractorId, int month, int year)
         {
             DateTime firstDayOfMonth = new DateTime(year, month, 1, 0, 0, 0);
