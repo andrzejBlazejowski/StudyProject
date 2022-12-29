@@ -9,6 +9,11 @@
     <Grid>
         <ToolBarTray Width="150" Orientation="Vertical" HorizontalAlignment="Left">
             <ToolBar  Width="150">
+
+                <Button Command="{Binding  NavigateSalesMonthlyReportCmd}" ToolTip="Miesięczny raport sprzedaży">
+                    <Label>Miesięczny raport sprzedaży</Label>
+                </Button>
+
                 <Button Command="{Binding NavigateAllBrandsCmd}" ToolTip="lista Pracownikow.">
                     <Label>Producenci / Marki</Label>
                     <!-- <Image Source="" />-->

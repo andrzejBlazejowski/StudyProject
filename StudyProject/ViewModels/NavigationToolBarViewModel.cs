@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using StudyProject.View.Add;
+using StudyProject.ViewModels.BuisnesLogic;
 
 namespace StudyProject.ViewModels
 {
@@ -50,6 +51,7 @@ namespace StudyProject.ViewModels
         public ICommand NavigateAddSizeTypesCmd { get; }
         public ICommand NavigateAddStoragesCmd { get; }
         public ICommand NavigateAddWarehousesCmd { get; }
+        public ICommand NavigateSalesMonthlyReportCmd { get; }
 
         public NavigationToolBarViewModel(
             NavigationService<AllBrandsViewModel> brandsNavigationService, 
@@ -85,7 +87,9 @@ namespace StudyProject.ViewModels
             NavigationService<AddSizeTypeViewModel> AddSizeTypesNavigationService,
             NavigationService<AddStorageViewModel> AddStoragesNavigationService,
             NavigationService<AddWarehouseViewModel> AddWarehousesNavigationService,
-            NavigationService<AddEmployeeViewModel> AddEmplyeesNavigationService)
+            NavigationService<AddEmployeeViewModel> AddEmplyeesNavigationService,
+            NavigationService<MonthlySalesReport> SalesMonthlyReportNavigationService
+            )
         {
             NavigateAllBrandsCmd = new NavigateCmd<AllBrandsViewModel>(brandsNavigationService);
             NavigateAllComoditiesCmd = new NavigateCmd<AllComoditiesViewModel>(comoditiesNavigationService);
@@ -121,6 +125,7 @@ namespace StudyProject.ViewModels
             NavigateAddSizeTypesCmd = new NavigateCmd<AddSizeTypeViewModel>(AddSizeTypesNavigationService);
             NavigateAddStoragesCmd = new NavigateCmd<AddStorageViewModel>(AddStoragesNavigationService);
             NavigateAddWarehousesCmd = new NavigateCmd<AddWarehouseViewModel>(AddWarehousesNavigationService);
+            NavigateSalesMonthlyReportCmd = new NavigateCmd<MonthlySalesReport>(SalesMonthlyReportNavigationService);
         }
     }
 }

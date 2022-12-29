@@ -16,7 +16,7 @@
                 <DataGridTextColumn Header="nadawca - kontrachent" Binding="{Binding Path=sourceContractorName}"/>
                 <DataGridTextColumn Header="nadawca - kontrachent typ" Binding="{Binding Path=sourceContractorType}"/>
                 <DataGridTextColumn Header="nadawca - kontrachent adres" Binding="{Binding Path=sourceContractorAddress}"/>
-                <DataGridTextColumn Header="status" Binding="{Binding Path=DeliveryStatusId}"/>
+                <DataGridTextColumn Header="status" Binding="{Binding Path=DeliveryStatus}"/>
                 <DataGridTextColumn Header="data stworzenia" Binding="{Binding Path=createDate}"/>
                 <DataGridTextColumn Header="data dostawy" Binding="{Binding Path=dueDate}"/>
                 <DataGridTextColumn Header="sposób płatności" Binding="{Binding Path=paymentMethod}"/>

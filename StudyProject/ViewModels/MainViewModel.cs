@@ -16,7 +16,9 @@ namespace StudyProject.ViewModels
         public NavigationToolBarViewModel NavigationToolBarViewModel { get; set; }
         #endregion
         #region Constructor
-        public MainViewModel(NavStore navStore, NavigationToolBarViewModel navigationToolBarViewModel) {
+        public MainViewModel(NavStore navStore, NavigationToolBarViewModel navigationToolBarViewModel)
+          : base(navStore, navigationToolBarViewModel, "main window")
+        {
             _navStore = navStore;
 
             _navStore.CurrViewModelChanded += OnCurrentViewModelChanged;

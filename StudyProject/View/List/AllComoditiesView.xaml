@@ -9,7 +9,7 @@
     <Grid Background="White">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Data}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=id}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}"/>
                 <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Name}"/>
                 <DataGridTextColumn Header="opis" Binding="{Binding Path=Description}"/>
                 <DataGridTextColumn Header="cena netto" Binding="{Binding Path=NetUnitPrice}"/>

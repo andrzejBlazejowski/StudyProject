@@ -12,6 +12,7 @@ using StudyProject.Services;
 using StudyProject.ViewModels.List;
 using StudyProject.ViewModels;
 using StudyProject.View.Add;
+using StudyProject.ViewModels.BuisnesLogic;
 
 namespace StudyProject
 {
@@ -64,7 +65,8 @@ namespace StudyProject
             CreateAddSizeTypesNavigationService(),
             CreateAddStoragesNavigationService(),
             CreateAddWarehousesNavigationService(),
-            CreateAddEmplyeesNavigationService()
+            CreateAddEmplyeesNavigationService(),
+            CreateMonthlySalesReportNavigationService()
 
             );
         }
@@ -273,6 +275,11 @@ namespace StudyProject
         private NavigationService<AddEmployeeViewModel> CreateAddEmplyeesNavigationService()
         {
             return new NavigationService<AddEmployeeViewModel>(_navStore, () => new AddEmployeeViewModel(_navStore, _navToolBarVM));
+        }
+
+        private NavigationService<MonthlySalesReport> CreateMonthlySalesReportNavigationService()
+        {
+            return new NavigationService<MonthlySalesReport>(_navStore, () => new MonthlySalesReport(_navStore, _navToolBarVM));
         }
 
 

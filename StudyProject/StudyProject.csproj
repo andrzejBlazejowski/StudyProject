@@ -48,7 +48,11 @@
     <Compile Update="View\Add\AddWarehouseView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\Add\AddStorageView.xaml.cs">
+	<Compile Update="View\BusinessLogic\ContractorSalesView.xaml.cs">
+		<SubType>Code</SubType>
+	</Compile>
+	  
+	<Compile Update="View\Add\AddStorageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\Add\AddEmployeeView.xaml.cs">
@@ -104,6 +108,10 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
+	<Page Update="View\BusinessLogic\ContractorSalesView.xaml">
+		<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		<SubType>Designer</SubType>
+	</Page>
     <Page Update="View\Add\AddStorageView.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
