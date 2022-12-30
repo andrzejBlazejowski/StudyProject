@@ -1,5 +1,7 @@
 ﻿
 using StudyProject.Model;
+using StudyProject.Model.BusinessLogic;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.Stores;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
@@ -83,13 +85,13 @@ namespace StudyProject.ViewModels
         {
             get
             {
-                return (int)Item.net_unit_price;
+                return Item.net_unit_price;
             }
             set
             {
                 if (value != Item.net_unit_price)
                 {
-                    Item.net_unit_price = value;
+                    Item.net_unit_price = (decimal)value;
                     base.OnPropertyChanged(nameof(Item.net_unit_price));
                 }
             }
@@ -134,9 +136,16 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.category_id)
                 {
-                    Item.category_id = value;
+                    Item.category_id = (int)value;
                     base.OnPropertyChanged(nameof(Item.category_id));
                 }
+            }
+        }
+        public IQueryable<KeyAndValue> Categories
+        {
+            get
+            {
+                return new ComodityCategoryB(DB).GetActiveComodityCategories();
             }
         }
         public int SizeTypeId
@@ -147,11 +156,18 @@ namespace StudyProject.ViewModels
             }
             set
             {
-                if (value != Item.category_id)
+                if ((int)value != Item.category_id)
                 {
-                    Item.size_type_id = value;
+                    Item.size_type_id = (int)value;
                     base.OnPropertyChanged(nameof(Item.size_type_id));
                 }
+            }
+        }
+        public IQueryable<KeyAndValue> Sizes
+        {
+            get
+            {
+                return new SizeTypesB(DB).GetActiveSizeTypes();
             }
         }
         public int BrandId
@@ -162,9 +178,9 @@ namespace StudyProject.ViewModels
             }
             set
             {
-                if (value != Item.brand_id)
+                if ((int)value != Item.brand_id)
                 {
-                    Item.brand_id = value;
+                    Item.brand_id = (int)value;
                     base.OnPropertyChanged(nameof(Item.brand_id));
                 }
             }

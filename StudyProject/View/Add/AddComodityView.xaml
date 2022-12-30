@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                    
              xmlns:view="clr-namespace:StudyProject.View"
-             xmlns:local="clr-namespace:StudyProject.View.Add"
-             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:StudyProject.View.Add" xmlns:viewmodels="clr-namespace:StudyProject.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddComodityViewModel}"
+                  mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
         <Grid.ColumnDefinitions>
@@ -41,10 +41,25 @@
         <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=GrossUnitPrice, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="5" Grid.Column="0" Content="kategoria"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=CategoryId, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="5"
+            Margin="5" 
+            ItemsSource="{Binding Categories}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=CategoryId, Mode=TwoWay}"/>
 
         <Label Grid.Row="6" Grid.Column="0" Content="rozmiar"/>
-        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path=SizeTypeId, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="6"
+            Margin="5" 
+            ItemsSource="{Binding Sizes}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=SizeTypeId, Mode=TwoWay}"/>
         
         <Label Grid.Row="7" Grid.Column="0" Content="producent"/>
         <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path=BrandId, UpdateSourceTrigger=PropertyChanged}"/>

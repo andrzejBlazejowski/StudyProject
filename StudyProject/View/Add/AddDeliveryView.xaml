@@ -27,16 +27,49 @@
         <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Number, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="magazyn docelowy"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=DestinationWarhouseId, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="1"
+            Margin="5" 
+            ItemsSource="{Binding Werhouses}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=DestinationWarhouseId, Mode=TwoWay}"/>
+
+
 
         <Label Grid.Row="2" Grid.Column="0" Content="kto nadal?"/>
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=SourcenContractorId, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="magazyn adresat"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=SourceWarhouseId, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="3"
+            Margin="5" 
+            ItemsSource="{Binding Werhouses}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=SourceWarhouseId, Mode=TwoWay}"/>
+
+
 
         <Label Grid.Row="4" Grid.Column="0" Content="status dostawy"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=DeliveryStatusId, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="4"
+            Margin="5" 
+            ItemsSource="{Binding DeliveryStatuses}"
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=DeliveryStatusId, Mode=TwoWay}"/>
+
+
 
         <Label Grid.Row="5" Grid.Column="0" Content="data stworzenia"/>
         <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=CreateDate, UpdateSourceTrigger=PropertyChanged}"/>
@@ -45,7 +78,16 @@
         <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path=DueDate, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="7" Grid.Column="0" Content="sposob platnosci"/>
-        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path=PaymentId, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="7"
+            Margin="5" 
+            ItemsSource="{Binding PeymentMethods}"
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=PaymentId, Mode=TwoWay}"/>
 
     </Grid>
 </view:AllViewBase>

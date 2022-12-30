@@ -1,5 +1,7 @@
 ﻿
 using StudyProject.Model;
+using StudyProject.Model.BusinessLogic;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.Stores;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
@@ -63,6 +65,14 @@ namespace StudyProject.ViewModels
                 }
             }
         }
+
+        public IQueryable<KeyAndValue> Werhouses
+        {
+            get
+            {
+                return new WearhousesB(DB).GetActiveWearhouses();
+            }
+        }
         public int SourceWarhouseId
         {
             get
@@ -108,6 +118,14 @@ namespace StudyProject.ViewModels
                 }
             }
         }
+
+        public IQueryable<KeyAndValue> DeliveryStatuses
+        {
+            get
+            {
+                return new DeliveryStatusB(DB).GetActiveDeliveryStatuses();
+            }
+        }
         public int PaymentId
         {
             get
@@ -123,6 +141,15 @@ namespace StudyProject.ViewModels
                 }
             }
         }
+
+        public IQueryable<KeyAndValue> PeymentMethods
+        {
+            get
+            {
+                return new PaymentMethodsB(DB).GetActivePaymentMethods();
+            }
+        }
+
         public Boolean IsActive
         {
             get
