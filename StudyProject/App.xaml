@@ -2,5 +2,20 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:StudyProject">
-   
+
+    <Application.Resources>
+        <Style TargetType="Button" >
+            <Setter Property="Button.Width" Value="120"/>
+            <Setter Property="Button.Height" Value="30"/>
+            <Setter Property="Button.FontFamily" Value="Verdana"/>
+            <Setter Property="Button.FontSize" Value="14"/>
+            <Setter Property="Button.FontWeight" Value="Normal"/>
+            <Setter Property="Button.Foreground" Value="White"/>
+            <Setter Property="Button.Background" Value="DarkGreen"/>
+            <Setter Property="Button.BorderBrush" Value="Black"/>
+        </Style>
+
+    </Application.Resources>
+
+
 </Application>

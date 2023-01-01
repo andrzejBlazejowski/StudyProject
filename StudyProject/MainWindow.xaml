@@ -14,15 +14,21 @@
 
     <Window.Resources>
 
-        <Style TargetType="Grid" x:Key="nameGrid">
-            <Setter Property="Margin" Value="30"/>
-            <Style.Resources>
-                <Style TargetType="Line">
-                    <Setter Property="Fill" Value="CadetBlue"/>
-
-                </Style>
-            </Style.Resources>
+        <Style TargetType="Label" >
+            <Setter Property="Button.FontWeight" Value="Normal"/>
+            <Setter Property="Button.Foreground" Value="#777733"/>
         </Style>
+
+
+        <Style TargetType="TextBox" >
+            <Setter Property="Button.FontWeight" Value="Normal"/>
+            <Setter Property="Button.Foreground" Value="#777733"/>
+            <Setter Property="BorderBrush" Value="#777733"/>
+            
+        </Style>
+
+
+
     </Window.Resources>
     
         <ContentControl Content="{Binding CurrentViewModel}">
