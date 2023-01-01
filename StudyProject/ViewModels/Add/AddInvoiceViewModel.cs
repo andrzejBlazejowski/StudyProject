@@ -1,15 +1,12 @@
 ﻿
 using StudyProject.Model;
+using StudyProject.Model.BusinessLogic;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.Stores;
-using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using System.Xml.Linq;
+
 
 namespace StudyProject.ViewModels
 {
@@ -76,6 +73,14 @@ namespace StudyProject.ViewModels
                     Item.payment_method_id = value;
                     base.OnPropertyChanged(nameof(Item.payment_method_id));
                 }
+            }
+        }
+
+        public IQueryable<KeyAndValue> PaymentMethods
+        {
+            get
+            {
+                return new PaymentMethodsB(DB).GetActivePaymentMethods();
             }
         }
         public DateTime PaymentDate

@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:view="clr-namespace:StudyProject.View"
-             xmlns:local="clr-namespace:StudyProject.View.Add"
-             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:StudyProject.View.Add" xmlns:viewmodels="clr-namespace:StudyProject.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddEmployeeViewModel}"
+                  mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
         <Grid.ColumnDefinitions>
@@ -40,7 +40,17 @@
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=PeselNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="4" Grid.Column="0" Content="typ pracownika"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=EmployeeTypeId, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="4"
+            Margin="5" 
+            ItemsSource="{Binding EmployTypes}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=EmployeeTypeId, Mode=TwoWay}"/>
+
+
 
         <Label Grid.Row="5" Grid.Column="0" Content="panstwo"/>
         <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=Country, UpdateSourceTrigger=PropertyChanged}"/>
@@ -56,9 +66,17 @@
 
         <Label Grid.Row="9" Grid.Column="0" Content="numer lokalu"/>
         <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding Path=Flat_number, UpdateSourceTrigger=PropertyChanged}"/>
-        
+
         <Label Grid.Row="10" Grid.Column="0" Content="magazyn"/>
-        <TextBox Grid.Row="10" Grid.Column="1" Text="{Binding Path=WarehouseId, UpdateSourceTrigger=PropertyChanged}"/>
-        
+
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="10"
+            Margin="5" 
+            ItemsSource="{Binding Werhouses}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=WarehouseId, Mode=TwoWay}"/>
+
     </Grid>
 </view:AllViewBase>

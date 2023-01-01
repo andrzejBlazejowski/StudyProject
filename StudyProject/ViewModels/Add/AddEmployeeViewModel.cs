@@ -1,5 +1,7 @@
 ﻿
 using StudyProject.Model;
+using StudyProject.Model.BusinessLogic;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.Stores;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
@@ -108,6 +110,13 @@ namespace StudyProject.ViewModels
                 }
             }
         }
+        public IQueryable<KeyAndValue> EmployTypes
+        {
+            get
+            {
+                return new EmployTypeB(DB).GetActiveEmployType();
+            }
+        }
         public string Country
         {
             get
@@ -196,6 +205,14 @@ namespace StudyProject.ViewModels
                     Item.warehouse_id = value;
                     base.OnPropertyChanged(nameof(Item.warehouse_id));
                 }
+            }
+        }
+
+        public IQueryable<KeyAndValue> Werhouses
+        {
+            get
+            {
+                return new WearhousesB(DB).GetActiveWearhouses();
             }
         }
         public Boolean IsActive

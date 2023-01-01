@@ -1,5 +1,7 @@
 ﻿
 using StudyProject.Model;
+using StudyProject.Model.BusinessLogic;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.Stores;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
@@ -63,6 +65,14 @@ namespace StudyProject.ViewModels
                 }
             }
         }
+
+        public IQueryable<KeyAndValue> Werhouses
+        {
+            get
+            {
+                return new WearhousesB(DB).GetActiveWearhouses();
+            }
+        }
         public int SizeTypeId
         {
             get
@@ -76,6 +86,14 @@ namespace StudyProject.ViewModels
                     Item.size_type_id = value;
                     base.OnPropertyChanged(nameof(Item.size_type_id));
                 }
+            }
+        }
+
+        public IQueryable<KeyAndValue> Sizes
+        {
+            get
+            {
+                return new SizeTypesB(DB).GetActiveSizeTypes();
             }
         }
         public int TotalCount

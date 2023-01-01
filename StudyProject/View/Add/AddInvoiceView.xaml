@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:view="clr-namespace:StudyProject.View"
-             xmlns:local="clr-namespace:StudyProject.View.Add"
-             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:StudyProject.View.Add" xmlns:viewmodels="clr-namespace:StudyProject.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddInvoiceViewModel}"
+                  mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
         <Grid.ColumnDefinitions>
@@ -37,7 +37,15 @@
         <TextBox Grid.Row="3" Text="{Binding Path=Discount, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" />
 
         <Label Grid.Row="4" Grid.Column="0" Content="Metoda platnosci"/>
-        <TextBox Grid.Row="4" Text="{Binding Path=PaymentMethodId, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"  />
+
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="4"
+            ItemsSource="{Binding PaymentMethods}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=PaymentMethodId, Mode=TwoWay}"/>
+
 
         <Label Grid.Row="5" Grid.Column="0" Content="wartosc netto"/>
         <TextBox Grid.Row="5" Text="{Binding Path=NetValue, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" />

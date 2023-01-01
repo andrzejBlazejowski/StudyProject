@@ -25,11 +25,27 @@
         <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Number, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="numer magazynu"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=WarehouseId, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="1"
+            Margin="5" 
+            ItemsSource="{Binding Werhouses}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=WarehouseId, Mode=TwoWay}"/>
 
         <Label Grid.Row="2" Grid.Column="0" Content="rozmiar"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=SizeTypeId, UpdateSourceTrigger=PropertyChanged}"/>
-        
+
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="2"
+            Margin="5" 
+            ItemsSource="{Binding Sizes}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=SizeTypeId, Mode=TwoWay}"/>
+
         <Label Grid.Row="3" Grid.Column="0" Content="liczba calkowita"/>
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=TotalCount, UpdateSourceTrigger=PropertyChanged}"/>
 
