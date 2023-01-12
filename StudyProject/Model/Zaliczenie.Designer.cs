@@ -40,6 +40,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_invoice_payment_method", "payment_method", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.payment_method), "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.invoice), true)]
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_storage_size_type", "size_type", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.size_type), "storage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.storage), true)]
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_storage_warehouse", "warehouse", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.warehouse), "storage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.storage), true)]
+[assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_invoice_item_comodity1", "comodity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.comodity), "invoice_item", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.invoice_item), true)]
 
 #endregion
 
@@ -1383,6 +1384,28 @@ namespace StudyProject.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<invoice_item>("ZaliczenieModel.FK_invoice_item_comodity", "invoice_item", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_invoice_item_comodity1", "invoice_item")]
+        public EntityCollection<invoice_item> invoice_item1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<invoice_item>("ZaliczenieModel.FK_invoice_item_comodity1", "invoice_item");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<invoice_item>("ZaliczenieModel.FK_invoice_item_comodity1", "invoice_item", value);
                 }
             }
         }
@@ -5121,6 +5144,44 @@ namespace StudyProject.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<invoice>("ZaliczenieModel.FK_invoice_item_invoice", "invoice", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_invoice_item_comodity1", "comodity")]
+        public comodity comodity1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<comodity>("ZaliczenieModel.FK_invoice_item_comodity1", "comodity").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<comodity>("ZaliczenieModel.FK_invoice_item_comodity1", "comodity").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<comodity> comodity1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<comodity>("ZaliczenieModel.FK_invoice_item_comodity1", "comodity");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<comodity>("ZaliczenieModel.FK_invoice_item_comodity1", "comodity", value);
                 }
             }
         }

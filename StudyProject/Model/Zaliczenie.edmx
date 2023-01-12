@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ZaliczenieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ZaliczenieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="brand">
           <Key>
             <PropertyRef Name="id" />
@@ -442,13 +442,13 @@
         </Association>
         <Association Name="FK_invoice_item_comodity">
           <End Role="comodity" Type="Self.comodity" Multiplicity="1" />
-          <End Role="invoice_item" Type="Self.invoice_item" Multiplicity="0..1" />
+          <End Role="invoice_item" Type="Self.invoice_item" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="comodity">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="invoice_item">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="comodity_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -604,8 +604,7 @@
             <End Role="storage" EntitySet="storage" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ZaliczenieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -623,7 +622,7 @@
           <Property Name="building_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="flat_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="comodities" Relationship="Self.FK_comodity_brand" FromRole="brand" ToRole="comodity" />
         </EntityType>
         <EntityType Name="comodity">
@@ -640,13 +639,14 @@
           <Property Name="category_id" Type="Int32" Nullable="false" />
           <Property Name="size_type_id" Type="Int32" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="brand_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="brand" Relationship="Self.FK_comodity_brand" FromRole="comodity" ToRole="brand" />
           <NavigationProperty Name="comodity_category" Relationship="Self.FK_comodity_comodity_category" FromRole="comodity" ToRole="comodity_category" />
           <NavigationProperty Name="size_type" Relationship="Self.FK_comodity_size_type" FromRole="comodity" ToRole="size_type" />
           <NavigationProperty Name="delivery_item" Relationship="Self.FK_delivery_item_comodity" FromRole="comodity" ToRole="delivery_item" />
           <NavigationProperty Name="invoice_item" Relationship="Self.FK_invoice_item_comodity" FromRole="comodity" ToRole="invoice_item" />
+          <NavigationProperty Name="invoice_item1" Relationship="ZaliczenieModel.FK_invoice_item_comodity1" FromRole="comodity" ToRole="invoice_item" />
         </EntityType>
         <EntityType Name="comodity_category">
           <Key>
@@ -657,7 +657,7 @@
           <Property Name="description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="vat_rate" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="comodities" Relationship="Self.FK_comodity_comodity_category" FromRole="comodity_category" ToRole="comodity" />
         </EntityType>
         <EntityType Name="contractor">
@@ -681,7 +681,7 @@
           <Property Name="currency_id" Type="Int32" Nullable="false" />
           <Property Name="contractor_type_id" Type="Int32" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="contractor_type" Relationship="Self.FK_contractor_contractor_type" FromRole="contractor" ToRole="contractor_type" />
           <NavigationProperty Name="curency" Relationship="Self.FK_contractor_curency" FromRole="contractor" ToRole="curency" />
           <NavigationProperty Name="deliveries" Relationship="Self.FK_delivery_contractor" FromRole="contractor" ToRole="delivery" />
@@ -695,7 +695,7 @@
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="contractors" Relationship="Self.FK_contractor_contractor_type" FromRole="contractor_type" ToRole="contractor" />
         </EntityType>
         <EntityType Name="curency">
@@ -708,7 +708,7 @@
           <Property Name="is_default" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="sign" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="contractors" Relationship="Self.FK_contractor_curency" FromRole="curency" ToRole="contractor" />
           <NavigationProperty Name="delivery_item" Relationship="Self.FK_delivery_item_curency" FromRole="curency" ToRole="delivery_item" />
         </EntityType>
@@ -722,8 +722,8 @@
           <Property Name="source_contractor_id" Type="Int32" Nullable="false" />
           <Property Name="source_warehouse_id" Type="Int32" Nullable="false" />
           <Property Name="delivery_status_id" Type="Int32" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
-          <Property Name="due_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="due_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
           <Property Name="payment_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="contractor" Relationship="Self.FK_delivery_contractor" FromRole="delivery" ToRole="contractor" />
@@ -743,7 +743,7 @@
           <Property Name="delivery_id" Type="Int32" Nullable="false" />
           <Property Name="unit_cost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="curency_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="comodity" Relationship="Self.FK_delivery_item_comodity" FromRole="delivery_item" ToRole="comodity" />
           <NavigationProperty Name="curency" Relationship="Self.FK_delivery_item_curency" FromRole="delivery_item" ToRole="curency" />
@@ -757,7 +757,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="deliveries" Relationship="Self.FK_delivery_delivery_status" FromRole="delivery_status" ToRole="delivery" />
         </EntityType>
         <EntityType Name="employ">
@@ -777,7 +777,7 @@
           <Property Name="flat_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="warehouse_id" Type="Int32" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="employ_type" Relationship="Self.FK_employ_employ_type" FromRole="employ" ToRole="employ_type" />
           <NavigationProperty Name="warehouse" Relationship="Self.FK_employ_warehouse" FromRole="employ" ToRole="warehouse" />
         </EntityType>
@@ -789,7 +789,7 @@
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="employs" Relationship="Self.FK_employ_employ_type" FromRole="employ_type" ToRole="employ" />
         </EntityType>
         <EntityType Name="invoice">
@@ -799,16 +799,16 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="invoice_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="contractor_id" Type="Int32" Nullable="false" />
-          <Property Name="sale_date" Type="DateTime" Nullable="false" />
+          <Property Name="sale_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="discount" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="payment_method_id" Type="Int32" Nullable="false" />
-          <Property Name="payment_date" Type="DateTime" Nullable="false" />
+          <Property Name="payment_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="net_value" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="gross_value" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="paid_value" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="pending_payment_value" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="contractor" Relationship="Self.FK_invoice_contractor" FromRole="invoice" ToRole="contractor" />
           <NavigationProperty Name="invoice_item" Relationship="Self.FK_invoice_item_invoice" FromRole="invoice" ToRole="invoice_item" />
           <NavigationProperty Name="payment_method" Relationship="Self.FK_invoice_payment_method" FromRole="invoice" ToRole="payment_method" />
@@ -823,9 +823,10 @@
           <Property Name="discount" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="invoice_id" Type="Int32" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="comodity" Relationship="Self.FK_invoice_item_comodity" FromRole="invoice_item" ToRole="comodity" />
           <NavigationProperty Name="invoice" Relationship="Self.FK_invoice_item_invoice" FromRole="invoice_item" ToRole="invoice" />
+          <NavigationProperty Name="comodity1" Relationship="ZaliczenieModel.FK_invoice_item_comodity1" FromRole="invoice_item" ToRole="comodity" />
         </EntityType>
         <EntityType Name="payment_method">
           <Key>
@@ -837,7 +838,7 @@
           <Property Name="is_available_externally" Type="Boolean" Nullable="false" />
           <Property Name="is_available_internally" Type="Boolean" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="deliveries" Relationship="Self.FK_delivery_payment_method" FromRole="payment_method" ToRole="delivery" />
           <NavigationProperty Name="invoices" Relationship="Self.FK_invoice_payment_method" FromRole="payment_method" ToRole="invoice" />
         </EntityType>
@@ -850,7 +851,7 @@
           <Property Name="max_height" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="max_width" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="comodity" Relationship="Self.FK_comodity_size_type" FromRole="size_type" ToRole="comodity" />
           <NavigationProperty Name="storages" Relationship="Self.FK_storage_size_type" FromRole="size_type" ToRole="storage" />
         </EntityType>
@@ -865,7 +866,7 @@
           <Property Name="total_count" Type="Int32" Nullable="false" />
           <Property Name="free_count" Type="Int32" Nullable="false" />
           <Property Name="taken_count" Type="Int32" Nullable="false" />
-          <Property Name="create_time" Type="DateTime" Nullable="false" />
+          <Property Name="create_time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="size_type" Relationship="Self.FK_storage_size_type" FromRole="storage" ToRole="size_type" />
           <NavigationProperty Name="warehouse" Relationship="Self.FK_storage_warehouse" FromRole="storage" ToRole="warehouse" />
@@ -887,7 +888,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="is_active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="deliveries" Relationship="Self.FK_delivery_warehouse" FromRole="warehouse" ToRole="delivery" />
           <NavigationProperty Name="deliveries1" Relationship="Self.FK_delivery_warehouse1" FromRole="warehouse" ToRole="delivery" />
@@ -1249,7 +1250,23 @@
             <End Role="warehouse" EntitySet="warehouses" />
             <End Role="storage" EntitySet="storages" />
           </AssociationSet>
+          <AssociationSet Name="FK_invoice_item_comodity1" Association="ZaliczenieModel.FK_invoice_item_comodity1">
+            <End Role="comodity" EntitySet="comodities" />
+            <End Role="invoice_item" EntitySet="invoice_item" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_invoice_item_comodity1">
+          <End Type="ZaliczenieModel.comodity" Role="comodity" Multiplicity="1" />
+          <End Type="ZaliczenieModel.invoice_item" Role="invoice_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comodity">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="invoice_item">
+              <PropertyRef Name="comodity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

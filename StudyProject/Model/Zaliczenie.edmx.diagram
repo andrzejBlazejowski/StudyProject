@@ -44,6 +44,7 @@
         <AssociationConnector Association="ZaliczenieModel.FK_invoice_payment_method" ManuallyRouted="false" />
         <AssociationConnector Association="ZaliczenieModel.FK_storage_size_type" ManuallyRouted="false" />
         <AssociationConnector Association="ZaliczenieModel.FK_storage_warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="ZaliczenieModel.FK_invoice_item_comodity1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
