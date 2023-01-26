@@ -60,7 +60,7 @@ namespace StudyProject.ViewModels.Abstract {
             NavigateAllBrandsCmd = navigationToolBarViewModel.NavigateAllBrandsCmd;
             NavigateAllComoditiesCmd = navigationToolBarViewModel.NavigateAllComoditiesCmd;
             NavigateAllComodityCategoryCmd = navigationToolBarViewModel.NavigateAllComodityCategoryCmd;
-            NavigateAllContractorsCmd = navigationToolBarViewModel.NavigateAllContractorTypesCmd;
+            NavigateAllContractorsCmd = navigationToolBarViewModel.NavigateAllContractorsCmd;
             NavigateAllContractorTypesCmd = navigationToolBarViewModel.NavigateAllContractorTypesCmd;
             NavigateAllCurenciesCmd = navigationToolBarViewModel.NavigateAllCurenciesCmd;
             NavigateAllDeliveryItemsCmd = navigationToolBarViewModel.NavigateAllDeliveryItemsCmd;
@@ -77,7 +77,7 @@ namespace StudyProject.ViewModels.Abstract {
             NavigateAddBrandsCmd = navigationToolBarViewModel.NavigateAddBrandsCmd;
             NavigateAddComoditiesCmd = navigationToolBarViewModel.NavigateAddComoditiesCmd;
             NavigateAddComodityCategoryCmd = navigationToolBarViewModel.NavigateAddComodityCategoryCmd;
-            NavigateAddContractorsCmd = navigationToolBarViewModel.NavigateAddContractorTypesCmd;
+            NavigateAddContractorsCmd = navigationToolBarViewModel.NavigateAddContractorsCmd;
             NavigateAddContractorTypesCmd = navigationToolBarViewModel.NavigateAddContractorTypesCmd;
             NavigateAddCurenciesCmd = navigationToolBarViewModel.NavigateAddCurenciesCmd;
             NavigateAddDeliveryItemsCmd = navigationToolBarViewModel.NavigateAddDeliveryItemsCmd;

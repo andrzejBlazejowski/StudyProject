@@ -12,8 +12,8 @@ namespace StudyProject.Model.EntitiesForViewModel
         public int Count { get; set; }
         public string Discount { get; set; }
         public string ComodityName { get; set; }
-        public decimal ComodityGrossPrice { get; set; }
-        public decimal ComodityNetPrice { get; set; }
+        public decimal? ComodityGrossPrice { get; set; }
+        public decimal? ComodityNetPrice { get; set; }
         public string CategoryName { get; set; }
         public string SizeTypeName { get; set; }
         public string PaymentMethod { get; set; }

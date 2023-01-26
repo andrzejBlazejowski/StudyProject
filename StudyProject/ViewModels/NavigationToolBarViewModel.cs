@@ -17,6 +17,7 @@ namespace StudyProject.ViewModels
 {
     public class NavigationToolBarViewModel
     {
+        private readonly NavStore _navStore;
         public ICommand NavigateAllBrandsCmd { get; }
         public ICommand NavigateAllComoditiesCmd { get; }
         public ICommand NavigateAllComodityCategoryCmd { get; }
@@ -131,5 +132,11 @@ namespace StudyProject.ViewModels
             NavigateSalesMonthlyReportCmd = new NavigateCmd<MonthlySalesReport>(SalesMonthlyReportNavigationService);
             NavigateComoditySalesReportReportCmd = new NavigateCmd<ComoditySalesReportVM>(ComoditySalesReportNavigationService);
         }
+
+        private NavigationService<AllBrandsViewModel> CreateBrandsNavigationService()
+        {
+            return new NavigationService<AllBrandsViewModel>(_navStore, () => new AllBrandsViewModel(_navStore, this));
+        }
+
     }
 }
