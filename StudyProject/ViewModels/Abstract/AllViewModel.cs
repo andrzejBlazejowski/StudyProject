@@ -4,6 +4,7 @@ using StudyProject.Commands;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace StudyProject.ViewModels.Abstract
 {
@@ -18,9 +19,55 @@ namespace StudyProject.ViewModels.Abstract
                 return null;
             }
         }
-        public ICommand DeleteCommand;
-        public ICommand NavigateAddCommand;
-        public ICommand RefreshCommand;
+        private BaseCommand _DeleteCommand;
+        public BaseCommand DeleteCommand { 
+            get
+            {
+                if (_DeleteCommand == null)
+                    _DeleteCommand = null;
+                return _DeleteCommand;
+            }
+            set
+            {
+                _DeleteCommand = value;
+                OnPropertyChanged(() => _DeleteCommand);
+            }
+        }
+        private BaseCommand _NavigateAddCommand;
+        public BaseCommand NavigateAddCommand
+        {
+            get
+            {
+                if (_NavigateAddCommand == null)
+                    _NavigateAddCommand = new BaseCommand(() =>
+                    {
+                        Messenger.Default.Send("Add");
+                    });
+                return _NavigateAddCommand;
+            }
+            set
+            {
+                _NavigateAddCommand = value;
+                OnPropertyChanged(() => _NavigateAddCommand);
+            }
+        }
+        private BaseCommand _RefreshCommand;
+        public BaseCommand RefreshCommand
+        {
+            get
+            {
+                if (_RefreshCommand == null)
+                    _RefreshCommand = new BaseCommand(() => {
+                        Load();
+                    });
+                return _RefreshCommand;
+            }
+            set
+            {
+                _RefreshCommand = value;
+                OnPropertyChanged(() => _RefreshCommand);
+            }
+        }
         public ZaliczenieEntities ZaliczenieEntities
         { 
             get
@@ -49,9 +96,6 @@ namespace StudyProject.ViewModels.Abstract
         {
             base.Title = title;
             this.zaliczenieEntities = new ZaliczenieEntities();
-            RefreshCommand = new BaseCommand(() => {
-                Load();
-            });
         }
         #endregion
         #region Helpers

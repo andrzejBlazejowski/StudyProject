@@ -12,13 +12,13 @@ namespace StudyProject.ViewModels
         public string Key { get; set; }
         public ICommand Action { get; set; }
         public TabVM AddVM { get; set; }
-        public ActionVM(string key, ICommand action, TabVM AddVM = null)
+        public ActionVM(string key, ICommand action, TabVM addVM = null)
         {
             if (action == null)
                 throw new ArgumentNullException("Command");
             Key = key;
             Action = action;
-            AddVM = AddVM;
+            AddVM = addVM;
         }
     }
 }

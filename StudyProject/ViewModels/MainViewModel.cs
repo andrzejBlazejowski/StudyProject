@@ -1,4 +1,5 @@
-﻿using StudyProject.Commands;
+﻿using GalaSoft.MvvmLight.Messaging;
+using StudyProject.Commands;
 using StudyProject.Model.EntitiesForViewModel;
 
 using StudyProject.View;
@@ -13,6 +14,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
 
 namespace StudyProject.ViewModels
@@ -32,6 +34,7 @@ namespace StudyProject.ViewModels
         #endregion
 
         private Collection<ActionVM> createActions() {
+            Messenger.Default.Register<string>(this, handleMessage);
 
             return new Collection<ActionVM>() {
                 new ActionVM("Miesięczny raport sprzedaży",
@@ -110,6 +113,19 @@ namespace StudyProject.ViewModels
             };
         }
 
+        private void handleMessage(string message) 
+        {
+            switch (message)
+            {
+                case "Add":
+                    NavigateAdd();
+                    break;
+                default:
+                    MessageBox.Show(message);
+                    break;
+            }
+        }
+
         private void NavigateAdd() {
             ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.Tabs);
             TabVM currentTab = collectionView.CurrentItem as TabVM;
@@ -117,9 +133,9 @@ namespace StudyProject.ViewModels
             {
                 foreach (ActionVM action in Actions)
                 {
-                    if(action != null && action.Action.Equals(currentTab))
+                    if(action != null && action.Key == currentTab.Title)
                     {
-                        setCurrentTab(action.AddVM);
+                        createTab(action.AddVM);
                     }
                 }
             }
