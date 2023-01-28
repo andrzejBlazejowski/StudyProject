@@ -1,7 +1,7 @@
 ﻿using StudyProject.Commands;
 using StudyProject.Model;
-using StudyProject.Services;
-using StudyProject.Stores;
+
+
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -18,10 +18,9 @@ namespace StudyProject.ViewModels.List
     public class AllCurenciesViewModel : AllViewModel<curency>
     {
         #region Constructor
-        public AllCurenciesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "waluty")
-        {
-            NavigateAddCmd = NavigateAddCurenciesCmd;            
+        public AllCurenciesViewModel()
+            : base("waluty")
+        {         
         }
         #endregion
         #region Helpers

@@ -1,5 +1,5 @@
 ﻿using StudyProject.Model;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -16,10 +16,9 @@ namespace StudyProject.ViewModels.List
     {
 
         #region Constructor
-        public AllEmplyeeTypesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "typy pracowników")
+        public AllEmplyeeTypesViewModel()
+            : base("typy pracowników")
         {
-            NavigateAddCmd = NavigateAddEmplyeeTypesCmd;
         }
         #endregion
         #region Helpers

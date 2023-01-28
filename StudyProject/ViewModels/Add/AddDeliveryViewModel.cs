@@ -2,7 +2,7 @@
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
 {
     public class AddDeliveryViewModel : AddViewModel<delivery>
     {
-        public AddDeliveryViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "dostawy")
+        public AddDeliveryViewModel()
+            : base("dostawy")
         {
             Item = new delivery();
         }
@@ -31,7 +31,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(()=>(Item.id));
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.number)
                 {
                     Item.number = value;
-                    base.OnPropertyChanged(nameof(Item.number));
+                    base.OnPropertyChanged(()=>(Item.number));
                 }
             }
         }
@@ -61,7 +61,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.destination_warehouse_id)
                 {
                     Item.destination_warehouse_id = value;
-                    base.OnPropertyChanged(nameof(Item.destination_warehouse_id));
+                    base.OnPropertyChanged(()=>(Item.destination_warehouse_id));
                 }
             }
         }
@@ -84,7 +84,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.source_warehouse_id)
                 {
                     Item.source_warehouse_id = value;
-                    base.OnPropertyChanged(nameof(Item.source_warehouse_id));
+                    base.OnPropertyChanged(()=>(Item.source_warehouse_id));
                 }
             }
         }
@@ -99,7 +99,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.source_contractor_id)
                 {
                     Item.source_contractor_id = value;
-                    base.OnPropertyChanged(nameof(Item.source_contractor_id));
+                    base.OnPropertyChanged(()=>(Item.source_contractor_id));
                 }
             }
         }
@@ -114,7 +114,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.delivery_status_id)
                 {
                     Item.delivery_status_id = value;
-                    base.OnPropertyChanged(nameof(Item.delivery_status_id));
+                    base.OnPropertyChanged(()=>(Item.delivery_status_id));
                 }
             }
         }
@@ -137,7 +137,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.payment_id)
                 {
                     Item.payment_id = value;
-                    base.OnPropertyChanged(nameof(Item.payment_id));
+                    base.OnPropertyChanged(()=>(Item.payment_id));
                 }
             }
         }
@@ -161,7 +161,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(()=>(Item.is_active));
                 }
             }
         }
@@ -176,7 +176,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_date)
                 {
                     Item.create_date = value;
-                    base.OnPropertyChanged(nameof(Item.create_date));
+                    base.OnPropertyChanged(()=>(Item.create_date));
                 }
             }
         }
@@ -191,7 +191,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.due_date)
                 {
                     Item.due_date = value;
-                    base.OnPropertyChanged(nameof(Item.due_date));
+                    base.OnPropertyChanged(()=>(Item.due_date));
                 }
             }
         }

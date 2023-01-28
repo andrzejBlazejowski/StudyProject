@@ -2,7 +2,7 @@
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
 {
     public class AddStorageViewModel : AddViewModel<storage>
     {
-        public AddStorageViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "producent")
+        public AddStorageViewModel()
+            : base("producent")
         {
             Item = new storage();
         }
@@ -31,7 +31,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(()=>(Item.id));
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.number)
                 {
                     Item.number = value;
-                    base.OnPropertyChanged(nameof(Item.number));
+                    base.OnPropertyChanged(()=>(Item.number));
                 }
             }
         }
@@ -61,7 +61,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.warehouse_id)
                 {
                     Item.warehouse_id = value;
-                    base.OnPropertyChanged(nameof(Item.warehouse_id));
+                    base.OnPropertyChanged(()=>(Item.warehouse_id));
                 }
             }
         }
@@ -84,7 +84,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.size_type_id)
                 {
                     Item.size_type_id = value;
-                    base.OnPropertyChanged(nameof(Item.size_type_id));
+                    base.OnPropertyChanged(()=>(Item.size_type_id));
                 }
             }
         }
@@ -107,7 +107,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.total_count)
                 {
                     Item.total_count = value;
-                    base.OnPropertyChanged(nameof(Item.total_count));
+                    base.OnPropertyChanged(()=>(Item.total_count));
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.taken_count)
                 {
                     Item.taken_count = value;
-                    base.OnPropertyChanged(nameof(Item.taken_count));
+                    base.OnPropertyChanged(()=>(Item.taken_count));
                 }
             }
         }
@@ -137,7 +137,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.free_count)
                 {
                     Item.free_count = value;
-                    base.OnPropertyChanged(nameof(Item.free_count));
+                    base.OnPropertyChanged(()=>(Item.free_count));
                 }
             }
         }
@@ -152,7 +152,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(()=>(Item.is_active));
                 }
             }
         }
@@ -167,7 +167,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_time)
                 {
                     Item.create_time = value;
-                    base.OnPropertyChanged(nameof(Item.create_time));
+                    base.OnPropertyChanged(()=>(Item.create_time));
                 }
             }
         }

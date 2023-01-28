@@ -1,5 +1,5 @@
 ﻿using StudyProject.Model;
-using StudyProject.Stores;
+
 using StudyProject.Commands;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -7,7 +7,7 @@ using System;
 
 namespace StudyProject.ViewModels.Abstract
 {
-    public abstract class AllViewModel<T> :BaseViewModel where T : class
+    public abstract class AllViewModel<T> :TabVM where T : class
     {
         #region Fields
         private readonly ZaliczenieEntities zaliczenieEntities;
@@ -37,13 +37,12 @@ namespace StudyProject.ViewModels.Abstract
             set
             {
                 _Data = value;
-                OnPropertyChanged("Data");
+                OnPropertyChanged(()=>Data);
             }
         }
         #endregion
         #region Constructor
-        public AllViewModel(NavStore navStore, NavigationToolBarViewModel navigationToolBarViewModel, string title)
-            : base(navStore, navigationToolBarViewModel, title)
+        public AllViewModel(string title)
         {
             base.Title = title;
             this.zaliczenieEntities = new ZaliczenieEntities();

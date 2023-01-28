@@ -13,177 +13,28 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Window.Resources>
-
-        <Style TargetType="Label" >
-            <Setter Property="Button.FontWeight" Value="Normal"/>
-            <Setter Property="Button.Foreground" Value="#777733"/>
-        </Style>
-
-
-        <Style TargetType="TextBox" >
-            <Setter Property="Button.FontWeight" Value="Normal"/>
-            <Setter Property="Button.Foreground" Value="#777733"/>
-            <Setter Property="BorderBrush" Value="#777733"/>
-            
-        </Style>
-
-
-
+        <ResourceDictionary Source="MainWindowResources.xaml"/>
     </Window.Resources>
-    
-        <ContentControl Content="{Binding CurrentViewModel}">
-            <ContentControl.Resources>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllComoditiesViewModel}">
-                    <views:AllComoditiesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllBrandsViewModel}">
-                    <views:AllBrandsView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllComodityCategoriesViewModel}">
-                    <views:AllComodityCategoriesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllDeliveryViewModel}">
-                    <views:AllDeliveriesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllContractorsViewModel}">
-                    <views:AllContractorsView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllContractorTypesViewModel}">
-                    <views:AllContractorTypesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllCurenciesViewModel}">
-                    <views:AllCurenciesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllDeliveryItemsViewModel}">
-                    <views:AllDeliveryItemsView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllDeliveryStatusesViewModel}">
-                    <views:AllDeliveryStatusesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllEmplyeesViewModel}">
-                    <views:AllEmployeesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllEmplyeeTypesViewModel}">
-                    <views:AllEmployeeTypesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllInvoicesViewModel}">
-                    <views:AllInvoicesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllInvoiceItemsViewModel}">
-                    <views:AllInvoiceItemsView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllPaymentMethodsViewModel}">
-                    <views:AllPaymentMethodsView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllSizeTypesViewModel}">
-                    <views:AllSizeTypesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllStoragesViewModel}">
-                    <views:AllStoragesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type listViewModels:AllWarehousesViewModel}">
-                    <views:AllWarehousesView/>
-                </DataTemplate>
-
-
-
-                <DataTemplate DataType="{x:Type ViewModels:AddComodityViewModel}">
-                    <viewsAdd:AddComodityView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddBrandViewModel}">
-                    <viewsAdd:AddBrandsView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddComodityCategoryViewModel}">
-                    <viewsAdd:AddComodityCategoryView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddDeliveryViewModel}">
-                    <viewsAdd:AddDeliveryView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddContractorViewModel}">
-                    <viewsAdd:AddContractorView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddContractorTypeViewModel}">
-                    <viewsAdd:AddContractorTypeView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddCurrencyViewModel}">
-                    <viewsAdd:AddCurrencyView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddDeliveryItemViewModel}">
-                    <viewsAdd:AddDeliveryItemView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddDeliveryStatusViewModel}">
-                    <viewsAdd:AddDeliveryStatusView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddEmployeeViewModel}">
-                    <viewsAdd:AddEmployeeView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddEmployeeTypeViewModel}">
-                    <viewsAdd:AddEmployeeType/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddInvoiceItemViewModel}">
-                    <viewsAdd:AddInvoiceItemView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddInvoiceViewModel}">
-                    <viewsAdd:AddInvoiceView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddPaymentMethodViewModel}">
-                    <viewsAdd:AddPaymentMethodView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddSizeTypeViewModel}">
-                    <viewsAdd:AddSizeTypesView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddStorageViewModel}">
-                    <viewsAdd:AddStorageView/>
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type ViewModels:AddWarehouseViewModel}">
-                    <viewsAdd:AddWarehouseView/>
-                </DataTemplate>
-
-
-
-
-                <DataTemplate DataType="{x:Type blViewModels:MonthlySalesReport}">
-                    <viewsBL:MonthlySalesReport/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type blViewModels:ComoditySalesReportVM}">
-                    <viewsBL:ComoditySalesReport/>
-                </DataTemplate>
-
-
-        </ContentControl.Resources>
-        </ContentControl>
-
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <HeaderedContentControl
+        Grid.Column="0"
+        Header="Navigacja"
+        Background="Aqua"
+        Content="{Binding Path=Actions}"
+        ContentTemplate="{StaticResource ActionsTemplate}"
+        Style="{StaticResource MainHCCStyle}"
+    />
+        <HeaderedContentControl
+            Grid.Column="1"
+            Header="Przestrzeń robocza"
+            Background="Aqua"
+            Content="{Binding Path=Tabs}"
+            ContentTemplate="{StaticResource TabsTemplate}"
+            Style="{StaticResource MainHCCStyle}"
+        />
+    </Grid>
 </Window>

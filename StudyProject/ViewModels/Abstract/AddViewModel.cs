@@ -1,6 +1,6 @@
 ﻿using StudyProject.Commands;
 using StudyProject.Model;
-using StudyProject.Stores;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +10,17 @@ using System.Windows.Input;
 
 namespace StudyProject.ViewModels.Abstract
 {
-    public abstract class AddViewModel<T> : BaseViewModel
+    public abstract class AddViewModel<T> : TabVM
     {
         public ZaliczenieEntities DB { get; set; }
-        public NavigationToolBarViewModel NavigationToolBarViewModel { get; set; }
-        private SaveCmd _SaveCommand;
+        private ICommand _SaveCommand;
         public ICommand saveCommand
         {
             get
             {
                 if (_SaveCommand == null)
                 {
-                    _SaveCommand = new SaveCmd(() => Save());
+                    //_SaveCommand = new SaveCmd(() => Save());
                 }
                 return _SaveCommand;
             }
@@ -29,8 +28,7 @@ namespace StudyProject.ViewModels.Abstract
         /*public abstract ICommand saveAndCloseCommand();*/
        
         public T Item { get; set; }
-        public AddViewModel(NavStore navStore, NavigationToolBarViewModel navigationToolBarViewModel, string title)
-            :base(navStore, navigationToolBarViewModel, title)
+        public AddViewModel(string title)
         {
             base.Title = title;
             DB = new ZaliczenieEntities();

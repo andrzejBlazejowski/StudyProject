@@ -1,6 +1,6 @@
 ﻿using StudyProject.Model;
 using StudyProject.Model.EntitiesForViewModel;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -17,10 +17,9 @@ namespace StudyProject.ViewModels.List
     {
 
         #region Constructor
-        public AllInvoicesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "faktury")
+        public AllInvoicesViewModel()
+            : base("faktury")
         {
-            NavigateAddCmd = NavigateAddInvoicesCmd;
         }
         #endregion
         #region Helpers

@@ -1,6 +1,6 @@
 ﻿
 using StudyProject.Model;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -15,8 +15,8 @@ namespace StudyProject.ViewModels
 {
     public class AddCurrencyViewModel : AddViewModel<curency>
     {
-        public AddCurrencyViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "waluta")
+        public AddCurrencyViewModel()
+            : base("waluta")
         {
             Item = new curency();
         }
@@ -29,7 +29,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(()=>(Item.id));
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.name)
                 {
                     Item.name = value;
-                    base.OnPropertyChanged(nameof(Item.name));
+                    base.OnPropertyChanged(()=>(Item.name));
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.convert_rate)
                 {
                     Item.convert_rate = value;
-                    base.OnPropertyChanged(nameof(Item.convert_rate));
+                    base.OnPropertyChanged(()=>(Item.convert_rate));
                 }
             }
         }
@@ -74,7 +74,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_default)
                 {
                     Item.is_default = value;
-                    base.OnPropertyChanged(nameof(Item.is_default));
+                    base.OnPropertyChanged(()=>(Item.is_default));
                 }
             }
         }
@@ -89,7 +89,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.sign)
                 {
                     Item.sign = value;
-                    base.OnPropertyChanged(nameof(Item.sign));
+                    base.OnPropertyChanged(()=>(Item.sign));
                 }
             }
         }
@@ -104,7 +104,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(()=>(Item.is_active));
                 }
             }
         }
@@ -119,7 +119,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_date)
                 {
                     Item.create_date = value;
-                    base.OnPropertyChanged(nameof(Item.create_date));
+                    base.OnPropertyChanged(()=>(Item.create_date));
                 }
             }
         }

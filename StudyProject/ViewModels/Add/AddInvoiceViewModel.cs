@@ -2,7 +2,7 @@
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Linq;
@@ -12,8 +12,8 @@ namespace StudyProject.ViewModels
 {
     public class AddInvoiceViewModel : AddViewModel<invoice>
     {
-        public AddInvoiceViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "producent")
+        public AddInvoiceViewModel()
+            : base("producent")
         {
             Item = new invoice();
         }
@@ -26,7 +26,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(()=>(Item.id));
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.invoice_number)
                 {
                     Item.invoice_number = value;
-                    base.OnPropertyChanged(nameof(Item.invoice_number));
+                    base.OnPropertyChanged(()=>(Item.invoice_number));
                 }
             }
         }
@@ -56,7 +56,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.contractor_id)
                 {
                     Item.contractor_id = value;
-                    base.OnPropertyChanged(nameof(Item.contractor_id));
+                    base.OnPropertyChanged(()=>(Item.contractor_id));
                 }
             }
         }
@@ -71,7 +71,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.payment_method_id)
                 {
                     Item.payment_method_id = value;
-                    base.OnPropertyChanged(nameof(Item.payment_method_id));
+                    base.OnPropertyChanged(()=>(Item.payment_method_id));
                 }
             }
         }
@@ -94,7 +94,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.payment_date)
                 {
                     Item.payment_date = value;
-                    base.OnPropertyChanged(nameof(Item.payment_date));
+                    base.OnPropertyChanged(()=>(Item.payment_date));
                 }
             }
         }
@@ -110,7 +110,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.discount)
                 {
                     Item.discount = value;
-                    base.OnPropertyChanged(nameof(Item.discount));
+                    base.OnPropertyChanged(()=>(Item.discount));
                 }
             }
         }
@@ -125,7 +125,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.net_value)
                 {
                     Item.net_value = value;
-                    base.OnPropertyChanged(nameof(Item.net_value));
+                    base.OnPropertyChanged(()=>(Item.net_value));
                 }
             }
         }
@@ -140,7 +140,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.gross_value)
                 {
                     Item.gross_value = value;
-                    base.OnPropertyChanged(nameof(Item.gross_value));
+                    base.OnPropertyChanged(()=>(Item.gross_value));
                 }
             }
         }
@@ -155,7 +155,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.paid_value)
                 {
                     Item.paid_value = value;
-                    base.OnPropertyChanged(nameof(Item.paid_value));
+                    base.OnPropertyChanged(()=>(Item.paid_value));
                 }
             }
         }
@@ -170,7 +170,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.pending_payment_value)
                 {
                     Item.pending_payment_value = value;
-                    base.OnPropertyChanged(nameof(Item.pending_payment_value));
+                    base.OnPropertyChanged(()=>(Item.pending_payment_value));
                 }
             }
         }
@@ -185,7 +185,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(()=>(Item.is_active));
                 }
             }
         }
@@ -200,7 +200,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_date)
                 {
                     Item.create_date = value;
-                    base.OnPropertyChanged(nameof(Item.create_date));
+                    base.OnPropertyChanged(()=>(Item.create_date));
                 }
             }
         }

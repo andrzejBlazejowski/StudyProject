@@ -2,7 +2,7 @@
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels
 {
     public class AddEmployeeViewModel : AddViewModel<employ>
     {
-        public AddEmployeeViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "producent")
+        public AddEmployeeViewModel()
+            : base("producent")
         {
             Item = new employ();
         }
@@ -31,7 +31,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(()=>(Item.id));
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.first_name)
                 {
                     Item.first_name = value;
-                    base.OnPropertyChanged(nameof(Item.first_name));
+                    base.OnPropertyChanged(()=>(Item.first_name));
                 }
             }
         }
@@ -61,7 +61,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.last_name)
                 {
                     Item.last_name = value;
-                    base.OnPropertyChanged(nameof(Item.last_name));
+                    base.OnPropertyChanged(()=>(Item.last_name));
                 }
             }
         }
@@ -76,7 +76,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.middle_name)
                 {
                     Item.middle_name = value;
-                    base.OnPropertyChanged(nameof(Item.middle_name));
+                    base.OnPropertyChanged(()=>(Item.middle_name));
                 }
             }
         }
@@ -91,7 +91,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.pesel_number)
                 {
                     Item.pesel_number = value;
-                    base.OnPropertyChanged(nameof(Item.pesel_number));
+                    base.OnPropertyChanged(()=>(Item.pesel_number));
                 }
             }
         }
@@ -106,7 +106,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.employ_type_id)
                 {
                     Item.employ_type_id = value;
-                    base.OnPropertyChanged(nameof(Item.employ_type_id));
+                    base.OnPropertyChanged(()=>(Item.employ_type_id));
                 }
             }
         }
@@ -128,7 +128,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.country)
                 {
                     Item.country = value;
-                    base.OnPropertyChanged(nameof(Item.country));
+                    base.OnPropertyChanged(()=>(Item.country));
                 }
             }
         }
@@ -143,7 +143,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.city)
                 {
                     Item.city = value;
-                    base.OnPropertyChanged(nameof(Item.city));
+                    base.OnPropertyChanged(()=>(Item.city));
                 }
             }
         }
@@ -158,7 +158,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.street)
                 {
                     Item.street = value;
-                    base.OnPropertyChanged(nameof(Item.street));
+                    base.OnPropertyChanged(()=>(Item.street));
                 }
             }
         }
@@ -173,7 +173,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.building_number)
                 {
                     Item.building_number = value;
-                    base.OnPropertyChanged(nameof(Item.building_number));
+                    base.OnPropertyChanged(()=>(Item.building_number));
                 }
             }
         }
@@ -188,7 +188,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.flat_number)
                 {
                     Item.flat_number = value;
-                    base.OnPropertyChanged(nameof(Item.flat_number));
+                    base.OnPropertyChanged(()=>(Item.flat_number));
                 }
             }
         }
@@ -203,7 +203,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.warehouse_id)
                 {
                     Item.warehouse_id = value;
-                    base.OnPropertyChanged(nameof(Item.warehouse_id));
+                    base.OnPropertyChanged(()=>(Item.warehouse_id));
                 }
             }
         }
@@ -226,7 +226,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(()=>(Item.is_active));
                 }
             }
         }
@@ -241,7 +241,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_date)
                 {
                     Item.create_date = value;
-                    base.OnPropertyChanged(nameof(Item.create_date));
+                    base.OnPropertyChanged(()=>(Item.create_date));
                 }
             }
         }
