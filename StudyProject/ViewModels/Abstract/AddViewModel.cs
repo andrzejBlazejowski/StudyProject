@@ -38,6 +38,7 @@ namespace StudyProject.ViewModels.Abstract
         private void saveAndClose()
         {
             Save();
+            this.OnRequestClose();
         }
     }
 }

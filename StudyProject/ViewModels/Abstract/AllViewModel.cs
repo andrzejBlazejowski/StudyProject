@@ -11,13 +11,16 @@ namespace StudyProject.ViewModels.Abstract
     {
         #region Fields
         private readonly ZaliczenieEntities zaliczenieEntities;
-        public ICommand saveCommand
+        public ICommand SaveCommand
         {
             get
             {
                 return null;
             }
         }
+        public ICommand DeleteCommand;
+        public ICommand NavigateAddCommand;
+        public ICommand RefreshCommand;
         public ZaliczenieEntities ZaliczenieEntities
         { 
             get
@@ -46,6 +49,9 @@ namespace StudyProject.ViewModels.Abstract
         {
             base.Title = title;
             this.zaliczenieEntities = new ZaliczenieEntities();
+            RefreshCommand = new BaseCommand(() => {
+                Load();
+            });
         }
         #endregion
         #region Helpers

@@ -2,6 +2,7 @@
 using StudyProject.Model.EntitiesForViewModel;
 
 using StudyProject.View;
+using StudyProject.ViewModels.BuisnesLogic;
 using StudyProject.ViewModels.List;
 using System;
 using System.Collections.Generic;
@@ -33,17 +34,95 @@ namespace StudyProject.ViewModels
         private Collection<ActionVM> createActions() {
 
             return new Collection<ActionVM>() {
-                new ActionVM("brands",
-                new BaseCommand(() => createTab(new AllBrandsViewModel()))),
-                new ActionVM("comodities",
-                new BaseCommand(() => createTab(new AllComoditiesViewModel()))),
-                new ActionVM("comodities Categories",
-                new BaseCommand(() => createTab(new AllComodityCategoriesViewModel()))),
+                new ActionVM("Miesięczny raport sprzedaży",
+                new BaseCommand(() => createTab(new MonthlySalesReport()))),
+
+                new ActionVM("Raport sprzedaży towaru",
+                new BaseCommand(() => createTab(new ComoditySalesReportVM()))),
+
+                new ActionVM("producenci",
+                new BaseCommand(() => createTab(new AllBrandsViewModel())),
+                new AddBrandViewModel()),
+
+                new ActionVM("towary",
+                new BaseCommand(() => createTab(new AllComoditiesViewModel())),
+                new AddComodityViewModel()),
+
+                new ActionVM("typy towarów",
+                new BaseCommand(() => createTab(new AllComodityCategoriesViewModel())),
+                new AddComodityCategoryViewModel()),
+
                 new ActionVM("kontrachenci",
-                new BaseCommand(() => createTab(new AllContractorsViewModel()))),
-                new ActionVM("contractor types",
-                new BaseCommand(() => createTab(new AllContractorTypesViewModel()))),
+                new BaseCommand(() => createTab(new AllContractorsViewModel())),
+                new AddContractorTypeViewModel()),
+
+                new ActionVM("typy kontrachentów",
+                new BaseCommand(() => createTab(new AllContractorTypesViewModel())),
+                new AddContractorTypeViewModel()),
+
+                new ActionVM("waluty",
+                new BaseCommand(() => createTab(new AllCurenciesViewModel())), 
+                new AddCurrencyViewModel()),
+
+                new ActionVM("pozycje dostawy",
+                new BaseCommand(() => createTab(new AllDeliveryItemsViewModel())), 
+                new AddDeliveryItemViewModel()),
+
+                new ActionVM("dostawy",
+                new BaseCommand(() => createTab(new AllDeliveryViewModel())), 
+                new AddDeliveryViewModel()),
+
+                new ActionVM("statusy dostawy",
+                new BaseCommand(() => createTab(new AllDeliveryStatusesViewModel())), 
+                new AddDeliveryStatusViewModel()),
+
+                new ActionVM("pracownicy",
+                new BaseCommand(() => createTab(new AllEmplyeesViewModel())), 
+                new AddEmployeeViewModel()),
+
+                new ActionVM("typt pracowniów",
+                new BaseCommand(() => createTab(new AllEmplyeeTypesViewModel())), 
+                new AddEmployeeTypeViewModel()),
+
+                new ActionVM("pozycje faktury",
+                new BaseCommand(() => createTab(new AllInvoiceItemsViewModel())),
+                new AddInvoiceItemViewModel()),
+
+                new ActionVM("faktury",
+                new BaseCommand(() => createTab(new AllInvoicesViewModel())),
+                new AddInvoiceViewModel()),
+                
+                new ActionVM("metody płatnoci",
+                new BaseCommand(() => createTab(new AllPaymentMethodsViewModel())),
+                new AddPaymentMethodViewModel()),
+                
+                new ActionVM("rozmiary",
+                new BaseCommand(() => createTab(new AllSizeTypesViewModel())),
+                new AddSizeTypeViewModel()),
+                
+                new ActionVM("miejsca magazynowe",
+                new BaseCommand(() => createTab(new AllStoragesViewModel())),
+                new AddStorageViewModel()),
+                
+                new ActionVM("magazyny",
+                new BaseCommand(() => createTab(new AllWarehousesViewModel())),
+                new AddWarehouseViewModel()),
             };
+        }
+
+        private void NavigateAdd() {
+            ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.Tabs);
+            TabVM currentTab = collectionView.CurrentItem as TabVM;
+            if (currentTab != null)
+            {
+                foreach (ActionVM action in Actions)
+                {
+                    if(action != null && action.Action.Equals(currentTab))
+                    {
+                        setCurrentTab(action.AddVM);
+                    }
+                }
+            }
         }
 
         private void createTab(TabVM tab)
@@ -88,8 +167,6 @@ namespace StudyProject.ViewModels
         }
         private void setCurrentTab(TabVM tab)
         {
-            Debug.Assert(this.Tabs.Contains(tab));
-
             ICollectionView defaultView = CollectionViewSource.GetDefaultView(this.Tabs);
             if (defaultView != null)
                 defaultView.MoveCurrentTo(tab);

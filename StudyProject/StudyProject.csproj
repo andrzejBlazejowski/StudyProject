@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="5.0.0" />
+    <PackageReference Include="Messenger" Version="1.4.1" />
   </ItemGroup>
 
   <ItemGroup>
