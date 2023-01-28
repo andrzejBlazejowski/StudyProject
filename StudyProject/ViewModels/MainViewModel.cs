@@ -57,7 +57,7 @@ namespace StudyProject.ViewModels
 
                 new ActionVM("kontrachenci",
                 new BaseCommand(() => createTab(new AllContractorsViewModel())),
-                new AddContractorTypeViewModel()),
+                new AddContractorViewModel()),
 
                 new ActionVM("typy kontrachentów",
                 new BaseCommand(() => createTab(new AllContractorTypesViewModel())),
@@ -120,6 +120,10 @@ namespace StudyProject.ViewModels
                 case "Add":
                     NavigateAdd();
                     break;
+                case "lookupBrands":
+                    Boolean lookupMode = true;
+                    createTab(new AllBrandsViewModel(lookupMode));
+                    break;                    
                 default:
                     MessageBox.Show(message);
                     break;

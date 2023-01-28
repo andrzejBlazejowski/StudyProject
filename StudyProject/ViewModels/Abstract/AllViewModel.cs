@@ -90,12 +90,27 @@ namespace StudyProject.ViewModels.Abstract
                 OnPropertyChanged(()=>Data);
             }
         }
+        public Boolean LookupMode { get; set; }
+        private T _selectedRow;
+        public T SelectedRow {
+            get { return _selectedRow; }
+            set
+            {
+                if (LookupMode && _selectedRow != value)
+                {
+                    _selectedRow = value;
+                    Messenger.Default.Send(_selectedRow);
+                    OnRequestClose();
+                }
+            } 
+        }
         #endregion
         #region Constructor
-        public AllViewModel(string title)
+        public AllViewModel(string title, Boolean lookupMode = false)
         {
             base.Title = title;
             this.zaliczenieEntities = new ZaliczenieEntities();
+            LookupMode = lookupMode;
         }
         #endregion
         #region Helpers

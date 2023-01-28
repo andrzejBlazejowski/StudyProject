@@ -17,7 +17,7 @@ namespace StudyProject.ViewModels.List
 
         #region Constructor
         public AllComodityCategoriesViewModel()
-            : base("kategorie towarow")
+            : base("typy towarów")
         {
         }
         #endregion

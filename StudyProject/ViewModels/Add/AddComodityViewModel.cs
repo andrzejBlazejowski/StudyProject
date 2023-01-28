@@ -1,4 +1,6 @@
 ﻿
+using GalaSoft.MvvmLight.Messaging;
+using StudyProject.Commands;
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
@@ -21,6 +23,7 @@ namespace StudyProject.ViewModels
             : base("towar")
         {
             Item = new comodity();
+            Messenger.Default.Register<brand>(this, handleBrand);
         }
         public int Id {
             get
@@ -185,6 +188,7 @@ namespace StudyProject.ViewModels
                 }
             }
         }
+        public string BrandName { get; set; }
         public Boolean IsActive
         {
             get
@@ -214,6 +218,30 @@ namespace StudyProject.ViewModels
                     base.OnPropertyChanged(() => (Item.create_date));
                 }
             }
+        }
+        private BaseCommand _LookupBrands;
+        public BaseCommand LookupBrands
+        {
+            get
+            {
+                if (_LookupBrands == null)
+                {
+                    _LookupBrands = new BaseCommand(() => lookupBrands());
+                }
+                return _LookupBrands;
+            }
+        }
+
+        private void handleBrand(brand brand)
+        {
+            BrandId = brand.id;
+            BrandName = brand.name;
+            //AdresKontrachenta = kontrachentForAll.Adres;
+            //NazwaKontrachenta = kontrachentForAll.Nazwa;
+            //IdKontrachenta = kontrachentForAll.IdKontrachenta;
+        }
+        private void lookupBrands() {
+            Messenger.Default.Send("lookupBrands");
         }
 
         public override void Save()

@@ -16,7 +16,7 @@ namespace StudyProject.ViewModels
     public class AddContractorTypeViewModel : AddViewModel<contractor_type>
     {
         public AddContractorTypeViewModel()
-            : base("producent")
+            : base("typ kontrachenta")
         {
             Item = new contractor_type();
         }
