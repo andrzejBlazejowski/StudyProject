@@ -17,7 +17,7 @@ namespace StudyProject.ViewModels.List
 
         #region Constructor
         public AllDeliveryStatusesViewModel()
-            : base("pozycje dostawy")
+            : base("statusy dostawy")
         {
         }
         #endregion

@@ -236,9 +236,6 @@ namespace StudyProject.ViewModels
         {
             BrandId = brand.id;
             BrandName = brand.name;
-            //AdresKontrachenta = kontrachentForAll.Adres;
-            //NazwaKontrachenta = kontrachentForAll.Nazwa;
-            //IdKontrachenta = kontrachentForAll.IdKontrachenta;
         }
         private void lookupBrands() {
             Messenger.Default.Send("lookupBrands");

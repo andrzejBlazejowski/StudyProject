@@ -76,10 +76,24 @@
         <TextBox Grid.Row="14" Grid.Column="1" Text="{Binding Path=ShouldIncludeVat27, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="15" Grid.Column="0" Content="waluta"/>
-        <TextBox Grid.Row="15" Grid.Column="1" Text="{Binding Path=CurrencyId, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="15"
+            Margin="5" 
+            ItemsSource="{Binding Curencies}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=CurrencyId, Mode=TwoWay}"/>
 
         <Label Grid.Row="16" Grid.Column="0" Content="typ kontrachenta"/>
-        <TextBox Grid.Row="16" Grid.Column="1" Text="{Binding Path=ContractorId, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="16"
+            Margin="5" 
+            ItemsSource="{Binding ContractorTypes}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=ContractorTypeId, Mode=TwoWay}"/>
 
     </Grid>
 </view:AllViewBase>

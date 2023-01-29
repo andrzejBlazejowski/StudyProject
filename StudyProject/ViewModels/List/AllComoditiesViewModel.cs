@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels.List
     {
 
         #region Constructor
-        public AllComoditiesViewModel()
-            : base("towary")
+        public AllComoditiesViewModel(Boolean lookupMode = false)
+            : base("towary", lookupMode)
         {
             
         }

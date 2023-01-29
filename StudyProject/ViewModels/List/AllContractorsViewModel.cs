@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels.List
     {
 
         #region Constructor
-        public AllContractorsViewModel()
-            : base("kontrachenci") { }
+        public AllContractorsViewModel(Boolean lookupMode = false)
+            : base("kontrachenci", lookupMode) { }
         #endregion
         #region Helpers
         public override void Load()

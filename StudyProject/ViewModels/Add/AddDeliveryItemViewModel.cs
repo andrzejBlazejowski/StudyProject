@@ -1,6 +1,9 @@
 ﻿
+using GalaSoft.MvvmLight.Messaging;
+using StudyProject.Commands;
 using StudyProject.Model;
-
+using StudyProject.Model.BusinessLogic;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -19,6 +22,7 @@ namespace StudyProject.ViewModels
             : base("pozycja dostawy")
         {
             Item = new delivery_item();
+            Messenger.Default.Register<ComodityForViewModel>(this, handleComodity);
         }
         public int Id {
             get 
@@ -142,6 +146,13 @@ namespace StudyProject.ViewModels
                 }
             }
         }
+        public IQueryable<KeyAndValue> Curencies
+        {
+            get
+            {
+                return new CurencyB(DB).GetActiveCurencies();
+            }
+        }
 
         public override void Save()
         {
@@ -150,6 +161,30 @@ namespace StudyProject.ViewModels
             DB.delivery_item.AddObject(Item);
             DB.SaveChanges();
 
+        }
+        private BaseCommand _LookupComodity;
+        public BaseCommand LookupComodity
+        {
+            get
+            {
+                if (_LookupComodity == null)
+                {
+                    _LookupComodity = new BaseCommand(() => lookupComodity());
+                }
+                return _LookupComodity;
+            }
+        }
+
+        public string comodityName { get; set; }
+
+        private void handleComodity(ComodityForViewModel comodity)
+        {
+            comodity_id = comodity.Id;
+            comodityName = comodity.Name;
+        }
+        private void lookupComodity()
+        {
+            Messenger.Default.Send("lookupComodity");
         }
     }
 }

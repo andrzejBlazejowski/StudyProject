@@ -83,7 +83,7 @@ namespace StudyProject.ViewModels
                 new BaseCommand(() => createTab(new AllEmplyeesViewModel())), 
                 new AddEmployeeViewModel()),
 
-                new ActionVM("typt pracowniów",
+                new ActionVM("typy pracowników",
                 new BaseCommand(() => createTab(new AllEmplyeeTypesViewModel())), 
                 new AddEmployeeTypeViewModel()),
 
@@ -95,7 +95,7 @@ namespace StudyProject.ViewModels
                 new BaseCommand(() => createTab(new AllInvoicesViewModel())),
                 new AddInvoiceViewModel()),
                 
-                new ActionVM("metody płatnoci",
+                new ActionVM("metody płatności",
                 new BaseCommand(() => createTab(new AllPaymentMethodsViewModel())),
                 new AddPaymentMethodViewModel()),
                 
@@ -113,17 +113,26 @@ namespace StudyProject.ViewModels
             };
         }
 
-        private void handleMessage(string message) 
+        private void handleMessage(string message)
         {
+            Boolean lookupMode = true;
             switch (message)
             {
                 case "Add":
                     NavigateAdd();
                     break;
                 case "lookupBrands":
-                    Boolean lookupMode = true;
                     createTab(new AllBrandsViewModel(lookupMode));
-                    break;                    
+                    break;
+                case "lookupComodity":
+                    createTab(new AllComoditiesViewModel(lookupMode));
+                    break;
+                case "lookupInvoice":
+                    createTab(new AllInvoicesViewModel(lookupMode));
+                    break;
+                case "lookupContractor":
+                    createTab(new AllContractorsViewModel(lookupMode));
+                    break;
                 default:
                     MessageBox.Show(message);
                     break;

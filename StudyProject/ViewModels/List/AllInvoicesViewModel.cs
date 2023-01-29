@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels.List
     {
 
         #region Constructor
-        public AllInvoicesViewModel()
-            : base("faktury")
+        public AllInvoicesViewModel(Boolean lookupMode = false)
+            : base("faktury", lookupMode)
         {
         }
         #endregion

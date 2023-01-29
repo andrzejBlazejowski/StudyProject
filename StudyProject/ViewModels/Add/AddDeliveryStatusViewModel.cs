@@ -16,7 +16,7 @@ namespace StudyProject.ViewModels
     public class AddDeliveryStatusViewModel : AddViewModel<delivery_status>
     {
         public AddDeliveryStatusViewModel()
-            : base("status dostawy")
+            : base("statusy dostawy")
         {
             Item = new delivery_status();
         }

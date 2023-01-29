@@ -1,6 +1,8 @@
 ﻿
+using GalaSoft.MvvmLight.Messaging;
+using StudyProject.Commands;
 using StudyProject.Model;
-
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -19,6 +21,8 @@ namespace StudyProject.ViewModels
             : base("pozycja faktury")
         {
             Item = new invoice_item();
+            Messenger.Default.Register<InvoiceForViewModel>(this, handleInvoice);
+            Messenger.Default.Register<ComodityForViewModel>(this, handleComodity);
         }
         public int Id {
             get 
@@ -123,6 +127,8 @@ namespace StudyProject.ViewModels
                 }
             }
         }
+        public string InvoiceNumber { get; set; }
+        public string ComodityName { get; set; }
 
         public override void Save()
         {
@@ -131,6 +137,54 @@ namespace StudyProject.ViewModels
             DB.invoice_item.AddObject(Item);
             DB.SaveChanges();
 
+        }
+
+        private BaseCommand _LookupInvoice;
+        public BaseCommand LookupInvoice
+        {
+            get
+            {
+                if (_LookupInvoice == null)
+                {
+                    _LookupInvoice = new BaseCommand(() => lookupInvoice());
+                }
+                return _LookupInvoice;
+            }
+        }
+
+        public string comodityName { get; set; }
+
+        private void handleInvoice(InvoiceForViewModel invoice)
+        {
+            InvoiceId = invoice.Id;
+            InvoiceNumber = invoice.InvoiceNumber;
+        }
+        private void lookupInvoice()
+        {
+            Messenger.Default.Send("lookupInvoice");
+        }
+
+        private BaseCommand _LookupComodity;
+        public BaseCommand LookupComodity
+        {
+            get
+            {
+                if (_LookupComodity == null)
+                {
+                    _LookupComodity = new BaseCommand(() => lookupComodity());
+                }
+                return _LookupComodity;
+            }
+        }
+
+        private void handleComodity(ComodityForViewModel comodity)
+        {
+            ComodityId = comodity.Id;
+            ComodityName = comodity.Name;
+        }
+        private void lookupComodity()
+        {
+            Messenger.Default.Send("lookupComodity");
         }
     }
 }

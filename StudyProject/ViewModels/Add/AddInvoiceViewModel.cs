@@ -1,4 +1,6 @@
 ﻿
+using GalaSoft.MvvmLight.Messaging;
+using StudyProject.Commands;
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
@@ -16,6 +18,7 @@ namespace StudyProject.ViewModels
             : base("producent")
         {
             Item = new invoice();
+            Messenger.Default.Register<ContractorForViewModel>(this, handleContractor);
         }
         public int Id {
             get 
@@ -204,7 +207,31 @@ namespace StudyProject.ViewModels
                 }
             }
         }
+        public string ContractorName { get; set; }
 
+
+        private BaseCommand _LookupContractor;
+        public BaseCommand LookupContractor
+        {
+            get
+            {
+                if (_LookupContractor == null)
+                {
+                    _LookupContractor = new BaseCommand(() => lookupContractor());
+                }
+                return _LookupContractor;
+            }
+        }
+
+        private void handleContractor(ContractorForViewModel contractor)
+        {
+            ContractorId = contractor.Id;
+            ContractorName = contractor.Name;
+        }
+        private void lookupContractor()
+        {
+            Messenger.Default.Send("lookupContractor");
+        }
         public override void Save()
         {
             Item.is_active = true;

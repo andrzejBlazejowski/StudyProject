@@ -18,7 +18,7 @@ namespace StudyProject.ViewModels.List
 
         #region Constructor
         public AllStoragesViewModel()
-            : base("miejsca w magazynach")
+            : base("miejsca magazynowe")
         {
         }
         #endregion

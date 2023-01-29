@@ -1,5 +1,7 @@
 ﻿
 using StudyProject.Model;
+using StudyProject.Model.BusinessLogic;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -243,6 +245,13 @@ namespace StudyProject.ViewModels
                 }
             }
         }
+        public IQueryable<KeyAndValue> ContractorTypes
+        {
+            get
+            {
+                return new ContractorTypeB(DB).GetActiveContractorTypes();
+            }
+        }
         public int CurrencyId
         {
             get
@@ -256,6 +265,13 @@ namespace StudyProject.ViewModels
                     Item.currency_id = value;
                     base.OnPropertyChanged(()=>(Item.currency_id));
                 }
+            }
+        }
+        public IQueryable<KeyAndValue> Curencies
+        {
+            get
+            {
+                return new CurencyB(DB).GetActiveCurencies();
             }
         }
         public Boolean IsActive

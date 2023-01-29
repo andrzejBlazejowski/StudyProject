@@ -17,7 +17,7 @@ namespace StudyProject.ViewModels.List
 
         #region Constructor
         public AllSizeTypesViewModel()
-            : base("dostępne rozmiary")
+            : base("rozmiary")
         {
         }
         #endregion

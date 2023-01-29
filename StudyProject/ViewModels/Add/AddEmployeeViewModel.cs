@@ -18,7 +18,7 @@ namespace StudyProject.ViewModels
     public class AddEmployeeViewModel : AddViewModel<employ>
     {
         public AddEmployeeViewModel()
-            : base("producent")
+            : base("pracownik")
         {
             Item = new employ();
         }
