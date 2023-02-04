@@ -31,7 +31,9 @@
                     </StackPanel>
                 </Button>
                 <Button Command="{Binding RefreshCommand}" ToolTip="odswiez">
-                    <Label>odswiez</Label>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Components/refresh.png" Width="30" Height="30" Margin="5"/>
+                    </StackPanel>
                 </Button>
             </ToolBar>
         </ToolBarTray>

@@ -11,10 +11,13 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <components:topNavComponent Grid.Row="0"/>
-                        <ContentPresenter Grid.Row="1"   Margin="0,5,0,5"/>
+                        <components:SortingAndFiltering Grid.Row="1"/>
+                        
+                        <ContentPresenter Grid.Row="2"   Margin="0,5,0,5"/>
 
                     </Grid>
 
