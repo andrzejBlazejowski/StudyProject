@@ -1,6 +1,7 @@
 ﻿
 using StudyProject.Model;
-using StudyProject.Stores;
+using StudyProject.Model.BusinessLogic;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -15,8 +16,8 @@ namespace StudyProject.ViewModels
 {
     public class AddContractorViewModel : AddViewModel<contractor>
     {
-        public AddContractorViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "kontrachent")
+        public AddContractorViewModel()
+            : base("kontrachent")
         {
             Item = new contractor();
         }
@@ -29,7 +30,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(() => (Item.id));
                 }
             }
         }
@@ -44,7 +45,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.name)
                 {
                     Item.name = value;
-                    base.OnPropertyChanged(nameof(Item.name));
+                    base.OnPropertyChanged(() => (Item.name));
                 }
             }
         }
@@ -59,7 +60,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.tax_number)
                 {
                     Item.tax_number = value;
-                    base.OnPropertyChanged(nameof(Item.tax_number));
+                    base.OnPropertyChanged(() => (Item.tax_number));
                 }
             }
         }
@@ -74,7 +75,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.tax_name)
                 {
                     Item.tax_name = value;
-                    base.OnPropertyChanged(nameof(Item.tax_name));
+                    base.OnPropertyChanged(()=>(Item.tax_name));
                 }
             }
         }
@@ -90,7 +91,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.state)
                 {
                     Item.state = value;
-                    base.OnPropertyChanged(nameof(Item.state));
+                    base.OnPropertyChanged(()=>(Item.state));
                 }
             }
         }
@@ -105,7 +106,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.city)
                 {
                     Item.city = value;
-                    base.OnPropertyChanged(nameof(Item.city));
+                    base.OnPropertyChanged(()=>(Item.city));
                 }
             }
         }
@@ -120,7 +121,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.street)
                 {
                     Item.street = value;
-                    base.OnPropertyChanged(nameof(Item.street));
+                    base.OnPropertyChanged(()=>(Item.street));
                 }
             }
         }
@@ -135,7 +136,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.building_number)
                 {
                     Item.building_number = value;
-                    base.OnPropertyChanged(nameof(Item.building_number));
+                    base.OnPropertyChanged(()=>(Item.building_number));
                 }
             }
         }
@@ -150,7 +151,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.flat_number)
                 {
                     Item.flat_number = value;
-                    base.OnPropertyChanged(nameof(Item.flat_number));
+                    base.OnPropertyChanged(()=>(Item.flat_number));
                 }
             }
         }
@@ -165,7 +166,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.zip_code)
                 {
                     Item.zip_code = value;
-                    base.OnPropertyChanged(nameof(Item.zip_code));
+                    base.OnPropertyChanged(()=>(Item.zip_code));
                 }
             }
         }
@@ -180,7 +181,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.post_office_city)
                 {
                     Item.post_office_city = value;
-                    base.OnPropertyChanged(nameof(Item.post_office_city));
+                    base.OnPropertyChanged(()=>(Item.post_office_city));
                 }
             }
         }
@@ -195,7 +196,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.additional_info)
                 {
                     Item.additional_info = value;
-                    base.OnPropertyChanged(nameof(Item.additional_info));
+                    base.OnPropertyChanged(()=>(Item.additional_info));
                 }
             }
         }
@@ -210,7 +211,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_vat_taxpayer)
                 {
                     Item.is_vat_taxpayer = value;
-                    base.OnPropertyChanged(nameof(Item.is_vat_taxpayer));
+                    base.OnPropertyChanged(()=>(Item.is_vat_taxpayer));
                 }
             }
         }
@@ -225,7 +226,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.should_include_vat_27)
                 {
                     Item.should_include_vat_27 = value;
-                    base.OnPropertyChanged(nameof(Item.should_include_vat_27));
+                    base.OnPropertyChanged(()=>(Item.should_include_vat_27));
                 }
             }
         }
@@ -240,8 +241,15 @@ namespace StudyProject.ViewModels
                 if (value != Item.contractor_type_id)
                 {
                     Item.contractor_type_id = value;
-                    base.OnPropertyChanged(nameof(Item.contractor_type_id));
+                    base.OnPropertyChanged(()=>(Item.contractor_type_id));
                 }
+            }
+        }
+        public IQueryable<KeyAndValue> ContractorTypes
+        {
+            get
+            {
+                return new ContractorTypeB(DB).GetActiveContractorTypes();
             }
         }
         public int CurrencyId
@@ -255,8 +263,15 @@ namespace StudyProject.ViewModels
                 if (value != Item.currency_id)
                 {
                     Item.currency_id = value;
-                    base.OnPropertyChanged(nameof(Item.currency_id));
+                    base.OnPropertyChanged(()=>(Item.currency_id));
                 }
+            }
+        }
+        public IQueryable<KeyAndValue> Curencies
+        {
+            get
+            {
+                return new CurencyB(DB).GetActiveCurencies();
             }
         }
         public Boolean IsActive
@@ -270,7 +285,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(()=>(Item.is_active));
                 }
             }
         }
@@ -285,7 +300,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_date)
                 {
                     Item.create_date = value;
-                    base.OnPropertyChanged(nameof(Item.create_date));
+                    base.OnPropertyChanged(()=>(Item.create_date));
                 }
             }
         }

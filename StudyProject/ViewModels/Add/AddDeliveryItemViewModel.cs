@@ -1,6 +1,9 @@
 ﻿
+using GalaSoft.MvvmLight.Messaging;
+using StudyProject.Commands;
 using StudyProject.Model;
-using StudyProject.Stores;
+using StudyProject.Model.BusinessLogic;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -15,10 +18,11 @@ namespace StudyProject.ViewModels
 {
     public class AddDeliveryItemViewModel : AddViewModel<delivery_item>
     {
-        public AddDeliveryItemViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "pozycja dostawy")
+        public AddDeliveryItemViewModel()
+            : base("pozycja dostawy")
         {
             Item = new delivery_item();
+            Messenger.Default.Register<ComodityForViewModel>(this, handleComodity);
         }
         public int Id {
             get 
@@ -29,7 +33,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(()=>(Item.id));
                 }
             }
         }
@@ -44,7 +48,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.comodity_id)
                 {
                     Item.comodity_id = value;
-                    base.OnPropertyChanged(nameof(Item.comodity_id));
+                    base.OnPropertyChanged(()=>(Item.comodity_id));
                 }
             }
         }
@@ -59,7 +63,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.count)
                 {
                     Item.count = value;
-                    base.OnPropertyChanged(nameof(Item.count));
+                    base.OnPropertyChanged(()=>(Item.count));
                 }
             }
         }
@@ -74,7 +78,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.unit_cost)
                 {
                     Item.unit_cost = value;
-                    base.OnPropertyChanged(nameof(Item.unit_cost));
+                    base.OnPropertyChanged(()=>(Item.unit_cost));
                 }
             }
         }
@@ -89,7 +93,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.delivery_id)
                 {
                     Item.delivery_id = value;
-                    base.OnPropertyChanged(nameof(Item.delivery_id));
+                    base.OnPropertyChanged(()=>(Item.delivery_id));
                 }
             }
         }
@@ -104,7 +108,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.curency_id)
                 {
                     Item.curency_id = value;
-                    base.OnPropertyChanged(nameof(Item.curency_id));
+                    base.OnPropertyChanged(()=>(Item.curency_id));
                 }
             }
         }
@@ -123,7 +127,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(()=>(Item.is_active));
                 }
             }
         }
@@ -138,8 +142,15 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_date)
                 {
                     Item.create_date = value;
-                    base.OnPropertyChanged(nameof(Item.create_date));
+                    base.OnPropertyChanged(()=>(Item.create_date));
                 }
+            }
+        }
+        public IQueryable<KeyAndValue> Curencies
+        {
+            get
+            {
+                return new CurencyB(DB).GetActiveCurencies();
             }
         }
 
@@ -150,6 +161,30 @@ namespace StudyProject.ViewModels
             DB.delivery_item.AddObject(Item);
             DB.SaveChanges();
 
+        }
+        private BaseCommand _LookupComodity;
+        public BaseCommand LookupComodity
+        {
+            get
+            {
+                if (_LookupComodity == null)
+                {
+                    _LookupComodity = new BaseCommand(() => lookupComodity());
+                }
+                return _LookupComodity;
+            }
+        }
+
+        public string comodityName { get; set; }
+
+        private void handleComodity(ComodityForViewModel comodity)
+        {
+            comodity_id = comodity.Id;
+            comodityName = comodity.Name;
+        }
+        private void lookupComodity()
+        {
+            Messenger.Default.Send("lookupComodity");
         }
     }
 }

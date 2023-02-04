@@ -12,6 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -24,7 +25,8 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="towar"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=comodity_id, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="0" Grid.Column="1" IsEnabled="false" Text="{Binding Path=comodityName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Row="0" Grid.Column="2"  Command="{Binding LookupComodity}" Content="..."/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="ilosc"/>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=count, UpdateSourceTrigger=PropertyChanged}"/>
@@ -36,7 +38,14 @@
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=unit_cost, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="4" Grid.Column="0" Content="waluta"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=curency_id, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="4"
+            Margin="5" 
+            ItemsSource="{Binding Curencies}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=curency_id, Mode=TwoWay}"/>
 
     </Grid>
 </view:AllViewBase>

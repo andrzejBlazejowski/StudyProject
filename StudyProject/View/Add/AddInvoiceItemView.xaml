@@ -11,6 +11,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -20,7 +21,8 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="towar"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=ComodityId, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="0" Grid.Column="1" IsEnabled="false" Text="{Binding Path=ComodityName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Row="0" Grid.Column="2" Command="{Binding LookupComodity}" Content="..."/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="ilosc"/>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Count, UpdateSourceTrigger=PropertyChanged}"/>
@@ -29,7 +31,8 @@
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Discount, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="faktura"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=InvoiceId, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" IsEnabled="false" Text="{Binding Path=InvoiceNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Row="3" Grid.Column="2" Command="{Binding LookupInvoice}" Content="..."/>
 
     </Grid>
 </view:AllViewBase>

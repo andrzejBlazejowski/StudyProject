@@ -1,6 +1,6 @@
 ﻿
 using StudyProject.Model;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -15,8 +15,8 @@ namespace StudyProject.ViewModels
 {
     public class AddEmployeeTypeViewModel : AddViewModel<employ_type>
     {
-        public AddEmployeeTypeViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "typ pracownika")
+        public AddEmployeeTypeViewModel()
+            : base("typ pracownika")
         {
             Item = new employ_type();
         }
@@ -29,7 +29,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(()=>(Item.id));
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.name)
                 {
                     Item.name = value;
-                    base.OnPropertyChanged(nameof(Item.name));
+                    base.OnPropertyChanged(()=>(Item.name));
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.description)
                 {
                     Item.description = value;
-                    base.OnPropertyChanged(nameof(Item.description));
+                    base.OnPropertyChanged(()=>(Item.description));
                 }
             }
         }
@@ -74,7 +74,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(()=>(Item.is_active));
                 }
             }
         }
@@ -89,7 +89,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_date)
                 {
                     Item.create_date = value;
-                    base.OnPropertyChanged(nameof(Item.create_date));
+                    base.OnPropertyChanged(()=>(Item.create_date));
                 }
             }
         }

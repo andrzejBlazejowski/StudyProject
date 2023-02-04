@@ -1,6 +1,7 @@
 ﻿using StudyProject.Model;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels.Abstract;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -9,10 +10,9 @@ namespace StudyProject.ViewModels.List
     public class AllBrandsViewModel : AllViewModel<brand>
     {
         #region Constructor
-        public AllBrandsViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "producenci")
-        {
-            NavigateAddCmd = NavigateAddBrandsCmd;
+        public AllBrandsViewModel(Boolean lookupMode = false)
+            : base("producenci", lookupMode)
+        {          
         }
         #endregion
         #region Helpers

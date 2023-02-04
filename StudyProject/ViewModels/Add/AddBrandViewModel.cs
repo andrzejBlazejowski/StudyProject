@@ -1,6 +1,6 @@
 ﻿
 using StudyProject.Model;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -15,8 +15,8 @@ namespace StudyProject.ViewModels
 {
     public class AddBrandViewModel : AddViewModel<brand>
     {
-        public AddBrandViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "producent")
+        public AddBrandViewModel()
+            : base("producent")
         {
             Item = new brand();
         }
@@ -29,7 +29,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(()=>(Item.id));
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.name)
                 {
                     Item.name = value;
-                    base.OnPropertyChanged(nameof(Item.name));
+                    base.OnPropertyChanged(()=>(Item.name));
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.description)
                 {
                     Item.description = value;
-                    base.OnPropertyChanged(nameof(Item.description));
+                    base.OnPropertyChanged(()=>(Item.description));
                 }
             }
         }
@@ -74,7 +74,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.country)
                 {
                     Item.country = value;
-                    base.OnPropertyChanged(nameof(Item.country));
+                    base.OnPropertyChanged(()=>(Item.country));
                 }
             }
         }
@@ -89,7 +89,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.state)
                 {
                     Item.state = value;
-                    base.OnPropertyChanged(nameof(Item.state));
+                    base.OnPropertyChanged(()=>(Item.state));
                 }
             }
         }
@@ -104,7 +104,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.city)
                 {
                     Item.city = value;
-                    base.OnPropertyChanged(nameof(Item.city));
+                    base.OnPropertyChanged(()=>(Item.city));
                 }
             }
         }
@@ -119,7 +119,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.street)
                 {
                     Item.street = value;
-                    base.OnPropertyChanged(nameof(Item.street));
+                    base.OnPropertyChanged(()=>(Item.street));
                 }
             }
         }
@@ -134,7 +134,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.building_number)
                 {
                     Item.building_number = value;
-                    base.OnPropertyChanged(nameof(Item.building_number));
+                    base.OnPropertyChanged(()=>(Item.building_number));
                 }
             }
         }
@@ -149,7 +149,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.flat_number)
                 {
                     Item.flat_number = value;
-                    base.OnPropertyChanged(nameof(Item.flat_number));
+                    base.OnPropertyChanged(()=>(Item.flat_number));
                 }
             }
         }
@@ -164,7 +164,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(()=>(Item.is_active));
                 }
             }
         }
@@ -179,7 +179,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_date)
                 {
                     Item.create_date = value;
-                    base.OnPropertyChanged(nameof(Item.create_date));
+                    base.OnPropertyChanged(()=>(Item.create_date));
                 }
             }
         }

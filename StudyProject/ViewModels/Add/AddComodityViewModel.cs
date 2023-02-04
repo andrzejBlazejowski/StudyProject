@@ -1,8 +1,10 @@
 ﻿
+using GalaSoft.MvvmLight.Messaging;
+using StudyProject.Commands;
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -17,10 +19,11 @@ namespace StudyProject.ViewModels
 {
     public class AddComodityViewModel : AddViewModel<comodity>
     {
-        public AddComodityViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "towar")
+        public AddComodityViewModel()
+            : base("towar")
         {
             Item = new comodity();
+            Messenger.Default.Register<brand>(this, handleBrand);
         }
         public int Id {
             get
@@ -31,7 +34,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(()=>Item.id);
                 }
             }
         }
@@ -46,7 +49,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.Name)
                 {
                     Item.Name = value;
-                    base.OnPropertyChanged(nameof(Item.Name));
+                    base.OnPropertyChanged(()=>Item.Name);
                 }
             }
         }
@@ -61,7 +64,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.Description)
                 {
                     Item.Description = value;
-                    base.OnPropertyChanged(nameof(Item.Description));
+                    base.OnPropertyChanged(()=>(Item.Description));
                 }
             }
         }
@@ -77,7 +80,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.ordinal_number)
                 {
                     Item.ordinal_number = value;
-                    base.OnPropertyChanged(nameof(Item.ordinal_number));
+                    base.OnPropertyChanged(()=>(Item.ordinal_number));
                 }
             }
         }
@@ -92,7 +95,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.net_unit_price)
                 {
                     Item.net_unit_price = (decimal)value;
-                    base.OnPropertyChanged(nameof(Item.net_unit_price));
+                    base.OnPropertyChanged(()=>(Item.net_unit_price));
                 }
             }
         }
@@ -107,7 +110,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.vat_rate)
                 {
                     Item.vat_rate = value;
-                    base.OnPropertyChanged(nameof(Item.vat_rate));
+                    base.OnPropertyChanged(()=>(Item.vat_rate));
                 }
             }
         }
@@ -122,7 +125,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.gross_unit_price)
                 {
                     Item.gross_unit_price = value;
-                    base.OnPropertyChanged(nameof(Item.gross_unit_price));
+                    base.OnPropertyChanged(() => (Item.gross_unit_price));
                 }
             }
         }
@@ -137,7 +140,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.category_id)
                 {
                     Item.category_id = (int)value;
-                    base.OnPropertyChanged(nameof(Item.category_id));
+                    base.OnPropertyChanged(() => (Item.category_id));
                 }
             }
         }
@@ -159,7 +162,7 @@ namespace StudyProject.ViewModels
                 if ((int)value != Item.category_id)
                 {
                     Item.size_type_id = (int)value;
-                    base.OnPropertyChanged(nameof(Item.size_type_id));
+                    base.OnPropertyChanged(() => (Item.size_type_id));
                 }
             }
         }
@@ -181,10 +184,11 @@ namespace StudyProject.ViewModels
                 if ((int)value != Item.brand_id)
                 {
                     Item.brand_id = (int)value;
-                    base.OnPropertyChanged(nameof(Item.brand_id));
+                    base.OnPropertyChanged(() => (Item.brand_id));
                 }
             }
         }
+        public string BrandName { get; set; }
         public Boolean IsActive
         {
             get
@@ -196,7 +200,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(() => (Item.is_active));
                 }
             }
         }
@@ -211,9 +215,30 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_date)
                 {
                     Item.create_date = value;
-                    base.OnPropertyChanged(nameof(Item.create_date));
+                    base.OnPropertyChanged(() => (Item.create_date));
                 }
             }
+        }
+        private BaseCommand _LookupBrands;
+        public BaseCommand LookupBrands
+        {
+            get
+            {
+                if (_LookupBrands == null)
+                {
+                    _LookupBrands = new BaseCommand(() => lookupBrands());
+                }
+                return _LookupBrands;
+            }
+        }
+
+        private void handleBrand(brand brand)
+        {
+            BrandId = brand.id;
+            BrandName = brand.name;
+        }
+        private void lookupBrands() {
+            Messenger.Default.Send("lookupBrands");
         }
 
         public override void Save()

@@ -1,5 +1,5 @@
 ﻿using StudyProject.Model;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -16,10 +16,9 @@ namespace StudyProject.ViewModels.List
     {
 
         #region Constructor
-        public AllWarehousesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "magazyny")
+        public AllWarehousesViewModel()
+            : base("magazyny")
         {
-            NavigateAddCmd = NavigateAddWarehousesCmd;
         }
         #endregion
         #region Helpers

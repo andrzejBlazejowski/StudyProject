@@ -2,14 +2,12 @@
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
-using StudyProject.Stores;
-using StudyProject.ViewModels.Abstract;
 using System.Linq;
 using System.Windows.Input;
 
 namespace StudyProject.ViewModels.BuisnesLogic
 {
-    public class ComoditySalesReportVM : BaseViewModel
+    public class ComoditySalesReportVM : TabVM
     {
 
         public int _comodityId;
@@ -21,11 +19,11 @@ namespace StudyProject.ViewModels.BuisnesLogic
                 if (value != _comodityId)
                 {
                     _comodityId = value;
-                    OnPropertyChanged(nameof(_comodityId));
+                    OnPropertyChanged(()=>(_comodityId));
                 }
             }
         }
-        private SaveCmd _SaveCommand;
+        private ICommand _SaveCommand;
         public ICommand saveCommand
         {
             get
@@ -52,16 +50,15 @@ namespace StudyProject.ViewModels.BuisnesLogic
                 if (value != _takings)
                 {
                     _takings = value;
-                    OnPropertyChanged(nameof(_takings));
-                    OnPropertyChanged(nameof(Takings));
+                    OnPropertyChanged(()=>(_takings));
+                    OnPropertyChanged(()=>(Takings));
                 }
             }
         }
 
         public ZaliczenieEntities zaliczenieEntities { get; set; }
 
-        public ComoditySalesReportVM(NavStore navStore, NavigationToolBarViewModel navigationToolBarViewModel)
-              : base(navStore, navigationToolBarViewModel, "raport spżedaży dla zadanego towaru")
+        public ComoditySalesReportVM()
         {
             base.Title = "raport spżedaży dla zadanego towaru";
             zaliczenieEntities = new ZaliczenieEntities();

@@ -9,25 +9,30 @@
     <Grid>
         <ToolBarTray Width="1920" Orientation="Horizontal" VerticalAlignment="Top">
             <ToolBar  Width="1920">
-                <Button Command="{Binding NavigateAddCmd}" ToolTip="Dodaj">
+                <Button Command="{Binding NavigateAddCommand}" ToolTip="Dodaj">
                     <StackPanel Orientation="Horizontal">
                         <Image Width="30" Height="30" Margin="5" Source="/Components/plus.png"/>
                     </StackPanel>
                 </Button>
-                <Button Command="{Binding NavigateAllBrandsCmd}" ToolTip="Usun">
+                <Button Command="{Binding DeleteCommand}" ToolTip="Usun">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Components/remove.png" Width="30" Height="30" Margin="5"/>
                     </StackPanel>
                 </Button>
-                <Button Command="{Binding saveCommand}" ToolTip="zapisz">
+                <Button Command="{Binding SaveCommand}" ToolTip="zapisz">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Components/save.png" Width="30" Height="30" Margin="5"/>
                     </StackPanel>
                 </Button>
-                <Button Command="{Binding NavigateAllBrandsCmd}" ToolTip="zamknij">
+                <Button Command="{Binding CloseCommand}" ToolTip="zamknij">
 
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Components/close.png" Width="30" Height="30" Margin="5"/>
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding RefreshCommand}" ToolTip="odswiez">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Components/refresh.png" Width="30" Height="30" Margin="5"/>
                     </StackPanel>
                 </Button>
             </ToolBar>

@@ -1,6 +1,6 @@
 ﻿
 using StudyProject.Model;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -15,8 +15,8 @@ namespace StudyProject.ViewModels
 {
     public class AddSizeTypeViewModel : AddViewModel<size_type>
     {
-        public AddSizeTypeViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "rozmiar")
+        public AddSizeTypeViewModel()
+            : base("rozmiar")
         {
             Item = new size_type();
         }
@@ -29,7 +29,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(()=>(Item.id));
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.name)
                 {
                     Item.name = value;
-                    base.OnPropertyChanged(nameof(Item.name));
+                    base.OnPropertyChanged(()=>(Item.name));
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.max_height)
                 {
                     Item.max_height = value;
-                    base.OnPropertyChanged(nameof(Item.max_height));
+                    base.OnPropertyChanged(()=>(Item.max_height));
                 }
             }
         }
@@ -74,7 +74,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.max_width)
                 {
                     Item.max_width = value;
-                    base.OnPropertyChanged(nameof(Item.max_width));
+                    base.OnPropertyChanged(()=>(Item.max_width));
                 }
             }
         }
@@ -89,7 +89,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(()=>(Item.is_active));
                 }
             }
         }
@@ -104,7 +104,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_date)
                 {
                     Item.create_date = value;
-                    base.OnPropertyChanged(nameof(Item.create_date));
+                    base.OnPropertyChanged(()=>(Item.create_date));
                 }
             }
         }

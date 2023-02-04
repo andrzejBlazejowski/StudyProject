@@ -8,9 +8,12 @@
 
   <ItemGroup>
     <None Remove="Components\close.png" />
+    <None Remove="Components\filter.png" />
     <None Remove="Components\plus.png" />
+    <None Remove="Components\refresh.png" />
     <None Remove="Components\remove.png" />
     <None Remove="Components\save.png" />
+    <None Remove="Components\sort.png" />
     <None Remove="Model\Zaliczenie.edmx" />
   </ItemGroup>
 
@@ -23,6 +26,8 @@
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="5.0.0" />
+    <PackageReference Include="Messenger" Version="1.4.1" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,12 +36,18 @@
 
   <ItemGroup>
     <Resource Include="Components\close.png" />
+    <Resource Include="Components\filter.png" />
     <Resource Include="Components\plus.png" />
+    <Resource Include="Components\refresh.png" />
     <Resource Include="Components\remove.png" />
     <Resource Include="Components\save.png" />
+    <Resource Include="Components\sort.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Components\SortingAndFiltering.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\topNavComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -100,6 +111,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Components\SortingAndFiltering.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Components\topNavComponent.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>

@@ -1,5 +1,5 @@
 ﻿using StudyProject.Model;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -16,10 +16,9 @@ namespace StudyProject.ViewModels.List
     {
 
         #region Constructor
-        public AllContractorTypesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "typy kontrachentów")
+        public AllContractorTypesViewModel()
+            : base("typy kontrachentów")
         {
-            NavigateAddCmd = NavigateAddContractorTypesCmd;
         }
         #endregion
         #region Helpers

@@ -2,8 +2,6 @@
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
-using StudyProject.Stores;
-using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +10,7 @@ using System.Windows.Input;
 
 namespace StudyProject.ViewModels.BuisnesLogic
 {
-    public class MonthlySalesReport: BaseViewModel
+    public class MonthlySalesReport: TabVM
     {
         public int _month;
         public int Month { 
@@ -21,7 +19,7 @@ namespace StudyProject.ViewModels.BuisnesLogic
                 if (value != _month) 
                 {
                     _month = value;
-                    OnPropertyChanged(nameof(_month));
+                    OnPropertyChanged(()=>(_month));
                 }
             }
         }
@@ -35,11 +33,11 @@ namespace StudyProject.ViewModels.BuisnesLogic
                 if (value != _year)
                 {
                     _year = value;
-                    OnPropertyChanged(nameof(_year));
+                    OnPropertyChanged(()=>(_year));
                 }
             }
         }
-        private SaveCmd _SaveCommand;
+        private ICommand _SaveCommand;
         public ICommand saveCommand
         {
             get
@@ -59,7 +57,7 @@ namespace StudyProject.ViewModels.BuisnesLogic
                 if (value != _contractorId)
                 {
                     _contractorId = value;
-                    OnPropertyChanged(nameof(_contractorId));
+                    OnPropertyChanged(()=>(_contractorId));
                 }
             }
         }
@@ -81,16 +79,15 @@ namespace StudyProject.ViewModels.BuisnesLogic
                 if (value != _takings)
                 {
                     _takings = value;
-                    OnPropertyChanged(nameof(_takings));
-                    OnPropertyChanged(nameof(Takings));
+                    OnPropertyChanged(()=>(_takings));
+                    OnPropertyChanged(()=>(Takings));
                 }
             }
         }
 
         public ZaliczenieEntities zaliczenieEntities { get; set; }
 
-        public MonthlySalesReport(NavStore navStore, NavigationToolBarViewModel navigationToolBarViewModel)
-              : base(navStore, navigationToolBarViewModel, "raport spżedaży dla zadanego miesiąca")
+        public MonthlySalesReport()
         {
             base.Title = "raport spżedaży dla zadanego miesiąca";
             zaliczenieEntities = new ZaliczenieEntities();

@@ -1,6 +1,6 @@
 ﻿using StudyProject.Model;
 using StudyProject.Model.EntitiesForViewModel;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -17,11 +17,8 @@ namespace StudyProject.ViewModels.List
     {
 
         #region Constructor
-        public AllContractorsViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "kontrachenci")
-        {
-            NavigateAddCmd = NavigateAddContractorsCmd;
-        }
+        public AllContractorsViewModel(Boolean lookupMode = false)
+            : base("kontrachenci", lookupMode) { }
         #endregion
         #region Helpers
         public override void Load()

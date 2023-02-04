@@ -18,9 +18,9 @@ namespace StudyProject.Components
     /// <summary>
     /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class navComponent : UserControl
+    public partial class SortingAndFiltering : UserControl
     {
-        public navComponent()
+        public SortingAndFiltering()
         {
             InitializeComponent();
         }

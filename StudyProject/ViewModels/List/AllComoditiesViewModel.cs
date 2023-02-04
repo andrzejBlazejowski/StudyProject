@@ -1,6 +1,6 @@
 ﻿using StudyProject.Model;
 using StudyProject.Model.EntitiesForViewModel;
-using StudyProject.Stores;
+
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
@@ -17,10 +17,10 @@ namespace StudyProject.ViewModels.List
     {
 
         #region Constructor
-        public AllComoditiesViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "towary")
+        public AllComoditiesViewModel(Boolean lookupMode = false)
+            : base("towary", lookupMode)
         {
-            NavigateAddCmd = NavigateAddComoditiesCmd;
+            
         }
         #endregion
         #region Helpers

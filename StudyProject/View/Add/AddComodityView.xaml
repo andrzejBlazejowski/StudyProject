@@ -12,6 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -62,7 +63,7 @@
             SelectedValue="{Binding Path=SizeTypeId, Mode=TwoWay}"/>
         
         <Label Grid.Row="7" Grid.Column="0" Content="producent"/>
-        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path=BrandId, UpdateSourceTrigger=PropertyChanged}"/>
-
+        <TextBox Grid.Row="7" Grid.Column="1" IsEnabled="false" Text="{Binding Path=BrandName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Row="7" Grid.Column="2" Command="{Binding LookupBrands}" Content="..."/>
     </Grid>
 </view:AllViewBase>

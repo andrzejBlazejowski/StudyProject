@@ -1,6 +1,8 @@
 ﻿
+using GalaSoft.MvvmLight.Messaging;
+using StudyProject.Commands;
 using StudyProject.Model;
-using StudyProject.Stores;
+using StudyProject.Model.EntitiesForViewModel;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
@@ -15,10 +17,12 @@ namespace StudyProject.ViewModels
 {
     public class AddInvoiceItemViewModel : AddViewModel<invoice_item>
     {
-        public AddInvoiceItemViewModel(NavStore navStore, NavigationToolBarViewModel navToolBarvm)
-            : base(navStore, navToolBarvm, "pozycja faktury")
+        public AddInvoiceItemViewModel()
+            : base("pozycja faktury")
         {
             Item = new invoice_item();
+            Messenger.Default.Register<InvoiceForViewModel>(this, handleInvoice);
+            Messenger.Default.Register<ComodityForViewModel>(this, handleComodity);
         }
         public int Id {
             get 
@@ -29,7 +33,7 @@ namespace StudyProject.ViewModels
             {
                 if (value != Item.id) { 
                     Item.id = value;
-                    base.OnPropertyChanged(nameof(Item.id));
+                    base.OnPropertyChanged(()=>(Item.id));
                 }
             }
         }
@@ -44,7 +48,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.comodity_id)
                 {
                     Item.comodity_id = value;
-                    base.OnPropertyChanged(nameof(Item.comodity_id));
+                    base.OnPropertyChanged(()=>(Item.comodity_id));
                 }
             }
         }
@@ -59,7 +63,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.count)
                 {
                     Item.count = value;
-                    base.OnPropertyChanged(nameof(Item.count));
+                    base.OnPropertyChanged(()=>(Item.count));
                 }
             }
         }
@@ -74,7 +78,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.discount)
                 {
                     Item.discount = value;
-                    base.OnPropertyChanged(nameof(Item.discount));
+                    base.OnPropertyChanged(()=>(Item.discount));
                 }
             }
         }
@@ -89,7 +93,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.invoice_id)
                 {
                     Item.invoice_id = value;
-                    base.OnPropertyChanged(nameof(Item.invoice_id));
+                    base.OnPropertyChanged(()=>(Item.invoice_id));
                 }
             }
         }
@@ -104,7 +108,7 @@ namespace StudyProject.ViewModels
                 if (value != Item.is_active)
                 {
                     Item.is_active = value;
-                    base.OnPropertyChanged(nameof(Item.is_active));
+                    base.OnPropertyChanged(()=>(Item.is_active));
                 }
             }
         }
@@ -119,10 +123,12 @@ namespace StudyProject.ViewModels
                 if (value != Item.create_date)
                 {
                     Item.create_date = value;
-                    base.OnPropertyChanged(nameof(Item.create_date));
+                    base.OnPropertyChanged(()=>(Item.create_date));
                 }
             }
         }
+        public string InvoiceNumber { get; set; }
+        public string ComodityName { get; set; }
 
         public override void Save()
         {
@@ -131,6 +137,54 @@ namespace StudyProject.ViewModels
             DB.invoice_item.AddObject(Item);
             DB.SaveChanges();
 
+        }
+
+        private BaseCommand _LookupInvoice;
+        public BaseCommand LookupInvoice
+        {
+            get
+            {
+                if (_LookupInvoice == null)
+                {
+                    _LookupInvoice = new BaseCommand(() => lookupInvoice());
+                }
+                return _LookupInvoice;
+            }
+        }
+
+        public string comodityName { get; set; }
+
+        private void handleInvoice(InvoiceForViewModel invoice)
+        {
+            InvoiceId = invoice.Id;
+            InvoiceNumber = invoice.InvoiceNumber;
+        }
+        private void lookupInvoice()
+        {
+            Messenger.Default.Send("lookupInvoice");
+        }
+
+        private BaseCommand _LookupComodity;
+        public BaseCommand LookupComodity
+        {
+            get
+            {
+                if (_LookupComodity == null)
+                {
+                    _LookupComodity = new BaseCommand(() => lookupComodity());
+                }
+                return _LookupComodity;
+            }
+        }
+
+        private void handleComodity(ComodityForViewModel comodity)
+        {
+            ComodityId = comodity.Id;
+            ComodityName = comodity.Name;
+        }
+        private void lookupComodity()
+        {
+            Messenger.Default.Send("lookupComodity");
         }
     }
 }
