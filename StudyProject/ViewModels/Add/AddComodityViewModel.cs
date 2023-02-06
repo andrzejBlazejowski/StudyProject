@@ -235,6 +235,7 @@ namespace StudyProject.ViewModels
         private void handleBrand(brand brand)
         {
             BrandId = brand.id;
+            Item.brand_id = brand.id;
             BrandName = brand.name;
         }
         private void lookupBrands() {

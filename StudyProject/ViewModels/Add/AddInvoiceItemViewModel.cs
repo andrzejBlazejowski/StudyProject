@@ -157,6 +157,7 @@ namespace StudyProject.ViewModels
         private void handleInvoice(InvoiceForViewModel invoice)
         {
             InvoiceId = invoice.Id;
+            Item.invoice_id = InvoiceId;
             InvoiceNumber = invoice.InvoiceNumber;
         }
         private void lookupInvoice()
@@ -180,6 +181,7 @@ namespace StudyProject.ViewModels
         private void handleComodity(ComodityForViewModel comodity)
         {
             ComodityId = comodity.Id;
+            Item.comodity_id = comodity.Id;
             ComodityName = comodity.Name;
         }
         private void lookupComodity()

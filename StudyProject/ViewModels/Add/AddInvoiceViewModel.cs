@@ -226,6 +226,7 @@ namespace StudyProject.ViewModels
         private void handleContractor(ContractorForViewModel contractor)
         {
             ContractorId = contractor.Id;
+            Item.contractor_id = ContractorId;
             ContractorName = contractor.Name;
         }
         private void lookupContractor()

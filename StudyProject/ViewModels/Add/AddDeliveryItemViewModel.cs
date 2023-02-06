@@ -180,6 +180,7 @@ namespace StudyProject.ViewModels
         private void handleComodity(ComodityForViewModel comodity)
         {
             comodity_id = comodity.Id;
+            Item.comodity_id = comodity.Id;
             comodityName = comodity.Name;
         }
         private void lookupComodity()
