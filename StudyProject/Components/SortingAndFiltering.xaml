@@ -9,34 +9,35 @@
     <Grid>
         <ToolBarTray Width="1920" Orientation="Horizontal" VerticalAlignment="Top">
             <ToolBar  Width="1920">
+                
                 <ComboBox Width="150"
                     Height="30"
                     Margin="5" 
-                    ItemsSource="{Binding SortFields}" 
-                    DisplayMemberPath="Value"
-                    SelectedValuePath="Key"
+                    ItemsSource="{Binding SortFields}"
                     SelectedValue="{Binding Path=SortField, Mode=TwoWay}"/>
+                
                 <ComboBox Width="100"
                     Height="30"
                     Margin="5" 
                     ItemsSource="{Binding SortTypes}" 
-                    DisplayMemberPath="Value"
-                    SelectedValuePath="Key"
                     SelectedValue="{Binding Path=SortType, Mode=TwoWay}"/>
-                <Button Command="{Binding NavigateAddCommand}" ToolTip="sortuj">
+                
+                <Button Command="{Binding SortCommand}" ToolTip="sortuj">
                     <StackPanel Orientation="Horizontal">
                         <Image Width="30" Height="30" Margin="5" Source="/Components/sort.png"/>
                     </StackPanel>
                 </Button>
+                
+                
                 <ComboBox Width="150"
                     Height="30"
-                    Margin="5"
+                    Margin="30 0 0 0"
                     ItemsSource="{Binding FilterFields}" 
-                    DisplayMemberPath="Value"
-                    SelectedValuePath="Key"
                     SelectedValue="{Binding Path=FilterField, Mode=TwoWay}"/>
-                <TextBox Width="100" Text="{Binding Path=filterValue, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Command="{Binding NavigateAddCommand}" ToolTip="Filtruj">
+                
+                <TextBox Width="100" Text="{Binding Path=FilterValue, UpdateSourceTrigger=PropertyChanged}"/>
+                
+                <Button Command="{Binding FilterCommand}" ToolTip="Filtruj">
                     <StackPanel Orientation="Horizontal">
                         <Image Width="30" Height="30" Margin="5" Source="/Components/filter.png"/>
                     </StackPanel>

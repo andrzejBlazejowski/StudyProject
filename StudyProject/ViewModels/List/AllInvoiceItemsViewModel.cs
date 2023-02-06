@@ -20,6 +20,8 @@ namespace StudyProject.ViewModels.List
         public AllInvoiceItemsViewModel()
             : base("pozycje faktury")
         {
+            this.FilterField = "towar";
+            this.SortField = "towar";
         }
         #endregion
         #region Helpers
@@ -44,6 +46,72 @@ namespace StudyProject.ViewModels.List
                     SaleDate = invoice_item.invoice.sale_date
                   }
                 );
+        }
+        public override List<string> GetFilterFields()
+        {
+            return new List<string> { "towar", "rozmiar", "kategoria", "metoda płatności" };
+        }
+        public override void Filter()
+        {
+            switch (FilterField)
+            {
+                case "towar":
+                    Data = new ObservableCollection<InvoiceItemForViewModel>(Data.Where(item =>
+                        item.ComodityName != null && item.ComodityName.Contains(FilterValue)));
+                    break;
+                case "rozmiar":
+                    Data = new ObservableCollection<InvoiceItemForViewModel>(Data.Where(item =>
+                        item.SizeTypeName != null && item.SizeTypeName.Contains(FilterValue)));
+                    break;
+                case "kategoria":
+                    Data = new ObservableCollection<InvoiceItemForViewModel>(Data.Where(item =>
+                        item.CategoryName != null && item.CategoryName.Contains(FilterValue)));
+                    break;
+                case "metoda płatności":
+                    Data = new ObservableCollection<InvoiceItemForViewModel>(Data.Where(item =>
+                        item.PaymentMethod != null && item.PaymentMethod.Contains(FilterValue)));
+                    break;
+            }
+        }
+        public override List<string> GetSortFields()
+        {
+            return new List<string> { "Cena jednostkowa netto", "ilość", "towar" };
+        }
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "Cena jednostkowa netto":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<InvoiceItemForViewModel>(Data.OrderByDescending(item => item.ComodityNetPrice));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<InvoiceItemForViewModel>(Data.OrderBy(item => item.ComodityNetPrice));
+                    }
+                    break;
+                case "ilość":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<InvoiceItemForViewModel>(Data.OrderByDescending(item => item.Count));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<InvoiceItemForViewModel>(Data.OrderBy(item => item.Count));
+                    }
+                    break;
+                case "towar":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<InvoiceItemForViewModel>(Data.OrderByDescending(item => item.ComodityName));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<InvoiceItemForViewModel>(Data.OrderBy(item => item.ComodityName));
+                    }
+                    break;
+            }
         }
         #endregion
     }

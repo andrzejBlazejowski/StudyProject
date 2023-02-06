@@ -149,7 +149,6 @@
 
 
 
-
     <DataTemplate DataType="{x:Type blViewModels:MonthlySalesReport}">
         <viewsBL:MonthlySalesReport/>
     </DataTemplate>

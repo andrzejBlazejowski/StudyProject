@@ -19,6 +19,8 @@ namespace StudyProject.ViewModels.List
         public AllWarehousesViewModel()
             : base("magazyny")
         {
+            this.FilterField = "nazwa";
+            this.SortField = "nazwa";
         }
         #endregion
         #region Helpers
@@ -31,6 +33,44 @@ namespace StudyProject.ViewModels.List
                   where warehouse.is_active == true
                   select warehouse
                 );
+        }
+        public override List<string> GetFilterFields()
+        {
+            return new List<string> { "nazwa", "opis" };
+        }
+        public override void Filter()
+        {
+            switch (FilterField)
+            {
+                case "nazwa":
+                    Data = new ObservableCollection<warehouse>(Data.Where(item =>
+                        item.name != null && item.name.Contains(FilterValue)));
+                    break;
+                case "opis":
+                    Data = new ObservableCollection<warehouse>(Data.Where(item =>
+                        item.description != null && item.description.Contains(FilterValue)));
+                    break;
+            }
+        }
+        public override List<string> GetSortFields()
+        {
+            return new List<string> { "nazwa" };
+        }
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "nazwa":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<warehouse>(Data.OrderByDescending(item => item.name));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<warehouse>(Data.OrderBy(item => item.name));
+                    }
+                    break;
+            }
         }
         #endregion
     }

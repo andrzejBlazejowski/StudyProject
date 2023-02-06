@@ -5,10 +5,11 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System;
 using GalaSoft.MvvmLight.Messaging;
+using System.Collections.Generic;
 
 namespace StudyProject.ViewModels.Abstract
 {
-    public abstract class AllViewModel<T> :TabVM where T : class
+    public abstract class AllViewModel<T> : TabVM where T : class
     {
         #region Fields
         private readonly ZaliczenieEntities zaliczenieEntities;
@@ -19,8 +20,10 @@ namespace StudyProject.ViewModels.Abstract
                 return null;
             }
         }
+        private BaseCommand _SortCommand;
+        private BaseCommand _FilterCommand;
         private BaseCommand _DeleteCommand;
-        public BaseCommand DeleteCommand { 
+        public BaseCommand DeleteCommand {
             get
             {
                 if (_DeleteCommand == null)
@@ -69,7 +72,7 @@ namespace StudyProject.ViewModels.Abstract
             }
         }
         public ZaliczenieEntities ZaliczenieEntities
-        { 
+        {
             get
             {
                 return zaliczenieEntities;
@@ -80,14 +83,14 @@ namespace StudyProject.ViewModels.Abstract
         {
             get
             {
-                if (_Data == null) 
+                if (_Data == null)
                     Load();
                 return _Data;
             }
             set
             {
                 _Data = value;
-                OnPropertyChanged(()=>Data);
+                OnPropertyChanged(() => Data);
             }
         }
         public Boolean LookupMode { get; set; }
@@ -102,21 +105,75 @@ namespace StudyProject.ViewModels.Abstract
                     Messenger.Default.Send(_selectedRow);
                     OnRequestClose();
                 }
-            } 
+            }
+        }
+        public string SortType { get; set; }
+        public List<string> SortTypes
+        {
+            get
+            {
+                return GetSortTypes();
+            }
+        }
+        public string SortField { get; set; }
+        public List<string> SortFields
+        {
+            get
+            {
+                return GetSortFields();
+            }
+        }
+        public ICommand SortCommand
+        {
+            get
+            {
+                if(_SortCommand == null)
+                {
+                    _SortCommand = new BaseCommand(() => Sort());
+                }
+                return _SortCommand;
+            }
+        }
+        public string FilterField { get; set; }
+        public string FilterValue { get; set; }
+        public List<string> FilterFields
+        {
+            get
+            {
+                return GetFilterFields();
+            }
+        }
+        public ICommand FilterCommand
+        {
+            get
+            {
+                if (_FilterCommand == null)
+                {
+                    _FilterCommand = new BaseCommand(() => Filter());
+                }
+                return _FilterCommand;
+            }
         }
         #endregion
         #region Constructor
         public AllViewModel(string title, Boolean lookupMode = false)
         {
             base.Title = title;
+            this.SortType = "malejąco";
             this.zaliczenieEntities = new ZaliczenieEntities();
             LookupMode = lookupMode;
         }
         #endregion
         #region Helpers
         public abstract void Load();
-
+        public abstract void Sort();
+        public abstract List<string> GetSortFields();
+        public abstract void Filter();
+        public abstract List<string> GetFilterFields();
+        public virtual List<string> GetSortTypes()
+        {
+            return new List<string> { "malejąco", "rosnąco" };
+        }
         #endregion
-
     }
 }

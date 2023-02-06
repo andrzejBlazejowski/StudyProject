@@ -35,6 +35,7 @@ namespace StudyProject.ViewModels.Abstract
             }
         }
 
+        //TODO: remove this when you will not render unesesery buttons on add page
         private BaseCommand _DeleteCommand;
         public BaseCommand DeleteCommand
         {
@@ -80,7 +81,51 @@ namespace StudyProject.ViewModels.Abstract
                 OnPropertyChanged(() => _RefreshCommand);
             }
         }
+        // end TODO
 
+        //TODO: remove this when you will not render filtering and sorting on add pages
+        public string FilterField { get; set; }
+        public string FilterValue { get; set; }
+        public string SortField { get; set; }
+        public string SortType { get; set; }
+        public List<string> FilterFields
+        {
+            get
+            {
+                return new List<string> { };
+            }
+        }
+        public List<string> SortFields
+        {
+            get
+            {
+                return new List<string> { };
+            }
+        }
+        public List<string> SortTypes
+        {
+            get
+            {
+                return new List<string> { };
+            }
+        }
+
+        public ICommand SortCommand
+        {
+            get
+            {
+                return new BaseCommand(() => { });
+            }
+        }
+        public ICommand FilterCommand
+        {
+            get
+            {
+                return new BaseCommand(() => { });
+            }
+        }
+
+        // end TODO
         public T Item { get; set; }
         public AddViewModel(string title)
         {

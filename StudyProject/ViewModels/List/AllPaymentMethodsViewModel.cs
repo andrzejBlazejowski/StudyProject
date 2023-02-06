@@ -19,6 +19,8 @@ namespace StudyProject.ViewModels.List
         public AllPaymentMethodsViewModel()
             : base("metody płatności")
         {
+            this.FilterField = "nazwa";
+            this.SortField = "nazwa";
         }
         #endregion
         #region Helpers
@@ -31,6 +33,44 @@ namespace StudyProject.ViewModels.List
                   where payment_method.is_active == true
                   select payment_method
                 );
+        }
+        public override List<string> GetFilterFields()
+        {
+            return new List<string> { "nazwa", "opis" };
+        }
+        public override void Filter()
+        {
+            switch (FilterField)
+            {
+                case "nazwa":
+                    Data = new ObservableCollection<payment_method>(Data.Where(item =>
+                        item.name != null && item.name.Contains(FilterValue)));
+                    break;
+                case "opis":
+                    Data = new ObservableCollection<payment_method>(Data.Where(item =>
+                        item.description != null && item.description.Contains(FilterValue)));
+                    break;
+            }
+        }
+        public override List<string> GetSortFields()
+        {
+            return new List<string> { "nazwa" };
+        }
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "nazwa":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<payment_method>(Data.OrderByDescending(item => item.name));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<payment_method>(Data.OrderBy(item => item.name));
+                    }
+                    break;
+            }
         }
         #endregion
     }

@@ -20,6 +20,8 @@ namespace StudyProject.ViewModels.List
         public AllStoragesViewModel()
             : base("miejsca magazynowe")
         {
+            this.FilterField = "magazyn";
+            this.SortField = "magazyn";
         }
         #endregion
         #region Helpers
@@ -41,6 +43,78 @@ namespace StudyProject.ViewModels.List
                     SizeTypeName = storage.size_type.name
                   }
                 );
+        }
+        public override List<string> GetSortFields()
+        {
+            return new List<string> { "magazyn", "zajęte", "wolne" };
+        }
+        public override void Filter()
+        {
+            switch (FilterField)
+            {
+                case "magazyn":
+                    Data = new ObservableCollection<StorageForViewModel>(Data.Where(item =>
+                        item.WarehouseName != null && item.WarehouseName.Contains(FilterValue)));
+                    break;
+                case "zajęte":
+                    Data = new ObservableCollection<StorageForViewModel>(Data.Where(item =>
+                        item.TakenCount.Equals(FilterValue)));
+                    break;
+                case "wolne":
+                    Data = new ObservableCollection<StorageForViewModel>(Data.Where(item =>
+                        item.FreeCount.Equals(FilterValue)));
+                    break;
+            }
+        }
+        public override List<string> GetFilterFields()
+        {
+            return new List<string> { "zajęte", "wolne", "ilośc miejsc", "magazyn"};
+        }
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "zajęte":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<StorageForViewModel>(Data.OrderByDescending(item => item.TakenCount));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<StorageForViewModel>(Data.OrderBy(item => item.TakenCount));
+                    }
+                    break;
+                case "wolne":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<StorageForViewModel>(Data.OrderByDescending(item => item.FreeCount));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<StorageForViewModel>(Data.OrderBy(item => item.FreeCount));
+                    }
+                    break;
+                case "magazyn":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<StorageForViewModel>(Data.OrderByDescending(item => item.WarehouseName));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<StorageForViewModel>(Data.OrderBy(item => item.WarehouseName));
+                    }
+                    break;
+                case "ilośc miejsc":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<StorageForViewModel>(Data.OrderByDescending(item => item.TotalCount));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<StorageForViewModel>(Data.OrderBy(item => item.TotalCount));
+                    }
+                    break;
+            }
         }
         #endregion
     }

@@ -20,6 +20,8 @@ namespace StudyProject.ViewModels.List
         public AllInvoicesViewModel(Boolean lookupMode = false)
             : base("faktury", lookupMode)
         {
+            this.FilterField = "adresat";
+            this.SortField = "kontrachent";
         }
         #endregion
         #region Helpers
@@ -46,17 +48,89 @@ namespace StudyProject.ViewModels.List
                         invoice.contractor.street + ", " +
                         invoice.contractor.building_number + "/" +
                         invoice.contractor.flat_number,
-                        SaleDate = invoice.sale_date,
-                        Discount = invoice.discount,
-                        PaymentDate = invoice.payment_date,
-                        PaymentMethod = invoice.payment_method.name,
-                        NetValue = invoice.net_value,
-                        GrossValue = invoice.gross_value,
-                        PaidValue = invoice.paid_value,
-                        PendingPayment = invoice.pending_payment_value
+                    SaleDate = invoice.sale_date,
+                    Discount = invoice.discount,
+                    PaymentDate = invoice.payment_date,
+                    PaymentMethod = invoice.payment_method.name,
+                    NetValue = invoice.net_value,
+                    GrossValue = invoice.gross_value,
+                    PaidValue = invoice.paid_value,
+                    PendingPayment = invoice.pending_payment_value
 
                   }
                 );
+        }
+        public override List<string> GetFilterFields()
+        {
+            return new List<string> { "adres", "kontrachent", "metoda płatności" };
+        }
+        public override void Filter()
+        {
+            switch (FilterField)
+            {
+                case "adres":
+                    Data = new ObservableCollection<InvoiceForViewModel>(Data.Where(item =>
+                        item.ContractorAddress != null && item.ContractorAddress.Contains(FilterValue)));
+                    break;
+                case "kontrachent":
+                    Data = new ObservableCollection<InvoiceForViewModel>(Data.Where(item =>
+                        item.ContractorName != null && item.ContractorName.Contains(FilterValue)));
+                    break;
+                case "metoda płatności":
+                    Data = new ObservableCollection<InvoiceForViewModel>(Data.Where(item =>
+                        item.PaymentMethod != null && item.PaymentMethod.Contains(FilterValue)));
+                    break;
+            }
+        }
+        public override List<string> GetSortFields()
+        {
+            return new List<string> { "wartość netto", "zapłacono", "do zapłaty", "kontrachent" };
+        }
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "wartość netto":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<InvoiceForViewModel>(Data.OrderByDescending(item => item.NetValue));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<InvoiceForViewModel>(Data.OrderBy(item => item.NetValue));
+                    }
+                    break;
+                case "do zapłaty":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<InvoiceForViewModel>(Data.OrderByDescending(item => item.PendingPayment));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<InvoiceForViewModel>(Data.OrderBy(item => item.PendingPayment));
+                    }
+                    break;
+                case "zapłacono":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<InvoiceForViewModel>(Data.OrderByDescending(item => item.PaidValue));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<InvoiceForViewModel>(Data.OrderBy(item => item.PaidValue));
+                    }
+                    break;
+                case "kontrachent":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<InvoiceForViewModel>(Data.OrderByDescending(item => item.ContractorName));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<InvoiceForViewModel>(Data.OrderBy(item => item.ContractorName));
+                    }
+                    break;
+            }
         }
         #endregion
     }

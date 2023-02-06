@@ -20,6 +20,8 @@ namespace StudyProject.ViewModels.List
         public AllEmplyeesViewModel()
             : base("pracownicy")
         {
+            this.FilterField = "magazyn w którym pracuje";
+            this.SortField = "imie";
         }
         #endregion
         #region Helpers
@@ -39,6 +41,60 @@ namespace StudyProject.ViewModels.List
                       WarehouseName = employ.warehouse.name
                   }
                 );
+        }
+        public override List<string> GetFilterFields()
+        {
+            return new List<string> { "magazyn w którym pracuje" };
+        }
+        public override void Filter()
+        {
+            switch (FilterField)
+            {
+                case "magazyn w którym pracuje":
+                    Data = new ObservableCollection<EmployeeForViewModel>(Data.Where(item =>
+                        item.WarehouseName != null && item.WarehouseName.Contains(FilterValue)));
+                    break;
+            }
+        }
+        public override List<string> GetSortFields()
+        {
+            return new List<string> { "imie", "nazwisko", "pesel" };
+        }
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "imie":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<EmployeeForViewModel>(Data.OrderByDescending(item => item.FirstName));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<EmployeeForViewModel>(Data.OrderBy(item => item.FirstName));
+                    }
+                    break;
+                case "nazwisko":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<EmployeeForViewModel>(Data.OrderByDescending(item => item.LastName));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<EmployeeForViewModel>(Data.OrderBy(item => item.LastName));
+                    }
+                    break;
+                case "pesel":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<EmployeeForViewModel>(Data.OrderByDescending(item => item.peselNumber));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<EmployeeForViewModel>(Data.OrderBy(item => item.peselNumber));
+                    }
+                    break;
+            }
         }
         #endregion
     }

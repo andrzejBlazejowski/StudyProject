@@ -18,7 +18,11 @@ namespace StudyProject.ViewModels.List
 
         #region Constructor
         public AllContractorsViewModel(Boolean lookupMode = false)
-            : base("kontrachenci", lookupMode) { }
+            : base("kontrachenci", lookupMode)
+        {
+            this.FilterField = "nazwa";
+            this.SortField = "nazwa";
+        }
         #endregion
         #region Helpers
         public override void Load()
@@ -48,6 +52,78 @@ namespace StudyProject.ViewModels.List
                     ContractorType = contractors.contractor_type.name
                   }
                 );
+        }
+        public override List<string> GetFilterFields()
+        {
+            return new List<string> { "nazwa", "nip", "dodatkowe informacje" };
+        }
+        public override void Filter()
+        {
+            switch (FilterField)
+            {
+                case "nazwa":
+                    Data = new ObservableCollection<ContractorForViewModel>(Data.Where(item =>
+                        item.Name != null && item.Name.Contains(FilterValue)));
+                    break;
+                case "nip":
+                    Data = new ObservableCollection<ContractorForViewModel>(Data.Where(item =>
+                        item.TaxName != null && item.TaxName.Contains(FilterValue)));
+                    break;
+                case "dodatkowe informacje":
+                    Data = new ObservableCollection<ContractorForViewModel>(Data.Where(item =>
+                        item.AdditionalInfo != null && item.AdditionalInfo.Contains(FilterValue)));
+                    break;
+            }
+        }
+        public override List<string> GetSortFields()
+        {
+            return new List<string> { "nazwa", "nazwa księgowa", "czy płaci Vat", "typ kontrachenta" };
+        }
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "nazwa":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<ContractorForViewModel>(Data.OrderByDescending(item => item.Name));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<ContractorForViewModel>(Data.OrderBy(item => item.Name));
+                    }
+                    break;
+                case "nazwa księgowa":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<ContractorForViewModel>(Data.OrderByDescending(item => item.TaxName));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<ContractorForViewModel>(Data.OrderBy(item => item.TaxName));
+                    }
+                    break;
+                case "czy płaci Vat":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<ContractorForViewModel>(Data.OrderByDescending(item => item.IsVatTaxpayer));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<ContractorForViewModel>(Data.OrderBy(item => item.IsVatTaxpayer));
+                    }
+                    break;
+                case "typ kontrachenta":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<ContractorForViewModel>(Data.OrderByDescending(item => item.ContractorType));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<ContractorForViewModel>(Data.OrderBy(item => item.ContractorType));
+                    }
+                    break;
+            }
         }
         #endregion
     }

@@ -20,6 +20,8 @@ namespace StudyProject.ViewModels.List
         public AllDeliveryItemsViewModel()
             : base("pozycje dostawy")
         {
+            this.FilterField = "liczba";
+            this.SortField = "towar";
         }
         #endregion
         #region Helpers
@@ -43,6 +45,70 @@ namespace StudyProject.ViewModels.List
                       CurrenvySign = delivery_item.curency.sign
                   }
                 );
+        }
+        public override List<string> GetFilterFields()
+        {
+            return new List<string> { "liczba" };
+        }
+        public override void Filter()
+        {
+            switch (FilterField)
+            {
+                case "liczba":
+                    Data = new ObservableCollection<DeliveryItemForViewModel>(Data.Where(item =>
+                       item.Count.Equals(FilterValue)));
+                    break;
+            }
+        }
+        public override List<string> GetSortFields()
+        {
+            return new List<string> { "towar", "rozmiar towaru", "waluta", "kategoria towaru" };
+        }
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "towar":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<DeliveryItemForViewModel>(Data.OrderByDescending(item => item.ComodityName));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<DeliveryItemForViewModel>(Data.OrderBy(item => item.ComodityName));
+                    }
+                    break;
+                case "rozmiar towaru":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<DeliveryItemForViewModel>(Data.OrderByDescending(item => item.ComoditySizeName));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<DeliveryItemForViewModel>(Data.OrderBy(item => item.ComoditySizeName));
+                    }
+                    break;
+                case "kategoria towaru":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<DeliveryItemForViewModel>(Data.OrderByDescending(item => item.ComodityCategoryName));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<DeliveryItemForViewModel>(Data.OrderBy(item => item.ComodityCategoryName));
+                    }
+                    break;
+                case "waluta":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<DeliveryItemForViewModel>(Data.OrderByDescending(item => item.CurencyName));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<DeliveryItemForViewModel>(Data.OrderBy(item => item.CurencyName));
+                    }
+                    break;
+            }
         }
         #endregion
     }

@@ -19,6 +19,8 @@ namespace StudyProject.ViewModels.List
         public AllComodityCategoriesViewModel()
             : base("typy towarów")
         {
+            this.FilterField = "nazwa";
+            this.SortField = "nazwa";
         }
         #endregion
         #region Helpers
@@ -31,6 +33,54 @@ namespace StudyProject.ViewModels.List
                   where comodity_category.is_active == true
                   select comodity_category
                 );
+        }
+        public override List<string> GetFilterFields()
+        {
+            return new List<string> { "nazwa", "opis" };
+        }
+        public override void Filter()
+        {
+            switch (FilterField)
+            {
+                case "nazwa":
+                    Data = new ObservableCollection<comodity_category>(Data.Where(item =>
+                        item.name != null && item.name.Contains(FilterValue)));
+                    break;
+                case "opis":
+                    Data = new ObservableCollection<comodity_category>(Data.Where(item =>
+                        item.description != null && item.description.Contains(FilterValue)));
+                    break;
+            }
+        }
+        public override List<string> GetSortFields()
+        {
+            return new List<string> { "nazwa", "stawka Vat sprzedaży" };
+        }
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "stawka Vat sprzedaży":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<comodity_category>(Data.OrderByDescending(item => item.vat_rate));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<comodity_category>(Data.OrderBy(item => item.vat_rate));
+                    }
+                    break;
+                case "nazwa":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<comodity_category>(Data.OrderByDescending(item => item.name));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<comodity_category>(Data.OrderBy(item => item.name));
+                    }
+                    break;
+            }
         }
         #endregion
     }

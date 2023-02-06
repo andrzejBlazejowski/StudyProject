@@ -19,6 +19,8 @@ namespace StudyProject.ViewModels.List
         public AllDeliveryStatusesViewModel()
             : base("statusy dostawy")
         {
+            this.FilterField = "nazwa";
+            this.SortField = "nazwa";
         }
         #endregion
         #region Helpers
@@ -31,6 +33,44 @@ namespace StudyProject.ViewModels.List
                   where delivery_status.is_active == true
                   select delivery_status
                 );
+        }
+        public override List<string> GetFilterFields()
+        {
+            return new List<string> { "nazwa", "opis" };
+        }
+        public override void Filter()
+        {
+            switch (FilterField)
+            {
+                case "nazwa":
+                    Data = new ObservableCollection<delivery_status>(Data.Where(item =>
+                        item.Name != null && item.Name.Contains(FilterValue)));
+                    break;
+                case "opis":
+                    Data = new ObservableCollection<delivery_status>(Data.Where(item =>
+                        item.description != null && item.description.Contains(FilterValue)));
+                    break;
+            }
+        }
+        public override List<string> GetSortFields()
+        {
+            return new List<string> { "nazwa" };
+        }
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "nazwa":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<delivery_status>(Data.OrderByDescending(item => item.Name));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<delivery_status>(Data.OrderBy(item => item.Name));
+                    }
+                    break;
+            }
         }
         #endregion
     }

@@ -20,7 +20,9 @@ namespace StudyProject.ViewModels.List
         public AllComoditiesViewModel(Boolean lookupMode = false)
             : base("towary", lookupMode)
         {
-            
+            this.FilterField = "nazwa";
+            this.SortField = "nazwa";
+
         }
         #endregion
         #region Helpers
@@ -48,6 +50,65 @@ namespace StudyProject.ViewModels.List
                         comodity.brand.city
                   }
                 );
+        }
+        public override List<string> GetFilterFields()
+        {
+            return new List<string> { "nazwa", "cena netto", "opis" };
+        }
+        public override void Filter()
+        {
+            switch (FilterField)
+            {
+                case "nazwa":
+                    Data = new ObservableCollection<ComodityForViewModel>(Data.Where(item =>
+                        item.Name != null && item.Name.Contains(FilterValue)));
+                    break;
+                case "opis":
+                    Data = new ObservableCollection<ComodityForViewModel>(Data.Where(item =>
+                        item.Description != null && item.Description.Contains(FilterValue)));
+                    break;
+                case "cena netto":
+                    if (decimal.TryParse(FilterValue, out decimal decimalValue))
+                    {
+                        Data = new ObservableCollection<ComodityForViewModel>(Data.Where(item =>
+                            item.NetUnitPrice.Equals(decimalValue)));
+                    }
+                    else
+                    {
+                        Console.WriteLine("The string could not be parsed into a decimal.");
+                    };
+                    break;
+            }
+        }
+        public override List<string> GetSortFields()
+        {
+            return new List<string> { "nazwa", "cena netto" };
+        }
+        public override void Sort()
+        {
+            switch (SortField)
+            {
+                case "nazwa":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<ComodityForViewModel>(Data.OrderByDescending(item => item.Name));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<ComodityForViewModel>(Data.OrderBy(item => item.Name));
+                    }
+                    break;
+                case "cena netto":
+                    if ("malejąco" == SortType)
+                    {
+                        Data = new ObservableCollection<ComodityForViewModel>(Data.OrderByDescending(item => item.NetUnitPrice));
+                    }
+                    else
+                    {
+                        Data = new ObservableCollection<ComodityForViewModel>(Data.OrderBy(item => item.NetUnitPrice));
+                    }
+                    break;
+            }
         }
         #endregion
     }
