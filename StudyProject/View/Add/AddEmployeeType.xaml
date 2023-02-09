@@ -36,7 +36,8 @@
                 <TextBox 
                 Grid.Column="1"
                 Height="70"
-                Width="auto"
+                Width="auto"    
+                ToolTip="proszę wpisać opis"
                 TextWrapping="Wrap"
                 AcceptsReturn="True"
                 Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"

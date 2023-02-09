@@ -156,20 +156,14 @@
         <viewsBL:ComoditySalesReport/>
     </DataTemplate>
 
-
-    <Style TargetType="Label" >
-        <Setter Property="Button.FontWeight" Value="Normal"/>
-        <Setter Property="Button.Foreground" Value="#777733"/>
+    <Style	TargetType="TextBox">
+        <Style.Triggers>
+            <Trigger  Property="Validation.HasError"  Value="true">
+                <Setter  Property="ToolTip" Value="{Binding  RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
-
-    <Style TargetType="TextBox" >
-        <Setter Property="Button.FontWeight" Value="Normal"/>
-        <Setter Property="Button.Foreground" Value="#777733"/>
-        <Setter Property="BorderBrush" Value="#777733"/>
-
-    </Style>
-    
     <DataTemplate x:Key="ActionsTemplate">
         <ItemsControl ItemsSource="{Binding}">
             <ItemsControl.ItemTemplate>

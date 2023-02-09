@@ -1,10 +1,11 @@
 ﻿
 using StudyProject.Model;
-
+using StudyProject.Model.Validators;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ using System.Xml.Linq;
 
 namespace StudyProject.ViewModels
 {
-    public class AddCurrencyViewModel : AddViewModel<curency>
+    public class AddCurrencyViewModel : AddViewModel<curency>, IDataErrorInfo
     {
         public AddCurrencyViewModel()
             : base("waluta")
@@ -124,7 +125,47 @@ namespace StudyProject.ViewModels
             }
         }
 
-        public override void Save()
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string msg = null;
+                if (name == "Name")
+                {
+                    msg = StringValidator.NotEmpty(this.Name);
+                }
+                if (name == "ConvertRate")
+                {
+                    msg = DecimalValidator.Positive(this.ConvertRate);
+                }
+                if (name == "Sign")
+                {
+                    msg = StringValidator.NotEmpty(this.Sign);
+                }
+
+
+                return msg;
+            }
+        }
+        public override bool isValid()
+        {
+            if (this["Name"] == null)
+                return true;
+            if (this["ConvertRate"] == null)
+                return true;
+            if (this["Sign"] == null)
+                return true;
+            return false;
+        }
+
+    public override void Save()
         {
             Item.is_active = true;
             Item.create_date = DateTime.Now;

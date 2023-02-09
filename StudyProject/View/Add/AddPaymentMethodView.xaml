@@ -40,6 +40,7 @@
                 Height="70"
                 Width="auto"
                 TextWrapping="Wrap"
+                ToolTip="proszę wpisać opis"
                 AcceptsReturn="True"
                 Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"
                 HorizontalScrollBarVisibility="Disabled"

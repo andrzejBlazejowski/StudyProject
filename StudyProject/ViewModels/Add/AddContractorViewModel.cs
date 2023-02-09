@@ -2,10 +2,12 @@
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
+using StudyProject.Model.Validators;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +16,7 @@ using System.Xml.Linq;
 
 namespace StudyProject.ViewModels
 {
-    public class AddContractorViewModel : AddViewModel<contractor>
+    public class AddContractorViewModel : AddViewModel<contractor>, IDataErrorInfo
     {
         public AddContractorViewModel()
             : base("kontrachent")
@@ -303,6 +305,86 @@ namespace StudyProject.ViewModels
                     base.OnPropertyChanged(()=>(Item.create_date));
                 }
             }
+        }
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string msg = null;
+                if (name == "Name")
+                {
+                    msg = StringValidator.NotEmpty(this.Name);
+                }
+                if (name == "TaxNumber")
+                {
+                    msg = BusinesValidator.IsValidNIP(this.TaxNumber);
+                }
+                if (name == "TaxName")
+                {
+                    msg = StringValidator.NotEmpty(this.TaxName);
+                }
+                if (name == "State")
+                {
+                    msg = StringValidator.NotEmpty(this.State);
+                }
+                if (name == "City")
+                {
+                    msg = StringValidator.NotEmpty(this.City);
+                }
+                if (name == "Street")
+                {
+                    msg = StringValidator.NotEmpty(this.Street);
+                }
+                if (name == "Building_number")
+                {
+                    msg = StringValidator.NotEmpty(this.Building_number);
+                }
+                if (name == "Flat_number")
+                {
+                    msg = StringValidator.NotEmpty(this.Flat_number);
+                }
+                if (name == "ZipCode")
+                {
+                    msg = StringValidator.NotEmpty(this.ZipCode);
+                }
+                if (name == "PostOfficeCity")
+                {
+                    msg = StringValidator.NotEmpty(this.PostOfficeCity);
+                }
+
+                return msg;
+            }
+        }
+        public override bool isValid()
+        {
+            if (this["Name"] == null)
+                return true;
+            if (this["TaxName"] == null)
+                return true;
+            if (this["TaxNumber"] == null)
+                return true;
+            if (this["State"] == null)
+                return true;
+            if (this["City"] == null)
+                return true;
+            if (this["Street"] == null)
+                return true;
+            if (this["Building_number"] == null)
+                return true;
+            if (this["Flat_number"] == null)
+                return true;
+            if (this["ZipCode"] == null)
+                return true;
+            if (this["PostOfficeCity"] == null)
+                return true;
+            return false;
         }
 
         public override void Save()

@@ -23,7 +23,10 @@ namespace StudyProject.ViewModels.Abstract
                 {
                     _SaveCommand = new BaseCommand(() =>
                     {
-                        Save();
+                        if (isValid())
+                        {
+                            Save();
+                        }
                     });
                 }
                 return _SaveCommand;
@@ -133,11 +136,18 @@ namespace StudyProject.ViewModels.Abstract
             DB = new ZaliczenieEntities();
         }
 
+        public virtual bool isValid()
+        {
+            return true;
+        }
         public abstract void Save();
         private void saveAndClose()
         {
-            Save();
-            this.OnRequestClose();
+            if (isValid())
+            {
+                Save();
+                this.OnRequestClose();
+            }
         }
     }
 }

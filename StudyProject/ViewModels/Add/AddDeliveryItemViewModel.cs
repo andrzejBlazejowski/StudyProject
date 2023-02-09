@@ -4,10 +4,12 @@ using StudyProject.Commands;
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
+using StudyProject.Model.Validators;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ using System.Xml.Linq;
 
 namespace StudyProject.ViewModels
 {
-    public class AddDeliveryItemViewModel : AddViewModel<delivery_item>
+    public class AddDeliveryItemViewModel : AddViewModel<delivery_item>, IDataErrorInfo
     {
         public AddDeliveryItemViewModel()
             : base("pozycja dostawy")
@@ -113,9 +115,6 @@ namespace StudyProject.ViewModels
             }
         }
 
-        
-
-
         public Boolean IsActive
         {
             get
@@ -177,6 +176,38 @@ namespace StudyProject.ViewModels
 
         public string comodityName { get; set; }
 
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string msg = null;
+                if (name == "count")
+                {
+                    msg = IntValidator.Positive(this.count);
+                }
+                if (name == "unit_cost")
+                {
+                    msg = DecimalValidator.Positive(this.unit_cost);
+                }
+
+                return msg;
+            }
+        }
+        public override bool isValid()
+        {
+            if (this["count"] == null)
+                return true;
+            if (this["unit_cost"] == null)
+                return true;
+            return false;
+        }
         private void handleComodity(ComodityForViewModel comodity)
         {
             comodity_id = comodity.Id;

@@ -26,7 +26,7 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0"  Content="nazwa"/>
-                <TextBox Grid.Row="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
             </Grid>
 
             <Grid Grid.Column="1">
@@ -37,14 +37,15 @@
 
                 <Label Grid.Column="0" Content="opis"/>
                 <TextBox 
-                Grid.Column="1"
-                Height="70"
-                Width="auto"
-                TextWrapping="Wrap"
-                AcceptsReturn="True"
-                Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"
-                HorizontalScrollBarVisibility="Disabled"
-                VerticalScrollBarVisibility="Auto"/>
+                    Grid.Column="1"
+                    Height="70"
+                    ToolTip="proszę wpisać opis"
+                    Width="auto"
+                    TextWrapping="Wrap"
+                    AcceptsReturn="True"
+                    Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"
+                    HorizontalScrollBarVisibility="Disabled"
+                    VerticalScrollBarVisibility="Auto"/>
             </Grid>
 
         </Grid>
@@ -66,7 +67,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="panstwo"/>
-                <TextBox Grid.Row="1" Text="{Binding Path=Country, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Text="{Binding Path=Country, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
             </Grid>
             <Grid Grid.Row="0" Grid.Column="1" Margin="5">
@@ -75,7 +76,7 @@
                     <RowDefinition ></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="wojewodztwo"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=State, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=State, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
             </Grid>
             <Grid Grid.Row="0" Grid.Column="2" Margin="5">
@@ -85,7 +86,7 @@
                 </Grid.RowDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" Content="miasto"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="0" Margin="5">
                 <Grid.RowDefinitions>
@@ -93,7 +94,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="ulica"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Street, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Street, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1" Margin="5">
                 <Grid.RowDefinitions>
@@ -109,9 +110,9 @@
                         <ColumnDefinition Width="20" ></ColumnDefinition>
                         <ColumnDefinition Width="*" ></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Text="{Binding Path=Building_number, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Column="0" Text="{Binding Path=Building_number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
                     <Label Grid.Column="1" Content=" / "/>
-                    <TextBox Grid.Column="2" Text="{Binding Path=Flat_number, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Column="2" Text="{Binding Path=Flat_number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
                 </Grid>
             </Grid>
         </Grid>

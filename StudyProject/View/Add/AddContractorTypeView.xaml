@@ -24,7 +24,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0"  Content="nazwa"/>
-                <TextBox Grid.Row="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
             </Grid>
 
             <Grid Grid.Column="1">
@@ -39,6 +39,7 @@
                         Height="70"
                         Width="auto"
                         TextWrapping="Wrap"
+                        ToolTip="proszę wpisać opis"
                         AcceptsReturn="True"
                         Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"
                         HorizontalScrollBarVisibility="Disabled"

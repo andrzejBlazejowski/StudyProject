@@ -1,10 +1,11 @@
 ﻿
 using StudyProject.Model;
-
+using StudyProject.Model.Validators;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ using System.Xml.Linq;
 
 namespace StudyProject.ViewModels
 {
-    public class AddComodityCategoryViewModel : AddViewModel<comodity_category>
+    public class AddComodityCategoryViewModel : AddViewModel<comodity_category>, IDataErrorInfo
     {
         public AddComodityCategoryViewModel()
             : base("typy produktow")
@@ -31,6 +32,13 @@ namespace StudyProject.ViewModels
                     Item.id = value;
                     base.OnPropertyChanged(()=>Item.id);
                 }
+            }
+        }
+        public string Error
+        {
+            get
+            {
+                return null;
             }
         }
         public string Name
@@ -116,6 +124,33 @@ namespace StudyProject.ViewModels
             DB.comodity_category.AddObject(Item);
             DB.SaveChanges();
 
+        }
+
+        public string this[string name]
+        {
+            get
+            {
+                string msg = null;
+                if (name == "Name")
+                {
+                    msg = StringValidator.NotEmpty(this.Name);
+                }
+                if (name == "vat_rate")
+                {
+                    msg = DecimalValidator.Positive(this.vat_rate);
+                }
+      
+
+                return msg;
+            }
+        }
+        public override bool isValid()
+        {
+            if (this["Name"] == null)
+                return true;
+            if (this["vat_rate"] == null)
+                return true;
+            return false;
         }
     }
 }

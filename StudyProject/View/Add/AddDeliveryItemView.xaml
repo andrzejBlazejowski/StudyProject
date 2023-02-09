@@ -29,13 +29,13 @@
         <Button Grid.Row="0" Grid.Column="2"  Command="{Binding LookupComodity}" Content="..."/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="ilosc"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=count, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=count, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Row="2" Grid.Column="0" Content="dostawa"/>
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=delivery_id, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="koszt"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=unit_cost, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=unit_cost, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Row="4" Grid.Column="0" Content="waluta"/>
         <ComboBox 

@@ -23,7 +23,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0"  Content="nazwa"/>
-                <TextBox Grid.Row="1" Text="sd" Height="35" VerticalAlignment="Stretch" TextAlignment="Center" TextChanged="TextBox_TextChanged"/>
+                <TextBox Grid.Row="1" Height="35" VerticalAlignment="Stretch" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" TextAlignment="Center" TextChanged="TextBox_TextChanged"/>
             </Grid>
 
             <Grid Grid.Column="1">
@@ -38,6 +38,7 @@
                 Height="70"
                 Width="auto"
                 TextWrapping="Wrap"
+                ToolTip="proszę wpisać opis"
                 AcceptsReturn="True"
                 Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"
                 HorizontalScrollBarVisibility="Disabled"

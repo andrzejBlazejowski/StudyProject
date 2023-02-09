@@ -27,19 +27,19 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="nazwa"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="opis"/>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="2" Grid.Column="0" Content="liczba porzadkowa"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=OrdinalNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=OrdinalNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="cena netto"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=NetUnitPrice, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=NetUnitPrice, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Row="4" Grid.Column="0" Content="cena brutto"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=GrossUnitPrice, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=GrossUnitPrice, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Row="5" Grid.Column="0" Content="kategoria"/>
 

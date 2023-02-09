@@ -1,10 +1,11 @@
 ﻿
 using StudyProject.Model;
-
+using StudyProject.Model.Validators;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ using System.Xml.Linq;
 
 namespace StudyProject.ViewModels
 {
-    public class AddDeliveryStatusViewModel : AddViewModel<delivery_status>
+    public class AddDeliveryStatusViewModel : AddViewModel<delivery_status>, IDataErrorInfo
     {
         public AddDeliveryStatusViewModel()
             : base("statusy dostawy")
@@ -92,6 +93,32 @@ namespace StudyProject.ViewModels
                     base.OnPropertyChanged(()=>(Item.create_date));
                 }
             }
+        }
+
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string msg = null;
+                if (name == "Name")
+                {
+                    msg = StringValidator.NotEmpty(this.Name);
+                }
+                return msg;
+            }
+        }
+        public override bool isValid()
+        {
+            if (this["Name"] == null)
+                return true;
+            return false;
         }
 
         public override void Save()

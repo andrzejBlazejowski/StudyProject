@@ -34,66 +34,65 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="nazwa"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
-        <Label Grid.Row="2" Grid.Column="0" Content="nip"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=TaxNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Row="3" Grid.Column="0" Content="nazwa podatkowa"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=TaxName, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="4" Grid.Column="0" Content="wojewodztwo"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=State, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="5" Grid.Column="0" Content="miasto"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="6" Grid.Column="0" Content="ulica"/>
-        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path=Street, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="7" Grid.Column="0" Content="numer budynku"/>
-        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path=Building_number, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="8" Grid.Column="0" Content="numer lokalu"/>
-        <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Path=Flat_number, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="9" Grid.Column="0" Content="kod pocztowy"/>
-        <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding Path=ZipCode, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="10" Grid.Column="0" Content="miejscowosc poczty"/>
-        <TextBox Grid.Row="10" Grid.Column="1" Text="{Binding Path=PostOfficeCity, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="11" Grid.Column="0" Content="informacje dodatkowe"/>
-        <TextBox Grid.Row="11" Grid.Column="1" Text="{Binding Path=AdditionalInfo, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="12" Grid.Column="0" Content="informacje dodatkowe"/>
-        <TextBox Grid.Row="12" Grid.Column="1" Text="{Binding Path=AdditionalInfo, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="13" Grid.Column="0" Content="czy placi wat"/>
-        <TextBox Grid.Row="13" Grid.Column="1" Text="{Binding Path=IsVatTaxpayer, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="14" Grid.Column="0" Content="czy placi vat 27"/>
-        <TextBox Grid.Row="14" Grid.Column="1" Text="{Binding Path=ShouldIncludeVat27, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Row="15" Grid.Column="0" Content="waluta"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="typ kontrachenta"/>
         <ComboBox 
             Grid.Column="1" 
-            Grid.Row="15"
-            Margin="5" 
-            ItemsSource="{Binding Curencies}" 
-            DisplayMemberPath="Value"
-            SelectedValuePath="Key"
-            SelectedValue="{Binding Path=CurrencyId, Mode=TwoWay}"/>
-
-        <Label Grid.Row="16" Grid.Column="0" Content="typ kontrachenta"/>
-        <ComboBox 
-            Grid.Column="1" 
-            Grid.Row="16"
+            Grid.Row="1"
             Margin="5" 
             ItemsSource="{Binding ContractorTypes}" 
             DisplayMemberPath="Value"
             SelectedValuePath="Key"
             SelectedValue="{Binding Path=ContractorTypeId, Mode=TwoWay}"/>
+
+
+        <Label Grid.Row="2" Grid.Column="0" Content="nip"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=TaxNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="nazwa podatkowa"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=TaxName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="4" Grid.Column="0" Content="wojewodztwo"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=State, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="miasto"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="6" Grid.Column="0" Content="ulica"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path=Street, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="7" Grid.Column="0" Content="numer budynku"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path=Building_number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="8" Grid.Column="0" Content="numer lokalu"/>
+        <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Path=Flat_number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="9" Grid.Column="0" Content="kod pocztowy"/>
+        <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding Path=ZipCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="10" Grid.Column="0" Content="miejscowosc poczty"/>
+        <TextBox Grid.Row="10" Grid.Column="1" Text="{Binding Path=PostOfficeCity, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label Grid.Row="11" Grid.Column="0" Content="informacje dodatkowe"/>
+        <TextBox Grid.Row="11" Grid.Column="1" Text="{Binding Path=AdditionalInfo, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Label Grid.Row="12" Grid.Column="0" Content="czy placi wat"/>
+        <TextBox Grid.Row="12" Grid.Column="1" Text="{Binding Path=IsVatTaxpayer, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="13" Grid.Column="0" Content="czy placi vat 27"/>
+        <TextBox Grid.Row="13" Grid.Column="1" Text="{Binding Path=ShouldIncludeVat27, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="14" Grid.Column="0" Content="waluta"/>
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="14"
+            Margin="5" 
+            ItemsSource="{Binding Curencies}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=CurrencyId, Mode=TwoWay}"/>
 
     </Grid>
 </view:AllViewBase>

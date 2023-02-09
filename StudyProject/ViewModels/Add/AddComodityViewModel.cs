@@ -4,11 +4,12 @@ using StudyProject.Commands;
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
-
+using StudyProject.Model.Validators;
 using StudyProject.ViewModels;
 using StudyProject.ViewModels.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ using System.Xml.Linq;
 
 namespace StudyProject.ViewModels
 {
-    public class AddComodityViewModel : AddViewModel<comodity>
+    public class AddComodityViewModel : AddViewModel<comodity>, IDataErrorInfo
     {
         public AddComodityViewModel()
             : base("towar")
@@ -219,6 +220,13 @@ namespace StudyProject.ViewModels
                 }
             }
         }
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
         private BaseCommand _LookupBrands;
         public BaseCommand LookupBrands
         {
@@ -241,7 +249,43 @@ namespace StudyProject.ViewModels
         private void lookupBrands() {
             Messenger.Default.Send("lookupBrands");
         }
-
+       
+        public string this[string name]
+        {
+            get
+            {
+                string msg = null;
+                if (name == "Name")
+                {
+                    msg = StringValidator.NotEmpty(this.Name);
+                }
+                if (name == "NetUnitPrice")
+                {
+                    msg = DecimalValidator.GreaterThan(this.GrossUnitPrice, this.NetUnitPrice);
+                }
+                if (name == "GrossUnitPrice")
+                {
+                    msg = DecimalValidator.GreaterThan(this.GrossUnitPrice, this.NetUnitPrice);
+                }
+                if (name == "OrdinalNumber")
+                {
+                    msg = IntValidator.Positive(this.OrdinalNumber);
+                }
+                return msg;
+            }
+        }
+        public override bool isValid()
+        {
+            if (this["Name"] == null)
+                return true;
+            if (this["OrdinalNumber"] == null)
+                return true;
+            if (this["NetUnitPrice"] == null)
+                return true;
+            if (this["GrossUnitPrice"] == null)
+                return true;
+            return false;
+        }
         public override void Save()
         {
             Item.is_active = true;
