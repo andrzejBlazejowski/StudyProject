@@ -40,7 +40,7 @@ namespace StudyProject.Model.BusinessLogic
                     invoice_item.invoice.sale_date <= lastDayOfMonth
                     select
                     (
-                        invoice_item.count 
+                        (invoice_item.count) * (invoice_item.comodity.gross_unit_price)
                     )
                 ).Sum();
         }
