@@ -20,7 +20,7 @@ namespace StudyProject.Model.BusinessLogic
         public IQueryable<KeyAndValue> GetActiveWearhouses() 
         {
             return (
-                    from Wearhouse in ZaliczenieEntities.warehouses
+                    from Wearhouse in ZaliczenieEntities.warehouse
                     where Wearhouse.is_active == true
                     select new KeyAndValue
                     {

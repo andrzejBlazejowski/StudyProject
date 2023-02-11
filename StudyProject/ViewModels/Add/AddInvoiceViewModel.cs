@@ -239,7 +239,7 @@ namespace StudyProject.ViewModels
             Item.create_date = DateTime.Now;
             Item.sale_date = DateTime.Now;
             Item.payment_date = DateTime.Now;
-            DB.invoices.AddObject(Item);
+            DB.invoice.AddObject(Item);
             DB.SaveChanges();
 
         }

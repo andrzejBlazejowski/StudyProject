@@ -34,11 +34,11 @@ namespace StudyProject.ViewModels.BuisnesLogic
         }
 
 
-        public IQueryable<KeyAndValue> Comodities
+        public IQueryable<KeyAndValue> comodity
         {
             get
             {
-                return new ComodityB(zaliczenieEntities).GetActiveComodities();
+                return new ComodityB(zaliczenieEntities).GetActivecomodity();
             }
         }
 

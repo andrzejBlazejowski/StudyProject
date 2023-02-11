@@ -201,7 +201,7 @@ namespace StudyProject.ViewModels
         {
             Item.is_active = true;
             Item.create_date = DateTime.Now;
-            DB.deliveries.AddObject(Item);
+            DB.delivery.AddObject(Item);
             DB.SaveChanges();
 
         }

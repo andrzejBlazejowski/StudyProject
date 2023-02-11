@@ -17,10 +17,10 @@ namespace StudyProject.Model.BusinessLogic
         
         public ZaliczenieEntities ZaliczenieEntities { get; }
 
-        public IQueryable<KeyAndValue> GetActiveComodities() 
+        public IQueryable<KeyAndValue> GetActivecomodity() 
         {
             return (
-                    from Comodity in ZaliczenieEntities.comodities
+                    from Comodity in ZaliczenieEntities.comodity
                     where Comodity.is_active == true
                     select new KeyAndValue
                     {

@@ -17,10 +17,10 @@ namespace StudyProject.Model.BusinessLogic
 
             public ZaliczenieEntities ZaliczenieEntities { get; }
 
-            public IQueryable<KeyAndValue> GetActiveCurencies()
+            public IQueryable<KeyAndValue> GetActivecurency()
             {
                 return (
-                        from Curency in ZaliczenieEntities.curencies
+                        from Curency in ZaliczenieEntities.curency
                         where Curency.is_active == true
                         select new KeyAndValue
                         {

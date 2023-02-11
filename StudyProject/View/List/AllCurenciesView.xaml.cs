@@ -18,9 +18,9 @@ namespace StudyProject.View
     /// <summary>
     /// 
     /// </summary>
-    public partial class AllCurenciesView : AllViewBase
+    public partial class AllcurencyView : AllViewBase
     {
-        public AllCurenciesView()
+        public AllcurencyView()
         {
             InitializeComponent();
         }

@@ -18,9 +18,9 @@ namespace StudyProject.View
     /// <summary>
     /// 
     /// </summary>
-    public partial class AllStoragesView : AllViewBase
+    public partial class AllstorageView : AllViewBase
     {
-        public AllStoragesView()
+        public AllstorageView()
         {
             InitializeComponent();
         }

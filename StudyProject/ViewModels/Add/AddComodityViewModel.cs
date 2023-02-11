@@ -182,9 +182,9 @@ namespace StudyProject.ViewModels
             }
             set
             {
-                if ((int)value != Item.brand_id)
+                if (value != Item.brand_id)
                 {
-                    Item.brand_id = (int)value;
+                    Item.brand_id = value;
                     base.OnPropertyChanged(() => (Item.brand_id));
                 }
             }
@@ -227,27 +227,26 @@ namespace StudyProject.ViewModels
                 return null;
             }
         }
-        private BaseCommand _LookupBrands;
-        public BaseCommand LookupBrands
+        private BaseCommand _Lookupbrand;
+        public BaseCommand Lookupbrand
         {
             get
             {
-                if (_LookupBrands == null)
+                if (_Lookupbrand == null)
                 {
-                    _LookupBrands = new BaseCommand(() => lookupBrands());
+                    _Lookupbrand = new BaseCommand(() => lookupbrand());
                 }
-                return _LookupBrands;
+                return _Lookupbrand;
             }
         }
 
         private void handleBrand(brand brand)
         {
             BrandId = brand.id;
-            Item.brand_id = brand.id;
             BrandName = brand.name;
         }
-        private void lookupBrands() {
-            Messenger.Default.Send("lookupBrands");
+        private void lookupbrand() {
+            Messenger.Default.Send("lookupbrand");
         }
        
         public string this[string name]
@@ -290,7 +289,7 @@ namespace StudyProject.ViewModels
         {
             Item.is_active = true;
             Item.create_date = DateTime.Now;
-            DB.comodities.AddObject(Item);
+            DB.comodity.AddObject(Item);
             DB.SaveChanges();
         }
     }

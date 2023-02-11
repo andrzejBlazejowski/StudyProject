@@ -12,11 +12,11 @@ using System.Windows.Input;
 
 namespace StudyProject.ViewModels.List
 {
-    public class AllWarehousesViewModel : AllViewModel<warehouse>
+    public class AllwarehouseViewModel : AllViewModel<warehouse>
     {
 
         #region Constructor
-        public AllWarehousesViewModel()
+        public AllwarehouseViewModel()
             : base("magazyny")
         {
             this.FilterField = "nazwa";
@@ -29,7 +29,7 @@ namespace StudyProject.ViewModels.List
             Data = new ObservableCollection<warehouse>
                 (
 
-                  from warehouse in ZaliczenieEntities.warehouses
+                  from warehouse in ZaliczenieEntities.warehouse
                   where warehouse.is_active == true
                   select warehouse
                 );

@@ -9,12 +9,12 @@
                     >
 
 
-    <DataTemplate DataType="{x:Type listViewModels:AllComoditiesViewModel}">
-        <views:AllComoditiesView/>
+    <DataTemplate DataType="{x:Type listViewModels:AllcomodityViewModel}">
+        <views:AllcomodityView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type listViewModels:AllBrandsViewModel}">
-        <views:AllBrandsView/>
+    <DataTemplate DataType="{x:Type listViewModels:AllbrandViewModel}">
+        <views:AllbrandView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type listViewModels:AllComodityCategoriesViewModel}">
@@ -22,19 +22,19 @@
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type listViewModels:AllDeliveryViewModel}">
-        <views:AllDeliveriesView/>
+        <views:AlldeliveryView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type listViewModels:AllContractorsViewModel}">
-        <views:AllContractorsView/>
+    <DataTemplate DataType="{x:Type listViewModels:AllcontractorViewModel}">
+        <views:AllcontractorView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type listViewModels:AllContractorTypesViewModel}">
         <views:AllContractorTypesView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type listViewModels:AllCurenciesViewModel}">
-        <views:AllCurenciesView/>
+    <DataTemplate DataType="{x:Type listViewModels:AllcurencyViewModel}">
+        <views:AllcurencyView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type listViewModels:AllDeliveryItemsViewModel}">
@@ -53,8 +53,8 @@
         <views:AllEmployeeTypesView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type listViewModels:AllInvoicesViewModel}">
-        <views:AllInvoicesView/>
+    <DataTemplate DataType="{x:Type listViewModels:AllinvoiceViewModel}">
+        <views:AllinvoiceView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type listViewModels:AllInvoiceItemsViewModel}">
@@ -69,12 +69,12 @@
         <views:AllSizeTypesView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type listViewModels:AllStoragesViewModel}">
-        <views:AllStoragesView/>
+    <DataTemplate DataType="{x:Type listViewModels:AllstorageViewModel}">
+        <views:AllstorageView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type listViewModels:AllWarehousesViewModel}">
-        <views:AllWarehousesView/>
+    <DataTemplate DataType="{x:Type listViewModels:AllwarehouseViewModel}">
+        <views:AllwarehouseView/>
     </DataTemplate>
 
 
@@ -84,7 +84,7 @@
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type ViewModels:AddBrandViewModel}">
-        <viewsAdd:AddBrandsView/>
+        <viewsAdd:AddbrandView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type ViewModels:AddComodityCategoryViewModel}">

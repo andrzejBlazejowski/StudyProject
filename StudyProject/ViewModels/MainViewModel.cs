@@ -43,11 +43,11 @@ namespace StudyProject.ViewModels
                 new BaseCommand(() => createTab(new ComoditySalesReportVM()))),
 
                 new ActionVM("producenci",
-                new BaseCommand(() => createTab(new AllBrandsViewModel())),
+                new BaseCommand(() => createTab(new AllbrandViewModel())),
                 new AddBrandViewModel()),
 
                 new ActionVM("towary",
-                new BaseCommand(() => createTab(new AllComoditiesViewModel())),
+                new BaseCommand(() => createTab(new AllcomodityViewModel())),
                 new AddComodityViewModel()),
 
                 new ActionVM("typy towarów",
@@ -55,7 +55,7 @@ namespace StudyProject.ViewModels
                 new AddComodityCategoryViewModel()),
 
                 new ActionVM("kontrachenci",
-                new BaseCommand(() => createTab(new AllContractorsViewModel())),
+                new BaseCommand(() => createTab(new AllcontractorViewModel())),
                 new AddContractorViewModel()),
 
                 new ActionVM("typy kontrachentów",
@@ -63,7 +63,7 @@ namespace StudyProject.ViewModels
                 new AddContractorTypeViewModel()),
 
                 new ActionVM("waluty",
-                new BaseCommand(() => createTab(new AllCurenciesViewModel())), 
+                new BaseCommand(() => createTab(new AllcurencyViewModel())), 
                 new AddCurrencyViewModel()),
 
                 new ActionVM("pozycje dostawy",
@@ -91,7 +91,7 @@ namespace StudyProject.ViewModels
                 new AddInvoiceItemViewModel()),
 
                 new ActionVM("faktury",
-                new BaseCommand(() => createTab(new AllInvoicesViewModel())),
+                new BaseCommand(() => createTab(new AllinvoiceViewModel())),
                 new AddInvoiceViewModel()),
                 
                 new ActionVM("metody płatności",
@@ -103,11 +103,11 @@ namespace StudyProject.ViewModels
                 new AddSizeTypeViewModel()),
                 
                 new ActionVM("miejsca magazynowe",
-                new BaseCommand(() => createTab(new AllStoragesViewModel())),
+                new BaseCommand(() => createTab(new AllstorageViewModel())),
                 new AddStorageViewModel()),
                 
                 new ActionVM("magazyny",
-                new BaseCommand(() => createTab(new AllWarehousesViewModel())),
+                new BaseCommand(() => createTab(new AllwarehouseViewModel())),
                 new AddWarehouseViewModel()),
             };
         }
@@ -120,17 +120,17 @@ namespace StudyProject.ViewModels
                 case "Add":
                     NavigateAdd();
                     break;
-                case "lookupBrands":
-                    createTab(new AllBrandsViewModel(lookupMode));
+                case "lookupbrand":
+                    createTab(new AllbrandViewModel(lookupMode));
                     break;
                 case "lookupComodity":
-                    createTab(new AllComoditiesViewModel(lookupMode));
+                    createTab(new AllcomodityViewModel(lookupMode));
                     break;
                 case "lookupInvoice":
-                    createTab(new AllInvoicesViewModel(lookupMode));
+                    createTab(new AllinvoiceViewModel(lookupMode));
                     break;
                 case "lookupContractor":
-                    createTab(new AllContractorsViewModel(lookupMode));
+                    createTab(new AllcontractorViewModel(lookupMode));
                     break;
                 case "lookupDelivery":
                     createTab(new AllDeliveryViewModel(lookupMode));

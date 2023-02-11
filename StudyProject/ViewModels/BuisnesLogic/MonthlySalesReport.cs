@@ -62,11 +62,11 @@ namespace StudyProject.ViewModels.BuisnesLogic
             }
         }
 
-        public IQueryable<KeyAndValue> Contractors
+        public IQueryable<KeyAndValue> contractor
         {
             get
             {
-                return new ContractorB(zaliczenieEntities).GetActiveContractors();
+                return new ContractorB(zaliczenieEntities).GetActivecontractor();
             }
         }
 

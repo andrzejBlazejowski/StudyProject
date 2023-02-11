@@ -8,10 +8,10 @@ using System.Linq;
 
 namespace StudyProject.ViewModels.List
 {
-    public class AllBrandsViewModel : AllViewModel<brand>
+    public class AllbrandViewModel : AllViewModel<brand>
     {
         #region Constructor
-        public AllBrandsViewModel(Boolean lookupMode = false)
+        public AllbrandViewModel(Boolean lookupMode = false)
             : base("producenci", lookupMode)
         {
             this.FilterField = "nazwa";
@@ -24,7 +24,7 @@ namespace StudyProject.ViewModels.List
             Data = new ObservableCollection<brand>
                 (
 
-                  from brand in ZaliczenieEntities.brands
+                  from brand in ZaliczenieEntities.brand
                   where brand.is_active == true
                   select brand
                 );

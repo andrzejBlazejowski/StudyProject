@@ -169,7 +169,7 @@ namespace StudyProject.ViewModels
         {
             Item.is_active = true;
             Item.create_date = DateTime.Now;
-            DB.curencies.AddObject(Item);
+            DB.curency.AddObject(Item);
             DB.SaveChanges();
 
         }

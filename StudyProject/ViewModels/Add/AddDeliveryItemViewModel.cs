@@ -146,11 +146,11 @@ namespace StudyProject.ViewModels
                 }
             }
         }
-        public IQueryable<KeyAndValue> Curencies
+        public IQueryable<KeyAndValue> curency
         {
             get
             {
-                return new CurencyB(DB).GetActiveCurencies();
+                return new CurencyB(DB).GetActivecurency();
             }
         }
 

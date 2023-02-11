@@ -29,7 +29,7 @@
                     <ComboBox 
                         Grid.Column="1" 
                         Margin="5" 
-                        ItemsSource="{Binding Comodities}" 
+                        ItemsSource="{Binding comodity}" 
                         DisplayMemberPath="Value"
                         SelectedValuePath="Key"
                         SelectedValue="{Binding Path=ComodityId,Mode=TwoWay}"/>

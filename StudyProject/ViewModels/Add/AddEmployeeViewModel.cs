@@ -250,7 +250,7 @@ namespace StudyProject.ViewModels
         {
             Item.is_active = true;
             Item.create_date = DateTime.Now;
-            DB.employs.AddObject(Item);
+            DB.employ.AddObject(Item);
             DB.SaveChanges();
 
         }

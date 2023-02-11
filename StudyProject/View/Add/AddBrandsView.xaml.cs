@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace StudyProject.View.Add
 {
     /// <summary>
-    /// Interaction logic for AddBrandsView.xaml
+    /// Interaction logic for AddbrandView.xaml
     /// </summary>
-    public partial class AddBrandsView : AllViewBase
+    public partial class AddbrandView : AllViewBase
     {
-        public AddBrandsView()
+        public AddbrandView()
         {
             InitializeComponent();
         }

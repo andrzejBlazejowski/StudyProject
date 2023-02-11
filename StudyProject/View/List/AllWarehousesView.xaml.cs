@@ -18,9 +18,9 @@ namespace StudyProject.View
     /// <summary>
     /// 
     /// </summary>
-    public partial class AllWarehousesView : AllViewBase
+    public partial class AllwarehouseView : AllViewBase
     {
-        public AllWarehousesView()
+        public AllwarehouseView()
         {
             InitializeComponent();
         }

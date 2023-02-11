@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace StudyProject.View
 {
     /// <summary>
-    /// Interaction logic for AllComoditiesView.xaml
+    /// Interaction logic for AllcomodityView.xaml
     /// </summary>
-    public partial class AllComoditiesView : AllViewBase
+    public partial class AllcomodityView : AllViewBase
     {
-        public AllComoditiesView()
+        public AllcomodityView()
         {
             InitializeComponent();
         }

@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace StudyProject.View.Add
 {
     /// <summary>
-    /// Interaction logic for AddBrandsView.xaml
+    /// Interaction logic for AddbrandView.xaml
     /// </summary>
     public partial class AddStorageView : AllViewBase
     {

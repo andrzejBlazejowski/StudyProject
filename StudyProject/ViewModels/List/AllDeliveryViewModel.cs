@@ -29,7 +29,7 @@ namespace StudyProject.ViewModels.List
         {
             Data = new ObservableCollection<DeliveryForViewModel>
                 (
-                  from delivery in ZaliczenieEntities.deliveries
+                  from delivery in ZaliczenieEntities.delivery
                   where delivery.is_active == true
                   select new DeliveryForViewModel 
                   { 

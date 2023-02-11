@@ -15,10 +15,10 @@ using System.Windows.Navigation;
 
 namespace StudyProject.ViewModels.List
 {
-    public class AllCurenciesViewModel : AllViewModel<curency>
+    public class AllcurencyViewModel : AllViewModel<curency>
     {
         #region Constructor
-        public AllCurenciesViewModel()
+        public AllcurencyViewModel()
             : base("waluty")
         {
             this.FilterField = "nazwa";
@@ -31,7 +31,7 @@ namespace StudyProject.ViewModels.List
             Data = new ObservableCollection<curency>
                 (
 
-                  from curency in ZaliczenieEntities.curencies
+                  from curency in ZaliczenieEntities.curency
                   where curency.is_active == true
                   select curency
                 );

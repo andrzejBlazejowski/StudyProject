@@ -64,6 +64,6 @@
         
         <Label Grid.Row="7" Grid.Column="0" Content="producent"/>
         <TextBox Grid.Row="7" Grid.Column="1" IsEnabled="false" Text="{Binding Path=BrandName, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Grid.Row="7" Grid.Column="2" Command="{Binding LookupBrands}" Content="..."/>
+        <Button Grid.Row="7" Grid.Column="2" Command="{Binding Lookupbrand}" Content="..."/>
     </Grid>
 </view:AllViewBase>

@@ -13,11 +13,11 @@ using System.Windows.Input;
 
 namespace StudyProject.ViewModels.List
 {
-    public class AllStoragesViewModel : AllViewModel<StorageForViewModel>
+    public class AllstorageViewModel : AllViewModel<StorageForViewModel>
     {
 
         #region Constructor
-        public AllStoragesViewModel()
+        public AllstorageViewModel()
             : base("miejsca magazynowe")
         {
             this.FilterField = "magazyn";
@@ -30,7 +30,7 @@ namespace StudyProject.ViewModels.List
             Data = new ObservableCollection<StorageForViewModel>
                 (
 
-                  from storage in ZaliczenieEntities.storages
+                  from storage in ZaliczenieEntities.storage
                   where storage.is_active == true
                   select new StorageForViewModel 
                   { 

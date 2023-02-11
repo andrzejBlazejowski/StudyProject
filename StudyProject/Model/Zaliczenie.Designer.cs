@@ -21,9 +21,9 @@ using System.Xml.Serialization;
 
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_comodity_brand", "brand", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.brand), "comodity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.comodity), true)]
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_comodity_comodity_category", "comodity_category", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.comodity_category), "comodity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.comodity), true)]
-[assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_comodity_size_type", "size_type", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.size_type), "comodity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StudyProject.Model.comodity), true)]
+[assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_comodity_size_type", "size_type", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.size_type), "comodity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.comodity), true)]
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_delivery_item_comodity", "comodity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.comodity), "delivery_item", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.delivery_item), true)]
-[assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_invoice_item_comodity", "comodity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.comodity), "invoice_item", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StudyProject.Model.invoice_item), true)]
+[assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_invoice_item_comodity", "comodity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.comodity), "invoice_item", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.invoice_item), true)]
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_contractor_contractor_type", "contractor_type", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.contractor_type), "contractor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.contractor), true)]
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_contractor_curency", "curency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.curency), "contractor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.contractor), true)]
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_delivery_contractor", "contractor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.contractor), "delivery", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.delivery), true)]
@@ -40,7 +40,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_invoice_payment_method", "payment_method", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.payment_method), "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.invoice), true)]
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_storage_size_type", "size_type", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.size_type), "storage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.storage), true)]
 [assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_storage_warehouse", "warehouse", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.warehouse), "storage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.storage), true)]
-[assembly: EdmRelationshipAttribute("ZaliczenieModel", "FK_invoice_item_comodity1", "comodity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudyProject.Model.comodity), "invoice_item", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudyProject.Model.invoice_item), true)]
 
 #endregion
 
@@ -95,34 +94,34 @@ namespace StudyProject.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<brand> brands
+        public ObjectSet<brand> brand
         {
             get
             {
-                if ((_brands == null))
+                if ((_brand == null))
                 {
-                    _brands = base.CreateObjectSet<brand>("brands");
+                    _brand = base.CreateObjectSet<brand>("brand");
                 }
-                return _brands;
+                return _brand;
             }
         }
-        private ObjectSet<brand> _brands;
+        private ObjectSet<brand> _brand;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<comodity> comodities
+        public ObjectSet<comodity> comodity
         {
             get
             {
-                if ((_comodities == null))
+                if ((_comodity == null))
                 {
-                    _comodities = base.CreateObjectSet<comodity>("comodities");
+                    _comodity = base.CreateObjectSet<comodity>("comodity");
                 }
-                return _comodities;
+                return _comodity;
             }
         }
-        private ObjectSet<comodity> _comodities;
+        private ObjectSet<comodity> _comodity;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -143,18 +142,18 @@ namespace StudyProject.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<contractor> contractors
+        public ObjectSet<contractor> contractor
         {
             get
             {
-                if ((_contractors == null))
+                if ((_contractor == null))
                 {
-                    _contractors = base.CreateObjectSet<contractor>("contractors");
+                    _contractor = base.CreateObjectSet<contractor>("contractor");
                 }
-                return _contractors;
+                return _contractor;
             }
         }
-        private ObjectSet<contractor> _contractors;
+        private ObjectSet<contractor> _contractor;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -175,34 +174,34 @@ namespace StudyProject.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<curency> curencies
+        public ObjectSet<curency> curency
         {
             get
             {
-                if ((_curencies == null))
+                if ((_curency == null))
                 {
-                    _curencies = base.CreateObjectSet<curency>("curencies");
+                    _curency = base.CreateObjectSet<curency>("curency");
                 }
-                return _curencies;
+                return _curency;
             }
         }
-        private ObjectSet<curency> _curencies;
+        private ObjectSet<curency> _curency;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<delivery> deliveries
+        public ObjectSet<delivery> delivery
         {
             get
             {
-                if ((_deliveries == null))
+                if ((_delivery == null))
                 {
-                    _deliveries = base.CreateObjectSet<delivery>("deliveries");
+                    _delivery = base.CreateObjectSet<delivery>("delivery");
                 }
-                return _deliveries;
+                return _delivery;
             }
         }
-        private ObjectSet<delivery> _deliveries;
+        private ObjectSet<delivery> _delivery;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -239,18 +238,18 @@ namespace StudyProject.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<employ> employs
+        public ObjectSet<employ> employ
         {
             get
             {
-                if ((_employs == null))
+                if ((_employ == null))
                 {
-                    _employs = base.CreateObjectSet<employ>("employs");
+                    _employ = base.CreateObjectSet<employ>("employ");
                 }
-                return _employs;
+                return _employ;
             }
         }
-        private ObjectSet<employ> _employs;
+        private ObjectSet<employ> _employ;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -271,18 +270,18 @@ namespace StudyProject.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<invoice> invoices
+        public ObjectSet<invoice> invoice
         {
             get
             {
-                if ((_invoices == null))
+                if ((_invoice == null))
                 {
-                    _invoices = base.CreateObjectSet<invoice>("invoices");
+                    _invoice = base.CreateObjectSet<invoice>("invoice");
                 }
-                return _invoices;
+                return _invoice;
             }
         }
-        private ObjectSet<invoice> _invoices;
+        private ObjectSet<invoice> _invoice;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -335,69 +334,69 @@ namespace StudyProject.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<storage> storages
+        public ObjectSet<storage> storage
         {
             get
             {
-                if ((_storages == null))
+                if ((_storage == null))
                 {
-                    _storages = base.CreateObjectSet<storage>("storages");
+                    _storage = base.CreateObjectSet<storage>("storage");
                 }
-                return _storages;
+                return _storage;
             }
         }
-        private ObjectSet<storage> _storages;
+        private ObjectSet<storage> _storage;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<sysdiagram> sysdiagrams
+        public ObjectSet<sysdiagrams> sysdiagrams
         {
             get
             {
                 if ((_sysdiagrams == null))
                 {
-                    _sysdiagrams = base.CreateObjectSet<sysdiagram>("sysdiagrams");
+                    _sysdiagrams = base.CreateObjectSet<sysdiagrams>("sysdiagrams");
                 }
                 return _sysdiagrams;
             }
         }
-        private ObjectSet<sysdiagram> _sysdiagrams;
+        private ObjectSet<sysdiagrams> _sysdiagrams;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<warehouse> warehouses
+        public ObjectSet<warehouse> warehouse
         {
             get
             {
-                if ((_warehouses == null))
+                if ((_warehouse == null))
                 {
-                    _warehouses = base.CreateObjectSet<warehouse>("warehouses");
+                    _warehouse = base.CreateObjectSet<warehouse>("warehouse");
                 }
-                return _warehouses;
+                return _warehouse;
             }
         }
-        private ObjectSet<warehouse> _warehouses;
+        private ObjectSet<warehouse> _warehouse;
 
         #endregion
 
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the brands EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the brand EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTobrands(brand brand)
+        public void AddTobrand(brand brand)
         {
-            base.AddObject("brands", brand);
+            base.AddObject("brand", brand);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the comodities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the comodity EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTocomodities(comodity comodity)
+        public void AddTocomodity(comodity comodity)
         {
-            base.AddObject("comodities", comodity);
+            base.AddObject("comodity", comodity);
         }
     
         /// <summary>
@@ -409,11 +408,11 @@ namespace StudyProject.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the contractors EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the contractor EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTocontractors(contractor contractor)
+        public void AddTocontractor(contractor contractor)
         {
-            base.AddObject("contractors", contractor);
+            base.AddObject("contractor", contractor);
         }
     
         /// <summary>
@@ -425,19 +424,19 @@ namespace StudyProject.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the curencies EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the curency EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTocurencies(curency curency)
+        public void AddTocurency(curency curency)
         {
-            base.AddObject("curencies", curency);
+            base.AddObject("curency", curency);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the deliveries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the delivery EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTodeliveries(delivery delivery)
+        public void AddTodelivery(delivery delivery)
         {
-            base.AddObject("deliveries", delivery);
+            base.AddObject("delivery", delivery);
         }
     
         /// <summary>
@@ -457,11 +456,11 @@ namespace StudyProject.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the employs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the employ EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToemploys(employ employ)
+        public void AddToemploy(employ employ)
         {
-            base.AddObject("employs", employ);
+            base.AddObject("employ", employ);
         }
     
         /// <summary>
@@ -473,11 +472,11 @@ namespace StudyProject.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the invoices EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the invoice EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToinvoices(invoice invoice)
+        public void AddToinvoice(invoice invoice)
         {
-            base.AddObject("invoices", invoice);
+            base.AddObject("invoice", invoice);
         }
     
         /// <summary>
@@ -505,274 +504,27 @@ namespace StudyProject.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the storages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the storage EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTostorages(storage storage)
+        public void AddTostorage(storage storage)
         {
-            base.AddObject("storages", storage);
+            base.AddObject("storage", storage);
         }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTosysdiagrams(sysdiagram sysdiagram)
+        public void AddTosysdiagrams(sysdiagrams sysdiagrams)
         {
-            base.AddObject("sysdiagrams", sysdiagram);
+            base.AddObject("sysdiagrams", sysdiagrams);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the warehouses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the warehouse EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTowarehouses(warehouse warehouse)
+        public void AddTowarehouse(warehouse warehouse)
         {
-            base.AddObject("warehouses", warehouse);
-        }
-
-        #endregion
-
-        #region Function Imports
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="diagramname">No Metadata Documentation available.</param>
-        /// <param name="owner_id">No Metadata Documentation available.</param>
-        /// <param name="version">No Metadata Documentation available.</param>
-        /// <param name="definition">No Metadata Documentation available.</param>
-        public int sp_alterdiagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id, Nullable<global::System.Int32> version, global::System.Byte[] definition)
-        {
-            ObjectParameter diagramnameParameter;
-            if (diagramname != null)
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
-            }
-            else
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
-            }
-    
-            ObjectParameter owner_idParameter;
-            if (owner_id.HasValue)
-            {
-                owner_idParameter = new ObjectParameter("owner_id", owner_id);
-            }
-            else
-            {
-                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter versionParameter;
-            if (version.HasValue)
-            {
-                versionParameter = new ObjectParameter("version", version);
-            }
-            else
-            {
-                versionParameter = new ObjectParameter("version", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter definitionParameter;
-            if (definition != null)
-            {
-                definitionParameter = new ObjectParameter("definition", definition);
-            }
-            else
-            {
-                definitionParameter = new ObjectParameter("definition", typeof(global::System.Byte[]));
-            }
-    
-            return base.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="diagramname">No Metadata Documentation available.</param>
-        /// <param name="owner_id">No Metadata Documentation available.</param>
-        /// <param name="version">No Metadata Documentation available.</param>
-        /// <param name="definition">No Metadata Documentation available.</param>
-        public int sp_creatediagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id, Nullable<global::System.Int32> version, global::System.Byte[] definition)
-        {
-            ObjectParameter diagramnameParameter;
-            if (diagramname != null)
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
-            }
-            else
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
-            }
-    
-            ObjectParameter owner_idParameter;
-            if (owner_id.HasValue)
-            {
-                owner_idParameter = new ObjectParameter("owner_id", owner_id);
-            }
-            else
-            {
-                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter versionParameter;
-            if (version.HasValue)
-            {
-                versionParameter = new ObjectParameter("version", version);
-            }
-            else
-            {
-                versionParameter = new ObjectParameter("version", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter definitionParameter;
-            if (definition != null)
-            {
-                definitionParameter = new ObjectParameter("definition", definition);
-            }
-            else
-            {
-                definitionParameter = new ObjectParameter("definition", typeof(global::System.Byte[]));
-            }
-    
-            return base.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="diagramname">No Metadata Documentation available.</param>
-        /// <param name="owner_id">No Metadata Documentation available.</param>
-        public int sp_dropdiagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id)
-        {
-            ObjectParameter diagramnameParameter;
-            if (diagramname != null)
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
-            }
-            else
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
-            }
-    
-            ObjectParameter owner_idParameter;
-            if (owner_id.HasValue)
-            {
-                owner_idParameter = new ObjectParameter("owner_id", owner_id);
-            }
-            else
-            {
-                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="diagramname">No Metadata Documentation available.</param>
-        /// <param name="owner_id">No Metadata Documentation available.</param>
-        public ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(global::System.String diagramname, Nullable<global::System.Int32> owner_id)
-        {
-            ObjectParameter diagramnameParameter;
-            if (diagramname != null)
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
-            }
-            else
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
-            }
-    
-            ObjectParameter owner_idParameter;
-            if (owner_id.HasValue)
-            {
-                owner_idParameter = new ObjectParameter("owner_id", owner_id);
-            }
-            else
-            {
-                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="diagramname">No Metadata Documentation available.</param>
-        /// <param name="owner_id">No Metadata Documentation available.</param>
-        public ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(global::System.String diagramname, Nullable<global::System.Int32> owner_id)
-        {
-            ObjectParameter diagramnameParameter;
-            if (diagramname != null)
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
-            }
-            else
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
-            }
-    
-            ObjectParameter owner_idParameter;
-            if (owner_id.HasValue)
-            {
-                owner_idParameter = new ObjectParameter("owner_id", owner_id);
-            }
-            else
-            {
-                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="diagramname">No Metadata Documentation available.</param>
-        /// <param name="owner_id">No Metadata Documentation available.</param>
-        /// <param name="new_diagramname">No Metadata Documentation available.</param>
-        public int sp_renamediagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id, global::System.String new_diagramname)
-        {
-            ObjectParameter diagramnameParameter;
-            if (diagramname != null)
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
-            }
-            else
-            {
-                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
-            }
-    
-            ObjectParameter owner_idParameter;
-            if (owner_id.HasValue)
-            {
-                owner_idParameter = new ObjectParameter("owner_id", owner_id);
-            }
-            else
-            {
-                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter new_diagramnameParameter;
-            if (new_diagramname != null)
-            {
-                new_diagramnameParameter = new ObjectParameter("new_diagramname", new_diagramname);
-            }
-            else
-            {
-                new_diagramnameParameter = new ObjectParameter("new_diagramname", typeof(global::System.String));
-            }
-    
-            return base.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public int sp_upgraddiagrams()
-        {
-            return base.ExecuteFunction("sp_upgraddiagrams");
+            base.AddObject("warehouse", warehouse);
         }
 
         #endregion
@@ -1104,7 +856,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_comodity_brand", "comodity")]
-        public EntityCollection<comodity> comodities
+        public EntityCollection<comodity> comodity
         {
             get
             {
@@ -1604,55 +1356,17 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_invoice_item_comodity", "invoice_item")]
-        public invoice_item invoice_item
+        public EntityCollection<invoice_item> invoice_item
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<invoice_item>("ZaliczenieModel.FK_invoice_item_comodity", "invoice_item").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<invoice_item>("ZaliczenieModel.FK_invoice_item_comodity", "invoice_item").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<invoice_item> invoice_itemReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<invoice_item>("ZaliczenieModel.FK_invoice_item_comodity", "invoice_item");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<invoice_item>("ZaliczenieModel.FK_invoice_item_comodity", "invoice_item");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<invoice_item>("ZaliczenieModel.FK_invoice_item_comodity", "invoice_item", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_invoice_item_comodity1", "invoice_item")]
-        public EntityCollection<invoice_item> invoice_item1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<invoice_item>("ZaliczenieModel.FK_invoice_item_comodity1", "invoice_item");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<invoice_item>("ZaliczenieModel.FK_invoice_item_comodity1", "invoice_item", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<invoice_item>("ZaliczenieModel.FK_invoice_item_comodity", "invoice_item", value);
                 }
             }
         }
@@ -1852,7 +1566,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_comodity_comodity_category", "comodity")]
-        public EntityCollection<comodity> comodities
+        public EntityCollection<comodity> comodity
         {
             get
             {
@@ -2448,7 +2162,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_delivery_contractor", "delivery")]
-        public EntityCollection<delivery> deliveries
+        public EntityCollection<delivery> delivery
         {
             get
             {
@@ -2470,7 +2184,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_invoice_contractor", "invoice")]
-        public EntityCollection<invoice> invoices
+        public EntityCollection<invoice> invoice
         {
             get
             {
@@ -2654,7 +2368,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_contractor_contractor_type", "contractor")]
-        public EntityCollection<contractor> contractors
+        public EntityCollection<contractor> contractor
         {
             get
             {
@@ -2892,7 +2606,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_contractor_curency", "contractor")]
-        public EntityCollection<contractor> contractors
+        public EntityCollection<contractor> contractor
         {
             get
             {
@@ -3960,7 +3674,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_delivery_delivery_status", "delivery")]
-        public EntityCollection<delivery> deliveries
+        public EntityCollection<delivery> delivery
         {
             get
             {
@@ -4620,7 +4334,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_employ_employ_type", "employ")]
-        public EntityCollection<employ> employs
+        public EntityCollection<employ> employ
         {
             get
             {
@@ -5394,44 +5108,6 @@ namespace StudyProject.Model
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_invoice_item_comodity1", "comodity")]
-        public comodity comodity1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<comodity>("ZaliczenieModel.FK_invoice_item_comodity1", "comodity").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<comodity>("ZaliczenieModel.FK_invoice_item_comodity1", "comodity").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<comodity> comodity1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<comodity>("ZaliczenieModel.FK_invoice_item_comodity1", "comodity");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<comodity>("ZaliczenieModel.FK_invoice_item_comodity1", "comodity", value);
-                }
-            }
-        }
 
         #endregion
 
@@ -5654,7 +5330,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_delivery_payment_method", "delivery")]
-        public EntityCollection<delivery> deliveries
+        public EntityCollection<delivery> delivery
         {
             get
             {
@@ -5676,7 +5352,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_invoice_payment_method", "invoice")]
-        public EntityCollection<invoice> invoices
+        public EntityCollection<invoice> invoice
         {
             get
             {
@@ -5888,33 +5564,17 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_comodity_size_type", "comodity")]
-        public comodity comodity
+        public EntityCollection<comodity> comodity
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<comodity>("ZaliczenieModel.FK_comodity_size_type", "comodity").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<comodity>("ZaliczenieModel.FK_comodity_size_type", "comodity").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<comodity> comodityReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<comodity>("ZaliczenieModel.FK_comodity_size_type", "comodity");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<comodity>("ZaliczenieModel.FK_comodity_size_type", "comodity");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<comodity>("ZaliczenieModel.FK_comodity_size_type", "comodity", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<comodity>("ZaliczenieModel.FK_comodity_size_type", "comodity", value);
                 }
             }
         }
@@ -5926,7 +5586,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_storage_size_type", "storage")]
-        public EntityCollection<storage> storages
+        public EntityCollection<storage> storage
         {
             get
             {
@@ -6292,26 +5952,26 @@ namespace StudyProject.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ZaliczenieModel", Name="sysdiagram")]
+    [EdmEntityTypeAttribute(NamespaceName="ZaliczenieModel", Name="sysdiagrams")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class sysdiagram : EntityObject
+    public partial class sysdiagrams : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new sysdiagram object.
+        /// Create a new sysdiagrams object.
         /// </summary>
         /// <param name="name">Initial value of the name property.</param>
         /// <param name="principal_id">Initial value of the principal_id property.</param>
         /// <param name="diagram_id">Initial value of the diagram_id property.</param>
-        public static sysdiagram Createsysdiagram(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
+        public static sysdiagrams Createsysdiagrams(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
         {
-            sysdiagram sysdiagram = new sysdiagram();
-            sysdiagram.name = name;
-            sysdiagram.principal_id = principal_id;
-            sysdiagram.diagram_id = diagram_id;
-            return sysdiagram;
+            sysdiagrams sysdiagrams = new sysdiagrams();
+            sysdiagrams.name = name;
+            sysdiagrams.principal_id = principal_id;
+            sysdiagrams.diagram_id = diagram_id;
+            return sysdiagrams;
         }
 
         #endregion
@@ -6610,7 +6270,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_delivery_warehouse", "delivery")]
-        public EntityCollection<delivery> deliveries
+        public EntityCollection<delivery> delivery
         {
             get
             {
@@ -6632,7 +6292,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_delivery_warehouse1", "delivery")]
-        public EntityCollection<delivery> deliveries1
+        public EntityCollection<delivery> delivery1
         {
             get
             {
@@ -6654,7 +6314,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_employ_warehouse", "employ")]
-        public EntityCollection<employ> employs
+        public EntityCollection<employ> employ
         {
             get
             {
@@ -6676,7 +6336,7 @@ namespace StudyProject.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ZaliczenieModel", "FK_storage_warehouse", "storage")]
-        public EntityCollection<storage> storages
+        public EntityCollection<storage> storage
         {
             get
             {
@@ -6690,225 +6350,6 @@ namespace StudyProject.Model
                 }
             }
         }
-
-        #endregion
-
-    }
-
-    #endregion
-
-    #region ComplexTypes
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmComplexTypeAttribute(NamespaceName="ZaliczenieModel", Name="sp_helpdiagramdefinition_Result")]
-    [DataContractAttribute(IsReference=true)]
-    [Serializable()]
-    public partial class sp_helpdiagramdefinition_Result : ComplexObject
-    {
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> version
-        {
-            get
-            {
-                return _version;
-            }
-            set
-            {
-                OnversionChanging(value);
-                ReportPropertyChanging("version");
-                _version = StructuralObject.SetValidValue(value, "version");
-                ReportPropertyChanged("version");
-                OnversionChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _version;
-        partial void OnversionChanging(Nullable<global::System.Int32> value);
-        partial void OnversionChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.Byte[] definition
-        {
-            get
-            {
-                return StructuralObject.GetValidValue(_definition);
-            }
-            set
-            {
-                OndefinitionChanging(value);
-                ReportPropertyChanging("definition");
-                _definition = StructuralObject.SetValidValue(value, true, "definition");
-                ReportPropertyChanged("definition");
-                OndefinitionChanged();
-            }
-        }
-        private global::System.Byte[] _definition;
-        partial void OndefinitionChanging(global::System.Byte[] value);
-        partial void OndefinitionChanged();
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmComplexTypeAttribute(NamespaceName="ZaliczenieModel", Name="sp_helpdiagrams_Result")]
-    [DataContractAttribute(IsReference=true)]
-    [Serializable()]
-    public partial class sp_helpdiagrams_Result : ComplexObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new sp_helpdiagrams_Result object.
-        /// </summary>
-        /// <param name="name">Initial value of the Name property.</param>
-        /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="ownerID">Initial value of the OwnerID property.</param>
-        public static sp_helpdiagrams_Result Createsp_helpdiagrams_Result(global::System.String name, global::System.Int32 id, global::System.Int32 ownerID)
-        {
-            sp_helpdiagrams_Result sp_helpdiagrams_Result = new sp_helpdiagrams_Result();
-            sp_helpdiagrams_Result.Name = name;
-            sp_helpdiagrams_Result.ID = id;
-            sp_helpdiagrams_Result.OwnerID = ownerID;
-            return sp_helpdiagrams_Result;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Database
-        {
-            get
-            {
-                return _Database;
-            }
-            set
-            {
-                OnDatabaseChanging(value);
-                ReportPropertyChanging("Database");
-                _Database = StructuralObject.SetValidValue(value, true, "Database");
-                ReportPropertyChanged("Database");
-                OnDatabaseChanged();
-            }
-        }
-        private global::System.String _Database;
-        partial void OnDatabaseChanging(global::System.String value);
-        partial void OnDatabaseChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Name
-        {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                OnNameChanging(value);
-                ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false, "Name");
-                ReportPropertyChanged("Name");
-                OnNameChanged();
-            }
-        }
-        private global::System.String _Name;
-        partial void OnNameChanging(global::System.String value);
-        partial void OnNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                OnIDChanging(value);
-                ReportPropertyChanging("ID");
-                _ID = StructuralObject.SetValidValue(value, "ID");
-                ReportPropertyChanged("ID");
-                OnIDChanged();
-            }
-        }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Owner
-        {
-            get
-            {
-                return _Owner;
-            }
-            set
-            {
-                OnOwnerChanging(value);
-                ReportPropertyChanging("Owner");
-                _Owner = StructuralObject.SetValidValue(value, true, "Owner");
-                ReportPropertyChanged("Owner");
-                OnOwnerChanged();
-            }
-        }
-        private global::System.String _Owner;
-        partial void OnOwnerChanging(global::System.String value);
-        partial void OnOwnerChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 OwnerID
-        {
-            get
-            {
-                return _OwnerID;
-            }
-            set
-            {
-                OnOwnerIDChanging(value);
-                ReportPropertyChanging("OwnerID");
-                _OwnerID = StructuralObject.SetValidValue(value, "OwnerID");
-                ReportPropertyChanged("OwnerID");
-                OnOwnerIDChanged();
-            }
-        }
-        private global::System.Int32 _OwnerID;
-        partial void OnOwnerIDChanging(global::System.Int32 value);
-        partial void OnOwnerIDChanged();
 
         #endregion
 

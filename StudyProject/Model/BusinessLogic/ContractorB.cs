@@ -17,10 +17,10 @@ namespace StudyProject.Model.BusinessLogic
         
         public ZaliczenieEntities ZaliczenieEntities { get; }
 
-        public IQueryable<KeyAndValue> GetActiveContractors() 
+        public IQueryable<KeyAndValue> GetActivecontractor() 
         {
             return (
-                    from Contractor in ZaliczenieEntities.contractors
+                    from Contractor in ZaliczenieEntities.contractor
                     where Contractor.is_active == true
                     select new KeyAndValue
                     {

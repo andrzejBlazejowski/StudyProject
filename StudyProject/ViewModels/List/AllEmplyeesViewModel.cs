@@ -30,7 +30,7 @@ namespace StudyProject.ViewModels.List
             Data = new ObservableCollection<EmployeeForViewModel>
                 (
 
-                  from employ in ZaliczenieEntities.employs
+                  from employ in ZaliczenieEntities.employ
                   where employ.is_active == true
                   select new EmployeeForViewModel
                   {

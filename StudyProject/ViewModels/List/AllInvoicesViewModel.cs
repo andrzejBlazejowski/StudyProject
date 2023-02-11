@@ -13,11 +13,11 @@ using System.Windows.Input;
 
 namespace StudyProject.ViewModels.List
 {
-    public class AllInvoicesViewModel : AllViewModel<InvoiceForViewModel>
+    public class AllinvoiceViewModel : AllViewModel<InvoiceForViewModel>
     {
 
         #region Constructor
-        public AllInvoicesViewModel(Boolean lookupMode = false)
+        public AllinvoiceViewModel(Boolean lookupMode = false)
             : base("faktury", lookupMode)
         {
             this.FilterField = "adresat";
@@ -30,7 +30,7 @@ namespace StudyProject.ViewModels.List
             Data = new ObservableCollection<InvoiceForViewModel>
                 (
 
-                  from invoice in ZaliczenieEntities.invoices
+                  from invoice in ZaliczenieEntities.invoice
                   where invoice.is_active == true
                   select new InvoiceForViewModel
                   {

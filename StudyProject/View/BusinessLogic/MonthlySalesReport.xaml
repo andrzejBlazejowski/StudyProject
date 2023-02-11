@@ -58,7 +58,7 @@
                     <ComboBox 
                         Grid.Column="1" 
                         Margin="5" 
-                        ItemsSource="{Binding Contractors}" 
+                        ItemsSource="{Binding contractor}" 
                         DisplayMemberPath="Value"
                         SelectedValuePath="Key"
                         SelectedValue="{Binding Path=ContractorId,Mode=TwoWay}"/>

@@ -13,11 +13,11 @@ using System.Windows.Input;
 
 namespace StudyProject.ViewModels.List
 {
-    public class AllComoditiesViewModel : AllViewModel<ComodityForViewModel>
+    public class AllcomodityViewModel : AllViewModel<ComodityForViewModel>
     {
 
         #region Constructor
-        public AllComoditiesViewModel(Boolean lookupMode = false)
+        public AllcomodityViewModel(Boolean lookupMode = false)
             : base("towary", lookupMode)
         {
             this.FilterField = "nazwa";
@@ -31,11 +31,11 @@ namespace StudyProject.ViewModels.List
             Data = new ObservableCollection<ComodityForViewModel>
                 (
 
-                  from comodity in ZaliczenieEntities.comodities
+                  from comodity in ZaliczenieEntities.comodity
                   where comodity.is_active == true
                   select new ComodityForViewModel
                   {
-                      Id = comodity.brand_id,
+                      Id = comodity.id,
                       Name = comodity.Name,
                       Description = comodity.Description,
                       NetUnitPrice = comodity.net_unit_price,

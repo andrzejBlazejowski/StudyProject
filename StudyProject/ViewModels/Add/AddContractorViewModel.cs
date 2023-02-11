@@ -269,11 +269,11 @@ namespace StudyProject.ViewModels
                 }
             }
         }
-        public IQueryable<KeyAndValue> Curencies
+        public IQueryable<KeyAndValue> curency
         {
             get
             {
-                return new CurencyB(DB).GetActiveCurencies();
+                return new CurencyB(DB).GetActivecurency();
             }
         }
         public Boolean IsActive
@@ -391,7 +391,7 @@ namespace StudyProject.ViewModels
         {
             Item.is_active = true;
             Item.create_date = DateTime.Now;
-            DB.contractors.AddObject(Item);
+            DB.contractor.AddObject(Item);
             DB.SaveChanges();
 
         }
