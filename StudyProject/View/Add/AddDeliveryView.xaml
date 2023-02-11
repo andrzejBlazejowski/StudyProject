@@ -11,6 +11,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -41,7 +42,8 @@
 
 
         <Label Grid.Row="2" Grid.Column="0" Content="kto nadal?"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=SourcenContractorId, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=ContractorName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Row="2" Grid.Column="2" Command="{Binding LookupContractor}" Content="..."/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="magazyn adresat"/>
 

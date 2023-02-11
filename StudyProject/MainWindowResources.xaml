@@ -177,7 +177,6 @@
     
     <DataTemplate x:Key="ClosableTabItemTemplate">
 
-        <!--"{Binding Path=CloseCommand}"-->
         <DockPanel Width="120">
             <Button 
                 Command="{Binding Path=CloseCommand}"
@@ -212,10 +211,7 @@
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
-                <!-- 
-        This template ensures that content of a HeaderedContentControl 
-        fills the available vertical space. 
-        -->
+
                 <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
                     <DockPanel>
                         <ContentPresenter 
@@ -235,9 +231,6 @@
 
 
 
-    <!--
-    pozwala wyswietlac azakladki
--->
 
     <DataTemplate x:Key="TabsTemplate">
         <TabControl 

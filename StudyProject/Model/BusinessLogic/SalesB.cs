@@ -42,7 +42,7 @@ namespace StudyProject.Model.BusinessLogic
                     (
                         (invoice_item.count) * (invoice_item.comodity.gross_unit_price)
                     )
-                ).Sum();
+                 ) .DefaultIfEmpty(0).Sum();
         }
     }
 }

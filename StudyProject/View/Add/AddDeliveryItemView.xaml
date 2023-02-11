@@ -32,7 +32,8 @@
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=count, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Row="2" Grid.Column="0" Content="dostawa"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=delivery_id, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" IsEnabled="false" Text="{Binding Path=deliveryName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Row="2" Grid.Column="2"  Command="{Binding LookupDelivery}" Content="..."/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="koszt"/>
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=unit_cost, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>

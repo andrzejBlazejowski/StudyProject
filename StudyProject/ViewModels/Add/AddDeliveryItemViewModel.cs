@@ -24,6 +24,7 @@ namespace StudyProject.ViewModels
             : base("pozycja dostawy")
         {
             Item = new delivery_item();
+            Messenger.Default.Register<DeliveryForViewModel>(this, handleDelivery);
             Messenger.Default.Register<ComodityForViewModel>(this, handleComodity);
         }
         public int Id {
@@ -173,8 +174,23 @@ namespace StudyProject.ViewModels
                 return _LookupComodity;
             }
         }
+        private BaseCommand _LookupDelivery;
+        public BaseCommand LookupDelivery
+        {
+            get
+            {
+                if (_LookupDelivery == null)
+                {
+                    _LookupDelivery = new BaseCommand(() => lookupDelivery());
+                }
+                return _LookupDelivery;
+            }
+        }
+
 
         public string comodityName { get; set; }
+        public string deliveryName { get; set; }
+        
 
         public string Error
         {
@@ -217,6 +233,17 @@ namespace StudyProject.ViewModels
         private void lookupComodity()
         {
             Messenger.Default.Send("lookupComodity");
+        }
+
+        private void handleDelivery(DeliveryForViewModel delivery)
+        {
+            delivery_id = delivery.Id;
+            Item.delivery_id = delivery.Id;
+            deliveryName = (delivery.Id).ToString();
+        }
+        private void lookupDelivery()
+        {
+            Messenger.Default.Send("lookupDelivery");
         }
     }
 }

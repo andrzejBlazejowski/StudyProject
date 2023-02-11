@@ -23,7 +23,7 @@ namespace StudyProject.ViewModels
         public int Id {
             get 
             {
-                return Item.id;
+                return Item.id; 
             }
             set 
             {

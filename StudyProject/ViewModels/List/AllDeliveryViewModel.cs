@@ -17,8 +17,8 @@ namespace StudyProject.ViewModels.List
     {
 
         #region Constructor
-        public AllDeliveryViewModel()
-            : base("dostawy")
+        public AllDeliveryViewModel(Boolean lookupMode = false)
+            : base("dostawy", lookupMode)
         {
             this.FilterField = "Adresat";
             this.SortField = "numer";

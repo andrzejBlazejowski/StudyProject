@@ -127,6 +127,104 @@ namespace StudyProject.ViewModels.BuisnesLogic
         }
 
 
+        //TODO: remove this when you will not render unesesery buttons on add page
+        private BaseCommand _DeleteCommand;
+        public BaseCommand DeleteCommand
+        {
+            get
+            {
+                if (_DeleteCommand == null)
+                    _DeleteCommand = null;
+                return _DeleteCommand;
+            }
+            set
+            {
+                _DeleteCommand = value;
+                OnPropertyChanged(() => _DeleteCommand);
+            }
+        }
+        private BaseCommand _NavigateAddCommand;
+        public BaseCommand NavigateAddCommand
+        {
+            get
+            {
+                if (_NavigateAddCommand == null)
+                    _NavigateAddCommand = null;
+                return _NavigateAddCommand;
+            }
+            set
+            {
+                _NavigateAddCommand = value;
+                OnPropertyChanged(() => _NavigateAddCommand);
+            }
+        }
+        private BaseCommand _RefreshCommand;
+        public BaseCommand RefreshCommand
+        {
+            get
+            {
+                if (_RefreshCommand == null)
+                    _RefreshCommand = null;
+                return _RefreshCommand;
+            }
+            set
+            {
+                _RefreshCommand = value;
+                OnPropertyChanged(() => _RefreshCommand);
+            }
+        }
+        // end TODO
+
+        //TODO: remove this when you will not render filtering and sorting on add pages
+        public string FilterField { get; set; }
+        public string FilterValue { get; set; }
+        public string SortField { get; set; }
+        public string SortType { get; set; }
+        public List<string> FilterFields
+        {
+            get
+            {
+                return new List<string> { };
+            }
+        }
+        public List<string> SortFields
+        {
+            get
+            {
+                return new List<string> { };
+            }
+        }
+        public List<string> SortTypes
+        {
+            get
+            {
+                return new List<string> { };
+            }
+        }
+
+        public ICommand SortCommand
+        {
+            get
+            {
+                return new BaseCommand(() => { });
+            }
+        }
+        public ICommand FilterCommand
+        {
+            get
+            {
+                return new BaseCommand(() => { });
+            }
+        }
+        public ICommand SaveCommand
+        {
+            get
+            {
+                return null;
+            }
+        }
+        // end TODO
+
         private BaseCommand _ObliczCommand;
         public BaseCommand ObliczCommand
         {

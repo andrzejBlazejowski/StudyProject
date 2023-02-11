@@ -27,7 +27,6 @@ namespace StudyProject.ViewModels
                 if(_Actions == null) {
                     _Actions = createActions();
                 }
-                //OnPropertyChanged(()=>(Actions));
                 return _Actions; 
             } 
         }
@@ -132,6 +131,9 @@ namespace StudyProject.ViewModels
                     break;
                 case "lookupContractor":
                     createTab(new AllContractorsViewModel(lookupMode));
+                    break;
+                case "lookupDelivery":
+                    createTab(new AllDeliveryViewModel(lookupMode));
                     break;
                 default:
                     MessageBox.Show(message);

@@ -1,4 +1,6 @@
 ﻿
+using GalaSoft.MvvmLight.Messaging;
+using StudyProject.Commands;
 using StudyProject.Model;
 using StudyProject.Model.BusinessLogic;
 using StudyProject.Model.EntitiesForViewModel;
@@ -195,7 +197,6 @@ namespace StudyProject.ViewModels
                 }
             }
         }
-
         public override void Save()
         {
             Item.is_active = true;
